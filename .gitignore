@@ -1,5 +1,13 @@
 tags
+
+# Ansible
 ansible/ssh_key
 ansible/hosts
 !ansible/vars/.gitkeep
 ansible/vars/*
+
+# Terraform
+terraform/terraform/*tfstate*
+terraform/terraform/variables.tfvars
+terraform/terraform/credentials.json
+terraform/terraform/awscreds

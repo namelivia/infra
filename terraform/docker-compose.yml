@@ -1,0 +1,9 @@
+version: '3'
+services:
+
+  terraform:
+    image: hashicorp/terraform:light
+    volumes:
+      - ./docker:/docker
+      - ./terraform:/terraform
+    entrypoint: ["sh", "/docker/entrypoint.sh"]
