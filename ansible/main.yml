@@ -1,0 +1,174 @@
+---
+- hosts: all
+  become: true
+  vars_files:
+    - /vars/variables.yml
+  roles:
+    - role: ansible-common
+      vars:
+        - encryption_key_path: "{{ backup_encryption_key_path }}"
+        - aws_access_key_id: "{{ backup_aws_access_key_id }}"
+        - aws_secret_access_key: "{{ backup_aws_secret_access_key }}"
+- hosts: amazon
+  become: true
+  vars_files:
+    - /vars/variables.yml
+  roles:
+    - role: ansible-humancoop
+      vars:
+        - domain_name: "{{ humancoop_domain_name }}"
+    - role: ansible-flappysonic
+      vars:
+        - domain_name: "{{ flappysonic_domain_name }}"
+    - role: ansible-nightcityride
+      vars:
+        - domain_name: "{{ nightcityride_domain_name }}"
+    - role: ansible-thumbor
+      vars:
+        - domain_name: "{{ thumbor_domain_name }}"
+    - role: ansible-tombraiderjs
+      vars:
+        - domain_name: "{{ tombraiderjs_domain_name }}"
+- hosts: digitalocean
+  become: true
+  vars_files:
+    - /vars/variables.yml
+  roles:
+    - role: ansible-like-and-share-twitter-bot
+    - role: ansible-movie-quote-twitter-bot
+    - role: ansible-ghost
+      vars:
+        - app_container_name: ghost-app
+        - domain_name: "{{ ghost_domain_name }}"
+        - database_container_name: ghost-database
+        - database_name: "{{ ghost_database_name }}"
+        - database_user: "{{ ghost_database_user }}"
+        - database_password: "{{ ghost_database_password }}"
+        - dump_day: 2
+        - backup_day: 4
+        - mysql_root_password: "{{ghost_mysql_root_password}}"
+      
+- hosts: google
+  become: true
+  vars_files:
+    - /vars/variables.yml
+  roles:
+    - role: ansible-anki
+      vars:
+        - domain_name: "{{ anki_domain_name }}"
+    - role: ansible-openvpn-server
+      vars:
+        - openvpn_config_folder: /vars/openvpn
+        - domain_name: "{{ openvpn_domain_name }}"
+    - role: ansible-haproxy
+      vars:
+        - domain_names: "{{ nextcloud_domain_name }}" # Currently there is only one here.
+        - machine_ip: 192.168.255.6 # This is wrong because currently openvpn assigns whatever it wants.
+ 
+- hosts: raspberry
+  become: true
+  vars_files:
+    - /vars/variables.yml
+  roles:
+    - role: ansible-openvpn-client
+    - role: ansible-nextcloud
+      vars:
+        - app_container_name: nextcloud-app
+        - domain_name: "{{ nextcloud_domain_name }}"
+        - database_container_name: nextcloud-database
+        - database_name: "{{ nextcloud_database_name }}"
+        - database_user: "{{ nextcloud_database_user }}"
+        - database_password: "{{ nextcloud_database_password }}"
+        - mysql_root_password: "{{ nextcloud_mysql_root_password }}"
+        - dump_day: 2
+        - backup_day: 4
+
+- hosts: azure
+  become: true
+  vars_files:
+    - /vars/variables.yml
+  roles:
+    - role: ansible-kimai
+      vars:
+        - app_container_name: kimai-app
+        - domain_name: "{{ kimai_domain_name }}"
+        - database_container_name: kimai-database
+        - database_name: "{{ kimai_database_name }}"
+        - database_user: "{{ kimai_database_user }}"
+        - database_password: "{{ kimai_database_password }}"
+        - dump_day: 4
+        - backup_day: 5
+        - admin_mail: "{{ kimai_admin_mail }}"
+        - admin_pass: "{{ kimai_admin_pass }}"
+        - mysql_root_password: "{{ kimai_mysql_root_password }}"
+
+- hosts: lightsail
+  become: true
+  vars_files:
+    - /vars/variables.yml
+  roles:
+    - ansible-gallery-client
+    - role: ansible-gallery-server
+      vars:
+        - domain_name: "{{ gallery_domain_name }}"
+    - ansible-pomerium
+    - ansible-plants-client
+    - role: ansible-postgres
+      vars:
+        - databse_container_name: "{{ postgres_database_container_name }}"
+    - ansible-garments-client
+    - ansible-itemtree-client
+    - ansible-expenses-client
+    - role: ansible-garments-server
+      vars:
+        - database_url: "{{ garments_database_url }}"
+        - database_container_name: "{{ garments_database_container_name }}"
+        - database_name: "{{ garments_database_name }}"
+        - database_user: "{{ garments_database_user }}"
+        - database_password: "{{ garments_database_password }}"
+        - dump_day: 4
+    - role: ansible-plants-server
+      vars:
+        - database_url: "{{ plants_database_url }}"
+        - database_container_name: "{{ plants_database_container_name }}"
+        - database_name: "{{ plants_database_name }}"
+        - database_user: "{{ plants_database_user }}"
+        - database_password: "{{ plants_database_password }}"
+        - dump_day: 3
+    - role: ansible-itemtree-server
+      vars:
+        - database_url: "{{ itemtree_database_url }}"
+        - database_container_name: "{{ itemtree_database_container_name }}"
+        - database_name: "{{ itemtree_database_name }}"
+        - database_user: "{{ itemtree_database_user }}"
+        - database_password: "{{ itemtree_database_password }}"
+        - dump_day: 3
+    - role: ansible-expenses-server
+      vars:
+        - database_url: "{{ expenses_database_url }}"
+        - database_container_name: "{{ expenses_database_container_name }}"
+        - database_name: "{{ expenses_database_name }}"
+        - database_user: "{{ expenses_database_user }}"
+        - database_password: "{{ expenses_database_password }}"
+        - dump_day: 5
+    - ansible-notifications-service
+    - role: ansible-journaling-service
+      vars:
+        - database_url: "{{ journaling_database_url }}"
+        - database_container_name: "{{ journaling_database_container_name }}"
+        - database_name: "{{ journaling_database_name }}"
+        - database_user: "{{ journaling_database_user }}"
+        - database_password: "{{ journaling_database_password }}"
+        - dump_day: 4
+    - role: ansible-user-info-service
+      vars:
+        - database_url: "{{ users_database_url }}"
+        - jwk_endpoint: "{{ pomerium_jwk_endpoint }}"
+        - database_container_name: "{{ users_database_container_name }}"
+        - database_name: "{{ users_database_name }}"
+        - database_user: "{{ users_database_user }}"
+        - database_password: "{{ users_database_password }}"
+        - dump_day: 2
+    - role: ansible-thumbor2
+      vars:
+        - backup_day: 3
