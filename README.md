@@ -8,6 +8,7 @@ These are some of the key features that shape the project:
 
  - **Everything is a Docker container**: All apps are containerized and deployed as Docker containers in order to facilitate the deployment and the interchanging of containers between machines.
  - **All its backed up on S3**: In order to avoid data loss, databases and filesystems are periodically compressed, encrypted using GPG and stored on S3.
+ - **All logs to to Cloudwatch**: All logs of all applications are sent to an external provider.
  - **It's cloud agnostic**: To avoid vendor lock-in it is all about linux machines running Docker containers, I tried to avoid cloud specific configuration so I can move things from one provider or even my own physical server.
 
 ## Usage
