@@ -2,11 +2,22 @@
 
 ## About
 
-This repository contains the code to build, deploy and manage my personal infrastructure.
+This repository contains the code to build, deploy and manage my personal infrastructure. It all started with an old laptop on a chair in a corner of the room manually configured and has evolved over time. This repository represents the current state of it and it will keep evolving as my needs change or whenver I discover better ways of doing thigs. The value for you could be mostly educational as you probably don't want to replicate all my infrastructure as your needs will probably be diffrent.
+
+These are some of the key features that shape the project:
+
+ - **Everything is a Docker container**: All apps are containerized and deployed as Docker containers in order to facilitate the deployment and the interchanging of containers between machines.
+ - **All its backed up on S3**: In order to avoid data loss, databases and filesystems are periodically compressed, encrypted using GPG and stored on S3.
+ - **It's cloud agnostic**: To avoid vendor lock-in it is all about linux machines running Docker containers, I tried to avoid cloud specific configuration so I can move things from one provider or even my own physical server.
 
 ## Usage
 
 Run `./build` to build all containers, and `./run` to let Terraform create the infrastructure and Ansible provision it.
+
+## Topolgy
+
+This reflects the current state of the infrastructure, it has evolved from different models and will change according to my needs. The main driver of the current structure was to take advantage of free tiers of cloud providers, however I've run out of credits in
+most of them and costs have been ramping up so probably it will evolve to a cheaper model. The Raspberry Pi + VPN configuration is what I envisioned as the future of the topolgy but currently there are still some problems to be solved with that.
 
 ## Application list
 
