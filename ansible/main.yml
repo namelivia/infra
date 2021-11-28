@@ -36,14 +36,14 @@
   roles:
     - role: ansible-like-and-share-twitter-bot
       vars:
-        - consumer_key: "{{ movie_bote_consumer_key }}"
+        - consumer_key: "{{ movie_bot_consumer_key }}"
         - consumer_secret: "{{ movie_bot_consumer_secret }}"
         - access_token_key: "{{ movie_bot_access_token_key }}"
         - access_token_secret: "{{ movie_bot_access_token_secret }}"
         - idle_period: "{{ movie_bot_idle_period }}"
     - role: ansible-movie-quote-twitter-bot
       vars:
-        - consumer_key: "{{ like_bote_consumer_key }}"
+        - consumer_key: "{{ like_bot_consumer_key }}"
         - consumer_secret: "{{ like_bot_consumer_secret }}"
         - access_token_key: "{{ like_bot_access_token_key }}"
         - access_token_secret: "{{ like_bot_access_token_secret }}"
