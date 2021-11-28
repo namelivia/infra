@@ -7,7 +7,6 @@ ansible/hosts
 ansible/vars/*
 
 # Terraform
-terraform/terraform/*tfstate*
-terraform/terraform/variables.tfvars
-terraform/terraform/credentials.json
-terraform/terraform/awscreds
+terraform/*tfstate*
+!terraform/vars/.gitkeep
+terraform/vars/*
