@@ -8,9 +8,9 @@ Run `./build` to build all containers, and `./run` to let Terraform create the i
 
 ## Application list
 
-- [humancoop](https://github.com/humancoop/web-vue): 
-- [flappysonic](https://github.com/namelivia/flappysonic/): 
-- [nightcityride](https://github.com/namelivia/nightcityride-server/): 
+- [humancoop](https://github.com/humancoop/web-vue): Runs the website for the organization [Humancoop](https://onghumancoop.org).
+- [flappysonic](https://github.com/namelivia/flappysonic/): Runs the website for the game [Flappysonic](https://flappysonic.namelivia.com).
+- [nightcityride](https://github.com/namelivia/nightcityride-server/): Runs the website for the artistic project [Nightcityride](https://nightcityride.namelivia.com).
 - [thumbor](https://github.com/thumbor/thumbor): 
 - [tombraiderjs](https://github.com/namelivia/tomb-raider-js-demo-site): 
 - [movie quote twitter bot](https://github.com/namelivia/movie-quote-twitter-bot/): 
