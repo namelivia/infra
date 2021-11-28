@@ -19,7 +19,7 @@ Run `./build` to build all containers, and `./run` to let Terraform create the i
 This reflects the current state of the infrastructure, it has evolved from different models and will change according to my needs. The main driver of the current structure was to take advantage of free tiers of cloud providers, however I've run out of credits in
 most of them and costs have been ramping up so probably it will evolve to a cheaper model. The Raspberry Pi + VPN configuration is what I envisioned as the future of the topolgy but currently there are still some problems to be solved with that.
 
-![diagram](https://user-images.githubusercontent.com/1571416/143768016-599e580d-e3bc-4163-a35c-47007c10c11b.png)
+![diagram](https://user-images.githubusercontent.com/1571416/143768120-0d5707ef-e80f-4188-974c-975bacfd24f0.png)
 
 ## Application list
 
