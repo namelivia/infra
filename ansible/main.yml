@@ -100,9 +100,7 @@
   roles:
     - role: ansible-kimai
       vars:
-        - app_container_name: kimai-app
         - domain_name: "{{ kimai_domain_name }}"
-        - database_container_name: kimai-database
         - database_name: "{{ kimai_database_name }}"
         - database_user: "{{ kimai_database_user }}"
         - database_password: "{{ kimai_database_password }}"

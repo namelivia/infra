@@ -25,7 +25,9 @@ roles:
   - src: https://github.com/namelivia/ansible-thumbor
   - src: https://github.com/namelivia/ansible-thumbor2
   - src: https://github.com/namelivia/ansible-gitlab
-  - src: https://github.com/namelivia/ansible-kimai
+  - name: ansible-kimai
+    src: https://github.com/namelivia/ansible-kimai
+    version: 1.0.0
   - src: https://github.com/namelivia/ansible-nextcloud
   - name: ansible-ghost
     src: https://github.com/namelivia/ansible-ghost
