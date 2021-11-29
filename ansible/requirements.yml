@@ -27,7 +27,7 @@ roles:
   - src: https://github.com/namelivia/ansible-gitlab
   - name: ansible-kimai
     src: https://github.com/namelivia/ansible-kimai
-    version: 1.0.4
+    version: 1.0.7
   - src: https://github.com/namelivia/ansible-nextcloud
   - name: ansible-ghost
     src: https://github.com/namelivia/ansible-ghost
