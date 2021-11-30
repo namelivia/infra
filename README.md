@@ -1,4 +1,5 @@
-# Infra
+# Infra [![Ansible
+Lint](https://github.com/namelivia/infra/actions/workflows/ansible-lint.yml/badge.svg)](https://github.com/namelivia/infra/actions/workflows/ansible-lint.yml)
 
 ## About
 
