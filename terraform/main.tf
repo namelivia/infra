@@ -43,12 +43,27 @@ module "digitalocean_dns" {
   a_records = var.dns_records
   host_ips = {
     #"azure_vm" = module.azure_instances.ip
-    "azure_vm" = "pending"
+    "azure_vm" = module.azure_instances.ip
     "google_vm" = module.google_instances.ip
     "ec2_instance" = module.ec2_instances.ip
     "digitalocean_droplet" = module.digitalocean_droplet.ip
     "lightsail_vm" = module.lightsail_instances.ip
   }
+}
+
+locals {
+  hosts_file = templatefile("/hosts.tpl", {
+    azure_vm_ip = "${module.azure_instances.ip}"
+    google_instance_ip = "${module.google_instances.ip}"
+    ec2_instance_ip = "${module.ec2_instances.ip}"
+    digitalocean_droplet_ip = "${module.digitalocean_droplet.ip}"
+    lightsail_instance_ip = "${module.lightsail_instances.ip}"
+  })
+}
+
+resource "local_file" "hosts" {
+  content = local.hosts_file
+  filename = "/hosts"
 }
 
 module "uptimerobot_alerts" {
