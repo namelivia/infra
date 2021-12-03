@@ -31,7 +31,7 @@ roles:
   - src: https://github.com/namelivia/ansible-nextcloud
   - name: ansible-ghost
     src: https://github.com/namelivia/ansible-ghost
-    version: 1.0.1
+    version: 1.1.0
   - src: https://github.com/namelivia/ansible-journaling-service
   - src: https://github.com/namelivia/ansible-user-info-service
   - src: https://github.com/namelivia/ansible-garments-server
