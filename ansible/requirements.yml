@@ -30,7 +30,9 @@ roles:
   - name: ansible-kimai
     src: https://github.com/namelivia/ansible-kimai
     version: 1.0.7
-  - src: https://github.com/namelivia/ansible-nextcloud
+  - name: ansible-nextcloud
+    src: https://github.com/namelivia/ansible-nextcloud
+    version: 1.0.0
   - name: ansible-ghost
     src: https://github.com/namelivia/ansible-ghost
     version: 1.1.0
