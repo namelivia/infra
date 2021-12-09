@@ -11,31 +11,42 @@ roles:
   - src: https://github.com/namelivia/ansible-gallery-client
   - src: https://github.com/namelivia/ansible-gallery-server
   - src: https://github.com/namelivia/ansible-garments-client
+
   - name: ansible-movie-quote-twitter-bot
     src: https://github.com/namelivia/ansible-movie-quote-twitter-bot
-    version: 1.0.0
-  - src: https://github.com/namelivia/ansible-like-and-share-twitter-bot
+    version: 1.0.2
+
+  - name: ansible-like-and-share-twitter-bot
+    src: https://github.com/namelivia/ansible-like-and-share-twitter-bot
+    version: 1.0.1
+
   - src: https://github.com/namelivia/ansible-notifications-service
   - src: https://github.com/humancoop/ansible-humancoop
   - src: https://github.com/namelivia/ansible-backups
   - src: https://github.com/namelivia/ansible-postgres
   - src: https://github.com/namelivia/ansible-fastapi
+
   - name: ansible-anki
     src: https://github.com/namelivia/ansible-anki
     version: 1.0.0
+
   - src: https://github.com/namelivia/ansible-flappysonic
   - src: https://github.com/namelivia/ansible-nightcityride
   - src: https://github.com/namelivia/ansible-tombraiderjs
   - src: https://github.com/namelivia/ansible-thumbor
   - src: https://github.com/namelivia/ansible-thumbor2
   - src: https://github.com/namelivia/ansible-gitlab
+
   - name: ansible-kimai
     src: https://github.com/namelivia/ansible-kimai
-    version: 1.0.7
+    version: 1.0.8
+
   - src: https://github.com/namelivia/ansible-nextcloud
+
   - name: ansible-ghost
     src: https://github.com/namelivia/ansible-ghost
     version: 1.1.0
+
   - src: https://github.com/namelivia/ansible-journaling-service
   - src: https://github.com/namelivia/ansible-user-info-service
   - src: https://github.com/namelivia/ansible-garments-server

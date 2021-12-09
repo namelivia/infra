@@ -41,6 +41,7 @@
         - access_token_key: "{{ like_bot_access_token_key }}"
         - access_token_secret: "{{ like_bot_access_token_secret }}"
         - idle_period: "{{ like_bot_idle_period }}"
+        - sentry_url: "{{ python_sentry_url }}"
     - role: ansible-movie-quote-twitter-bot
       vars:
         - consumer_key: "{{ movie_bot_consumer_key }}"
@@ -48,7 +49,7 @@
         - access_token_key: "{{ movie_bot_access_token_key }}"
         - access_token_secret: "{{ movie_bot_access_token_secret }}"
         - idle_period: "{{ movie_bot_idle_period }}"
-        - sentry_url: "{{ movie_bot_sentry_url_url }}"
+        - sentry_url: "{{ python_sentry_url }}"
     - role: ansible-ghost
       vars:
         - domain_name: "{{ ghost_domain_name }}"
