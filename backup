@@ -1,0 +1,3 @@
+#!/bin/bash
+tar -zcvf ansible-vars.tar.gz ansible/vars
+tar -zcvf terraform-vars.tar.gz terraform/vars
