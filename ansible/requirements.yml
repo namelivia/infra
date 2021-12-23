@@ -22,6 +22,11 @@ roles:
 
   - src: https://github.com/namelivia/ansible-notifications-service
   - src: https://github.com/humancoop/ansible-humancoop
+
+  - name: ansible-humancoop-backend
+    src: https://github.com/namelivia/ansible-humancoop-backend
+    version: 1.0.0
+
   - src: https://github.com/namelivia/ansible-backups
   - src: https://github.com/namelivia/ansible-postgres
   - src: https://github.com/namelivia/ansible-fastapi
@@ -43,7 +48,7 @@ roles:
 
   - name: ansible-nextcloud
     src: https://github.com/namelivia/ansible-nextcloud
-    version: 1.0.4
+    version: 1.0.2
 
   - name: ansible-ghost
     src: https://github.com/namelivia/ansible-ghost
