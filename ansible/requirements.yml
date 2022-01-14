@@ -25,7 +25,7 @@ roles:
 
   - name: ansible-humancoop-backend
     src: https://github.com/namelivia/ansible-humancoop-backend
-    version: 1.0.0
+    version: 1.0.1
 
   - src: https://github.com/namelivia/ansible-backups
   - src: https://github.com/namelivia/ansible-postgres
@@ -66,3 +66,4 @@ roles:
   - src: https://github.com/namelivia/ansible-pomerium
   - src: https://github.com/namelivia/ansible-openvpn-client
   - src: https://github.com/namelivia/ansible-openvpn-server
+  - src: https://github.com/namelivia/ansible-mealie

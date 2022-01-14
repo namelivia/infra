@@ -105,6 +105,10 @@
         - dump_day: 2
         - backup_day: 4
 
+    - role: ansible-mealie
+      vars:
+        - domain_name: "{{ mealie_domain_name }}"
+
 - hosts: azure
   become: true
   vars_files:
