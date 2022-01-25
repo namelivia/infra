@@ -3,6 +3,7 @@ tags
 # Ansible
 ansible/ssh_key
 ansible/hosts
+ansible/hosts.bak
 !ansible/vars/.gitkeep
 ansible/vars/*
 

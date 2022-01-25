@@ -193,6 +193,21 @@
         - database_user: "{{ users_database_user }}"
         - database_password: "{{ users_database_password }}"
         - dump_day: 2
+    - role: ansible-mealie
+      vars:
+        - domain_name: "{{ mealie_domain_name }}"
+
     - role: ansible-thumbor2
       vars:
         - backup_day: 3
+
+- hosts: bastion
+  become: true
+  vars_files:
+    - /vars/variables.yml
+  roles:
+    - ansible-pomerium
+    - role: ansible-openvpn-server
+      vars:
+        - openvpn_config_folder: /vars/openvpn2
+        - domain_name: "{{ openvpn2_domain_name }}"
