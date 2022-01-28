@@ -102,6 +102,9 @@
         - database_user: "{{ nextcloud_database_user }}"
         - database_password: "{{ nextcloud_database_password }}"
         - mysql_root_password: "{{ nextcloud_mysql_root_password }}"
+        - trusted_domains: "{{ nextcloud_domain_name }}"
+        - admin_user: "{{ nextcloud_admin_user }}"
+        - admin_password: "{{ nextcloud_admin_password }}"
         - dump_day: 2
         - backup_day: 4
 
