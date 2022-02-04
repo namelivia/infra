@@ -52,7 +52,7 @@ roles:
 
   - name: ansible-ghost
     src: https://github.com/namelivia/ansible-ghost
-    version: 1.2.0
+    version: 1.2.2
 
   - src: https://github.com/namelivia/ansible-journaling-service
   - src: https://github.com/namelivia/ansible-user-info-service
@@ -66,4 +66,6 @@ roles:
   - src: https://github.com/namelivia/ansible-pomerium
   - src: https://github.com/namelivia/ansible-openvpn-client
   - src: https://github.com/namelivia/ansible-openvpn-server
-  - src: https://github.com/namelivia/ansible-mealie
+  - name: ansible-mealie
+    src: https://github.com/namelivia/ansible-mealie
+    version: 1.0.1
