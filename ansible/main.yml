@@ -139,6 +139,7 @@
       vars:
         - domain_name: "{{ gallery_domain_name }}"
     - ansible-pomerium
+    - ansible-ofelia
     - ansible-plants-client
     - role: ansible-postgres
       vars:
