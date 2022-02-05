@@ -64,7 +64,11 @@ roles:
   # - src: https://github.com/namelivia/ansible-mailu
   - src: https://github.com/namelivia/ansible-common
   - src: https://github.com/namelivia/ansible-pomerium
-  - src: https://github.com/namelivia/ansible-ofelia
+
+  - name: ansible-ofelia
+    src: https://github.com/namelivia/ansible-ofelia
+    version: 0.0.1
+
   - src: https://github.com/namelivia/ansible-openvpn-client
   - src: https://github.com/namelivia/ansible-openvpn-server
   - name: ansible-mealie
