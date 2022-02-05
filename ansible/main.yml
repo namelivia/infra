@@ -211,3 +211,10 @@
       vars:
         - openvpn_config_folder: /vars/openvpn2
         - domain_name: "{{ openvpn2_domain_name }}"
+
+- hosts: seedbox
+  become: true
+  vars_files:
+    - /vars/variables.yml
+  roles:
+    - ansible-deluge
