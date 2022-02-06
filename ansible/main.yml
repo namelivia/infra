@@ -218,3 +218,4 @@
     - /vars/variables.yml
   roles:
     - ansible-deluge
+    - ansible-jackett

@@ -72,6 +72,7 @@ roles:
   - src: https://github.com/namelivia/ansible-openvpn-client
   - src: https://github.com/namelivia/ansible-openvpn-server
   - src: https://github.com/namelivia/ansible-deluge
+  - src: https://github.com/namelivia/ansible-jackett
   - name: ansible-mealie
     src: https://github.com/namelivia/ansible-mealie
     version: 1.0.1
