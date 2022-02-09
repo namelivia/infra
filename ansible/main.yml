@@ -219,3 +219,6 @@
   roles:
     - ansible-deluge
     - ansible-jackett
+    - ansible-sonarr
+    - ansible-radarr
+    - ansible-bazarr

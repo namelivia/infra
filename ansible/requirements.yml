@@ -73,6 +73,10 @@ roles:
   - src: https://github.com/namelivia/ansible-openvpn-server
   - src: https://github.com/namelivia/ansible-deluge
   - src: https://github.com/namelivia/ansible-jackett
+  - src: https://github.com/namelivia/ansible-sonarr
+  - src: https://github.com/namelivia/ansible-bazarr
+  - src: https://github.com/namelivia/ansible-radarr
+  # - src: https://github.com/namelivia/ansible-flaresolverr Consumes too much memory
   - name: ansible-mealie
     src: https://github.com/namelivia/ansible-mealie
     version: 1.0.1
