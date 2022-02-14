@@ -217,8 +217,14 @@
   vars_files:
     - /vars/variables.yml
   roles:
-    - ansible-deluge
+    - ansible-external-storage
+    - role: ansible-deluge
+      vars:
+        - deluge_downloads_folder: "{{ downloads_folder }}"
     - ansible-jackett
     - ansible-sonarr
-    - ansible-radarr
+    - role: ansible-radarr
+      vars:
+        - radarr_downloads_folder: "{{ downloads_folder }}"
+        - radarr_movies_folder: "{{ movies_folder }}"
     - ansible-bazarr
