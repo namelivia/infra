@@ -78,6 +78,7 @@ roles:
   - src: https://github.com/namelivia/ansible-bazarr
   - src: https://github.com/namelivia/ansible-radarr
   - src: https://github.com/namelivia/ansible-external-storage
+  - src: https://github.com/namelivia/ansible-samba
   # - src: https://github.com/namelivia/ansible-flaresolverr Consumes too much memory
   - name: ansible-mealie
     src: https://github.com/namelivia/ansible-mealie

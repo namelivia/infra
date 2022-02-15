@@ -221,6 +221,7 @@
     - role: ansible-deluge
       vars:
         - deluge_downloads_folder: "{{ downloads_folder }}"
+    - ansible-samba
     - ansible-jackett
     - ansible-sonarr
     - role: ansible-radarr
