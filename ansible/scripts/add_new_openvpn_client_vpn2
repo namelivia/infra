@@ -1,0 +1,9 @@
+#!/bin/bash
+if [ $# = 1 ]; then
+    path="$(pwd)/../vars/openvpn2"
+    docker run -v $path:/etc/openvpn --rm -it kylemanna/openvpn easyrsa build-client-full $1 nopass
+    docker run -v $path:/etc/openvpn --rm kylemanna/openvpn cat /etc/openvpn/pki/private/$1.key > $(pwd)/../vars/$1.key
+    docker run -v $path:/etc/openvpn --rm kylemanna/openvpn openssl x509 -in /etc/openvpn/pki/issued/$1.crt > $(pwd)/../vars/$1.crt
+else
+    echo 'Usage: add_new_openvpn_client CLIENT_NAME'
+fi

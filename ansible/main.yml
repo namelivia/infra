@@ -206,9 +206,12 @@
   vars_files:
     - /vars/variables.yml
   roles:
-    - ansible-pomerium
+    - role: ansible-pomerium
+      vars:
+        - application_name: "pomerium2"
     - role: ansible-openvpn-server
       vars:
+        - application_name: "openvpn2"
         - openvpn_config_folder: /vars/openvpn2
         - domain_name: "{{ openvpn2_domain_name }}"
 
@@ -221,6 +224,7 @@
     - role: ansible-deluge
       vars:
         - deluge_downloads_folder: "{{ downloads_folder }}"
+        - deluge_movies_folder: "{{ movies_folder }}"
     - ansible-samba
     - ansible-jackett
     - ansible-sonarr
