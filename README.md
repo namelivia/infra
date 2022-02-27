@@ -55,3 +55,4 @@ most of them and costs have been ramping up so probably it will evolve to a chea
 - [sonarr](https://sonarr.tv/): Series collection manager.
 - [radarr](https://radarr.video/): Movie colection manager.
 - [deluge](https://deluge-torrent.org): Torrent client.
+- [ofelia](https://github.com/mcuadros/ofelia): Job scheduler.
