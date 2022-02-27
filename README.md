@@ -50,3 +50,8 @@ most of them and costs have been ramping up so probably it will evolve to a chea
 - [journaling service](https://github.com/namelivia/journaling-service/): Journaling service to store events from multiple apps.
 - [user info service](https://github.com/namelivia/user-info-service): User information service to mange user information shared among apps.
 - [notifications service](https://github.com/namelivia/notifications-service): Notifications service to send notifications from apps to messaging services.
+- [mealie](https://hay-kot.github.io/mealie/): Self hosted recipe manager.
+- [jackett](https://github.com/Jackett/Jackett): Tracker proxy server
+- [sonarr](https://sonarr.tv/): Series collection manager.
+- [radarr](https://radarr.video/): Movie colection manager.
+- [deluge](https://deluge-torrent.org): Torrent client.
