@@ -250,3 +250,11 @@
         - radarr_downloads_folder: "{{ downloads_folder }}"
         - radarr_movies_folder: "{{ movies_folder }}"
     - ansible-bazarr
+
+- hosts: retropie
+  become: true
+  vars_files:
+    - /vars/variables.yml
+  roles:
+    - ansible-cec
+    - ansible-samba-mounts
