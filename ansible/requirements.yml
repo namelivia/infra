@@ -82,6 +82,6 @@ roles:
   # - src: https://github.com/namelivia/ansible-flaresolverr Consumes too much memory
   - name: ansible-mealie
     src: https://github.com/namelivia/ansible-mealie
-    version: 1.0.1
+    version: 1.0.3
   - src: https://github.com/namelivia/ansible-cec
   - src: https://github.com/namelivia/ansible-samba-mounts
