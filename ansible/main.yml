@@ -242,9 +242,13 @@
       vars:
         - deluge_downloads_folder: "{{ downloads_folder }}"
         - deluge_movies_folder: "{{ movies_folder }}"
+        - deluge_tv_folder: "{{ tv_folder }}"
     - ansible-samba
     - ansible-jackett
-    - ansible-sonarr
+    - role: ansible-sonarr
+      vars:
+        - sonarr_downloads_folder: "{{ downloads_folder }}"
+        - sonarr_tv_folder: "{{ tv_folder }}"
     - role: ansible-radarr
       vars:
         - radarr_downloads_folder: "{{ downloads_folder }}"
