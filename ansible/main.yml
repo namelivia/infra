@@ -253,7 +253,10 @@
       vars:
         - radarr_downloads_folder: "{{ downloads_folder }}"
         - radarr_movies_folder: "{{ movies_folder }}"
-    - ansible-bazarr
+    - role: ansible-bazarr
+      vars:
+        - bazarr_movies_folder: "{{ movies_folder }}"
+        - bazarr_tv_folder: "{{ tv_folder }}"
 
 - hosts: retropie
   become: true

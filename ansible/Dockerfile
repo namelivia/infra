@@ -6,4 +6,5 @@ COPY ./ssh_key /runner/env/ssh_key
 COPY ./entrypoint.sh /entrypoint.sh
 COPY ./vars /vars
 ENV RUNNER_PLAYBOOK=/runner/main.yml
+ENV ANSIBLE_TIMEOUT=120
 ENTRYPOINT ["/entrypoint.sh"]
