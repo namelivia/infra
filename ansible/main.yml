@@ -257,6 +257,7 @@
       vars:
         - bazarr_movies_folder: "{{ movies_folder }}"
         - bazarr_tv_folder: "{{ tv_folder }}"
+    - ansible-amule
 
 - hosts: retropie
   become: true
