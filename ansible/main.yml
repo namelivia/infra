@@ -165,6 +165,7 @@
     - role: ansible-garments-server
       vars:
         - database_url: "{{ garments_database_url }}"
+        - domain_name: "{{ garments_domain_name }}"
         - database_container_name: "{{ garments_database_container_name }}"
         - database_name: "{{ garments_database_name }}"
         - database_user: "{{ garments_database_user }}"
@@ -173,6 +174,7 @@
     - role: ansible-plants-server
       vars:
         - database_url: "{{ plants_database_url }}"
+        - domain_name: "{{ plants_domain_name }}"
         - database_container_name: "{{ plants_database_container_name }}"
         - database_name: "{{ plants_database_name }}"
         - database_user: "{{ plants_database_user }}"
@@ -181,6 +183,7 @@
     - role: ansible-itemtree-server
       vars:
         - database_url: "{{ itemtree_database_url }}"
+        - domain_name: "{{ itemtree_domain_name }}"
         - database_container_name: "{{ itemtree_database_container_name }}"
         - database_name: "{{ itemtree_database_name }}"
         - database_user: "{{ itemtree_database_user }}"
@@ -189,6 +192,7 @@
     - role: ansible-expenses-server
       vars:
         - database_url: "{{ expenses_database_url }}"
+        - domain_name: "{{ expenses_domain_name }}"
         - database_container_name: "{{ expenses_database_container_name }}"
         - database_name: "{{ expenses_database_name }}"
         - database_user: "{{ expenses_database_user }}"
