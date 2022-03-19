@@ -170,6 +170,7 @@
         - database_container_name: "{{ garments_database_container_name }}"
         - database_name: "{{ garments_database_name }}"
         - domain_name: "{{ garments_server_domain_name }}"
+        - subpath: "{{ garments_server_subpath }}"
         - database_user: "{{ garments_database_user }}"
         - database_password: "{{ garments_database_password }}"
         - dump_day: 4
