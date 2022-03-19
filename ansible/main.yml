@@ -157,15 +157,21 @@
       vars:
         - domain_name: "{{ gallery_server_domain_name }}"
     - ansible-ofelia
-    - ansible-plants-client
+    - role: ansible-plants-client
+      vars:
+        - domain_name: "{{ plants_client_domain_name }}"
     - role: ansible-postgres
       vars:
         - database_container_name: "{{ postgres_database_container_name }}"
     - role: ansible-garments-client
       vars:
         - domain_name: "{{ garments_client_domain_name }}"
-    - ansible-itemtree-client
-    - ansible-expenses-client
+    - role: ansible-itemtree-client
+      vars:
+        - domain_name: "{{ itemtree_client_domain_name }}"
+    - role: ansible-expenses-client
+      vars:
+        - domain_name: "{{ expenses_client_domain_name }}"
     - role: ansible-garments-server
       vars:
         - database_url: "{{ garments_database_url }}"
@@ -181,6 +187,7 @@
         - database_url: "{{ plants_database_url }}"
         - domain_name: "{{ plants_server_domain_name }}"
         - database_container_name: "{{ plants_database_container_name }}"
+        - subpath: "{{ plants_server_subpath }}"
         - database_name: "{{ plants_database_name }}"
         - database_user: "{{ plants_database_user }}"
         - database_password: "{{ plants_database_password }}"
@@ -189,6 +196,7 @@
       vars:
         - database_url: "{{ itemtree_database_url }}"
         - domain_name: "{{ itemtree_server_domain_name }}"
+        - subpath: "{{ itemtree_server_subpath }}"
         - database_container_name: "{{ itemtree_database_container_name }}"
         - database_name: "{{ itemtree_database_name }}"
         - database_user: "{{ itemtree_database_user }}"
@@ -199,6 +207,7 @@
         - database_url: "{{ expenses_database_url }}"
         - domain_name: "{{ expenses_server_domain_name }}"
         - database_container_name: "{{ expenses_database_container_name }}"
+        - subpath: "{{ expenses_server_subpath }}"
         - database_name: "{{ expenses_database_name }}"
         - database_user: "{{ expenses_database_user }}"
         - database_password: "{{ expenses_database_password }}"
