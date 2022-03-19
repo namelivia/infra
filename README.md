@@ -20,7 +20,7 @@ Run `./build` to build all containers, and `./run` to let Terraform create the i
 This reflects the current state of the infrastructure, it has evolved from different models and will change according to my needs. The main driver of the current structure was to take advantage of free tiers of cloud providers, however I've run out of credits in
 most of them and costs have been ramping up so probably it will evolve to a cheaper model. The Raspberry Pi + VPN configuration is what I envisioned as the future of the topolgy but currently there are still some problems to be solved with that.
 
-![diagram](https://user-images.githubusercontent.com/1571416/155894307-7d0ce05b-925b-4016-a7c0-b84049abfab7.png)
+![diagram](https://user-images.githubusercontent.com/1571416/159137661-bbe190a1-9cd2-45df-8221-3834f44c4d63.png)
 
 ## Application list
 
@@ -55,4 +55,5 @@ most of them and costs have been ramping up so probably it will evolve to a chea
 - [sonarr](https://github.com/Sonarr/Sonarr): [Sonarr](https://github.com/Sonarr/Sonarr) is a series collection manager.
 - [radarr](https://github.com/Radarr/Radarr): [Radarr](https://radarr.video/) is a movie colection manager.
 - [deluge](https://github.com/deluge-torrent/deluge): [Deluge](https://deluge-torrent.org) is a torrent client.
+- [amule](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwjsi-SShNP2AhUMMewKHRE3BawQFnoECAYQAQ&url=https%3A%2F%2Fgithub.com%2Famule-project%2Famule&usg=AOvVaw08pianVkOSDYC8tRsyaNgG): [Amule](https://www.amule.org/) is an EDonkey network client.
 - [ofelia](https://github.com/mcuadros/ofelia): Job scheduler.
