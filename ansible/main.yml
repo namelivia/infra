@@ -241,16 +241,7 @@
   roles:
     - role: ansible-pomerium
       vars:
-        - application_name: "pomerium2"
         - pomerium_config_path: "/vars/config_pomerium_2.yaml"
-        - shared_secret: "{{ shared_secret_2 }}"
-        - cookie_secret: "{{ cookie_secret_2 }}"
-        - idp_client_id: "{{ idp_client_id_2 }}"
-        - idp_client_secret: "{{ idp_client_secret_2 }}"
-        - idp_service_account: "{{ idp_service_account_2 }}"
-        - authenticate_virtual_host: "{{ authenticate_virtual_host_2 }}"
-        - proxy_virtual_host: "{{ proxy_virtual_host_2 }}"
-        - pomerium_jwk_endpoint: "{{ pomerium_jwk_endpoint_2 }}"
     - role: ansible-openvpn-server
       vars:
         - application_name: "openvpn2"
