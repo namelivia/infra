@@ -150,10 +150,12 @@
         - openvpn_static_key: "{{ lookup('file', '/vars/server2.key') }}"
         - client_certificate: "{{ lookup('file', '/vars/lightsail.crt') }}"
         - server_ca: "{{ lookup('file', '/vars/server2.crt') }}"
-    - ansible-gallery-client
+    - role: ansible-gallery-client
+      vars:
+        - domain_name: "{{ gallery_client_domain_name }}"
     - role: ansible-gallery-server
       vars:
-        - domain_name: "{{ gallery_domain_name }}"
+        - domain_name: "{{ gallery_server_domain_name }}"
     - ansible-ofelia
     - ansible-plants-client
     - role: ansible-postgres
@@ -177,7 +179,7 @@
     - role: ansible-plants-server
       vars:
         - database_url: "{{ plants_database_url }}"
-        - domain_name: "{{ plants_domain_name }}"
+        - domain_name: "{{ plants_server_domain_name }}"
         - database_container_name: "{{ plants_database_container_name }}"
         - database_name: "{{ plants_database_name }}"
         - database_user: "{{ plants_database_user }}"
@@ -186,7 +188,7 @@
     - role: ansible-itemtree-server
       vars:
         - database_url: "{{ itemtree_database_url }}"
-        - domain_name: "{{ itemtree_domain_name }}"
+        - domain_name: "{{ itemtree_server_domain_name }}"
         - database_container_name: "{{ itemtree_database_container_name }}"
         - database_name: "{{ itemtree_database_name }}"
         - database_user: "{{ itemtree_database_user }}"
@@ -195,7 +197,7 @@
     - role: ansible-expenses-server
       vars:
         - database_url: "{{ expenses_database_url }}"
-        - domain_name: "{{ expenses_domain_name }}"
+        - domain_name: "{{ expenses_server_domain_name }}"
         - database_container_name: "{{ expenses_database_container_name }}"
         - database_name: "{{ expenses_database_name }}"
         - database_user: "{{ expenses_database_user }}"
