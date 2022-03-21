@@ -258,7 +258,7 @@
     - role: ansible-pomerium
       vars:
         - application_name: "pomerium"
-        - pomerium_config_path: "/vars/config_pomerium_2.yaml"
+        - pomerium_config_path: "/vars/pomerium_config.yaml"
     - role: ansible-openvpn-server
       vars:
         - application_name: "openvpn2"
