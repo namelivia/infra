@@ -47,7 +47,8 @@
   roles:
     - role: ansible-reverse-proxy
       vars:
-        - https_method: "https"
+        # READ: https://ghost.org/docs/faq/proxying-https-infinite-loops/
+        - proto_override: "https"
     - role: ansible-openvpn-client
       vars:
         - vpn_endpoint: "{{ openvpn2_domain_name }}"
