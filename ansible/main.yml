@@ -46,6 +46,8 @@
     - /vars/variables.yml
   roles:
     - role: ansible-reverse-proxy
+      vars:
+        - https_method: "https"
     - role: ansible-openvpn-client
       vars:
         - vpn_endpoint: "{{ openvpn2_domain_name }}"
