@@ -538,9 +538,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.89902114"
-     inkscape:cx="529.26748"
-     inkscape:cy="-755.72023"
+     inkscape:zoom="0.4664802"
+     inkscape:cx="9.0463143"
+     inkscape:cy="-325.4804"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -572,7 +572,7 @@
      id="layer1">
     <path
        style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="M -164.99686,247.83831 H 381.03599"
+       d="m 59.198221,247.83831 321.837769,0"
        id="path1476"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc"
@@ -760,7 +760,7 @@
     </g>
     <g
        id="g1036"
-       transform="matrix(0.17581524,0,0,0.17581524,-234.86251,244.63727)"
+       transform="matrix(0.17581524,0,0,0.17581524,517.3723,436.52189)"
        inkscape:export-filename="/home/nacho/diagram.png"
        inkscape:export-xdpi="45.928425"
        inkscape:export-ydpi="45.928425">
@@ -2002,7 +2002,7 @@
        y="419.33014"
        x="262.91241"
        height="192.26837"
-       width="263.44183"
+       width="323.74139"
        id="rect2739"
        style="opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.68790758;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:5.06372293, 5.06372293;stroke-dashoffset:0;stroke-opacity:1" />
     <g
@@ -2462,7 +2462,7 @@
        inkscape:export-xdpi="45.928425"
        inkscape:export-filename="/home/nacho/diagram.png"
        style="fill:none;fill-rule:evenodd"
-       transform="matrix(0.17679322,0,0,0.17679322,-188.86277,359.11266)"
+       transform="matrix(0.17679322,0,0,0.17679322,482.14481,550.40868)"
        id="g1502">
       <path
          style="fill:#364548"
@@ -2549,7 +2549,7 @@
        inkscape:export-ydpi="45.928425"
        inkscape:export-xdpi="45.928425"
        inkscape:export-filename="/home/nacho/diagram.png"
-       transform="matrix(0.70712218,0,0,0.70712218,-184.98155,298.55234)"
+       transform="matrix(0.70712218,0,0,0.70712218,486.02603,489.84836)"
        id="g1542">
       <g
          id="g1510">
@@ -2602,13 +2602,13 @@
        inkscape:export-xdpi="45.928425"
        inkscape:export-filename="/home/nacho/diagram.png"
        style="fill:none;stroke:#000000;stroke-width:1.92341387;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker1795)"
-       d="m -168.41298,334.04167 v 21.16666"
+       d="m 502.5946,525.33769 v 21.16666"
        id="path1545"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc" />
     <g
        id="g1579"
-       transform="matrix(0.17679322,0,0,0.17679322,-188.86277,359.11266)"
+       transform="matrix(0.17679322,0,0,0.17679322,482.14481,550.40868)"
        style="fill:none;fill-rule:evenodd"
        inkscape:export-filename="/home/nacho/diagram.png"
        inkscape:export-xdpi="45.928425"
@@ -2699,9 +2699,10 @@
        inkscape:export-xdpi="45.928425"
        inkscape:export-filename="/home/nacho/diagram.png"
        style="fill:none;stroke:#000000;stroke-width:1.92341387;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker1585)"
-       d="m -164.04272,248.05208 v 47.625"
+       d="m 506.96486,438.14643 0,48.82667"
        id="path1581"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:'sans serif';-inkscape-font-specification:'sans serif';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
@@ -2761,16 +2762,16 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:'sans serif';-inkscape-font-specification:'sans serif';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="-155.19524"
-       y="293.06674"
+       x="515.81232"
+       y="484.36276"
        id="text1605"
        inkscape:export-filename="/home/nacho/diagram.png"
        inkscape:export-xdpi="45"
        inkscape:export-ydpi="45"><tspan
          sodipodi:role="line"
          id="tspan1603"
-         x="-155.19524"
-         y="293.06674"
+         x="515.81232"
+         y="484.36276"
          style="stroke-width:0.26458332">amazon</tspan></text>
     <text
        xml:space="preserve"
@@ -3248,7 +3249,7 @@
        sodipodi:nodetypes="cc"
        inkscape:connector-curvature="0"
        id="path1636"
-       d="m 380.94926,438.12111 59.55236,0"
+       d="M 380.87508,438.12111 H 507.92136"
        style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
   </g>
   <style
