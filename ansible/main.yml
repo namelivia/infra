@@ -45,6 +45,13 @@
   vars_files:
     - /vars/variables.yml
   roles:
+    - role: ansible-openvpn-client
+      vars:
+        - vpn_endpoint: "{{ openvpn2_domain_name }}"
+        - client_private_key: "{{ lookup('file', '/vars/digitalocean.key') }}"
+        - openvpn_static_key: "{{ lookup('file', '/vars/server2.key') }}"
+        - client_certificate: "{{ lookup('file', '/vars/digitalocean.crt') }}"
+        - server_ca: "{{ lookup('file', '/vars/server2.crt') }}"
     - role: ansible-like-and-share-twitter-bot
       vars:
         - consumer_key: "{{ like_bot_consumer_key }}"
