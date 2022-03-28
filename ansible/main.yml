@@ -302,4 +302,7 @@
   roles:
     - ansible-cec
     - ansible-tweak-overscan
-    - ansible-samba-mounts
+    - role: ansible-samba-mounts
+      vars:
+        - gid: "{{ samba_gid }}"
+        - uid: "{{ samba_uid }}"
