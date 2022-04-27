@@ -28,6 +28,8 @@
     - role: ansible-humancoop-backend
       vars:
         - domain_name: "{{ humancoop_backend_domain_name }}"
+        - aws_access_key_id: "{{ humancoop_aws_access_key_id }}"
+        - aws_secret_access_key: "{{ humancoop_aws_secret_access_key }}"
     - role: ansible-flappysonic
       vars:
         - domain_name: "{{ flappysonic_domain_name }}"
