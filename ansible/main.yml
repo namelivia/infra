@@ -128,6 +128,11 @@
         - admin_password: "{{ nextcloud_admin_password }}"
         - dump_day: 2
         - backup_day: 4
+    - role: ansible-samba-mounts
+      vars:
+        - gid: "{{ samba_gid }}"
+        - uid: "{{ samba_uid }}"
+        - samba_mounts: "{{ nextcloud_samba_mounts }}"
 
 - hosts: azure
   become: true
