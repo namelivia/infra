@@ -182,6 +182,7 @@
     - role: ansible-gallery-server
       vars:
         - domain_name: "{{ gallery_server_domain_name }}"
+        - subpath: "{{ gallery_server_subpath }}"
     - ansible-ofelia
     - role: ansible-plants-client
       vars:
