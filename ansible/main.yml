@@ -96,10 +96,6 @@
       vars:
         - openvpn_config_folder: /vars/openvpn
         - domain_name: "{{ openvpn_domain_name }}"
-    - role: ansible-haproxy
-      vars:
-        - domain_names: "{{ nextcloud_domain_name }}"  # Currently there is only one here.
-        - machine_ip: "{{ haproxy_client_ip }}"  # Currently there is only one here.
     - role: ansible-gallery-client
       vars:
         - domain_name: "{{ gallery_client_2_domain_name }}"
