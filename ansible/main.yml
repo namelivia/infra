@@ -103,9 +103,11 @@
     - role: ansible-gallery-client
       vars:
         - domain_name: "{{ gallery_client_2_domain_name }}"
+        - gallery_api_endpoint: "{{ gallery_api_endpoint_2 }}"
     - role: ansible-gallery-server
       vars:
         - domain_name: "{{ gallery_server_2_domain_name }}"
+        - aws_blucket: "{{ aws_bucket_gallery_server_2 }}"
         - subpath: "{{ gallery_server_2_subpath }}"
 
 - hosts: raspberry
