@@ -93,10 +93,6 @@
     - role: ansible-anki
       vars:
         - domain_name: "{{ anki_domain_name }}"
-    - role: ansible-openvpn-server
-      vars:
-        - openvpn_config_folder: /vars/openvpn
-        - domain_name: "{{ openvpn_domain_name }}"
     - role: ansible-gallery-client
       vars:
         - domain_name: "{{ gallery_client_2_domain_name }}"
