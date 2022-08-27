@@ -1,6 +1,6 @@
 #!/bin/bash
-echo "Buliding Terraform container..."
+echo "Building Terraform container..."
 (cd terraform && docker build . -t terraform -q)
-echo "Buliding Ansible container..."
+echo "Building Ansible container..."
 (cd ansible && docker build . -t ansible -q)
 echo "Sucessfully built"
