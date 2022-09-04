@@ -59,6 +59,7 @@ roles:
   - src: https://github.com/namelivia/ansible-user-info-service
   - src: https://github.com/namelivia/ansible-garments-server
   - src: https://github.com/namelivia/ansible-plants-server
+  - src: https://github.com/namelivia/ansible-miniflux
   - src: https://github.com/namelivia/ansible-itemtree-server
   # - src: https://github.com/namelivia/ansible-prometheus
   # - src: https://github.com/namelivia/ansible-mailu

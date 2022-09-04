@@ -228,6 +228,17 @@
         - database_user: "{{ plants_database_user }}"
         - database_password: "{{ plants_database_password }}"
         - dump_day: 3
+    - role: ansible-miniflux
+      vars:
+        - database_url: "{{ miniflux_database_url }}"
+        - domain_name: "{{ miniflux_domain_name }}"
+        - database_container_name: "{{ miniflux_database_container_name }}"
+        - database_name: "{{ miniflux_database_name }}"
+        - database_user: "{{ miniflux_database_user }}"
+        - database_password: "{{ miniflux_database_password }}"
+        - admin_username: "{{ miniflux_admin_username }}"
+        - admin_password: "{{ miniflux_admin_password }}"
+        - dump_day: 4
     - role: ansible-itemtree-server
       vars:
         - database_url: "{{ itemtree_database_url }}"
