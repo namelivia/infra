@@ -8,9 +8,10 @@ ansible/hosts.bak
 ansible/vars/*
 
 # Terraform
-terraform/*tfstate*
 !terraform/vars/.gitkeep
 terraform/vars/*
+terraform/terraform/.terraform*
+terraform/terraform/*tfstate*
 
 terraform.bak/*tfstate*
 !terraform.bak/vars/.gitkeep
