@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "Running Terraform..."
-(cd terraform && docker run -it terraform)
-echo "Running Ansible..."
-(cd ansible && docker run -it ansible)
-echo "Sucessfully run"
+(cd terraform && docker run -v $(pwd)/terraform:/terraform -it terraform)
+#echo "Running Ansible..."
+#(cd ansible && docker run -it ansible)
+#echo "Sucessfully run"
