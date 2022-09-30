@@ -19,9 +19,9 @@
       vars:
         - vpn_endpoint: "{{ openvpn2_domain_name }}"
         - client_private_key: "{{ lookup('file', '/vars/amazon.key') }}"
-        - openvpn_static_key: "{{ lookup('file', '/vars/server2.key') }}"
+        - openvpn_static_key: "{{ lookup('file', '/vars/server.key') }}"
         - client_certificate: "{{ lookup('file', '/vars/amazon.crt') }}"
-        - server_ca: "{{ lookup('file', '/vars/server2.crt') }}"
+        - server_ca: "{{ lookup('file', '/vars/server.crt') }}"
     - role: ansible-humancoop
       vars:
         - domain_name: "{{ humancoop_domain_name }}"
@@ -55,9 +55,9 @@
       vars:
         - vpn_endpoint: "{{ openvpn2_domain_name }}"
         - client_private_key: "{{ lookup('file', '/vars/digitalocean.key') }}"
-        - openvpn_static_key: "{{ lookup('file', '/vars/server2.key') }}"
+        - openvpn_static_key: "{{ lookup('file', '/vars/server.key') }}"
         - client_certificate: "{{ lookup('file', '/vars/digitalocean.crt') }}"
-        - server_ca: "{{ lookup('file', '/vars/server2.crt') }}"
+        - server_ca: "{{ lookup('file', '/vars/server.crt') }}"
     - role: ansible-like-and-share-twitter-bot
       vars:
         - consumer_key: "{{ like_bot_consumer_key }}"
@@ -106,9 +106,9 @@
       vars:
         - vpn_endpoint: "{{ openvpn2_domain_name }}"
         - client_private_key: "{{ lookup('file', '/vars/google.key') }}"
-        - openvpn_static_key: "{{ lookup('file', '/vars/server2.key') }}"
+        - openvpn_static_key: "{{ lookup('file', '/vars/server.key') }}"
         - client_certificate: "{{ lookup('file', '/vars/google.crt') }}"
-        - server_ca: "{{ lookup('file', '/vars/server2.crt') }}"
+        - server_ca: "{{ lookup('file', '/vars/server.crt') }}"
 
 - hosts: raspberry
   become: true
@@ -119,9 +119,9 @@
       vars:
         - vpn_endpoint: "{{ openvpn2_domain_name }}"
         - client_private_key: "{{ lookup('file', '/vars/nextcloud.key') }}"
-        - openvpn_static_key: "{{ lookup('file', '/vars/server2.key') }}"
+        - openvpn_static_key: "{{ lookup('file', '/vars/server.key') }}"
         - client_certificate: "{{ lookup('file', '/vars/nextcloud.crt') }}"
-        - server_ca: "{{ lookup('file', '/vars/server2.crt') }}"
+        - server_ca: "{{ lookup('file', '/vars/server.crt') }}"
 
     - role: ansible-nextcloud
       vars:
@@ -148,13 +148,14 @@
   vars_files:
     - /vars/variables.yml
   roles:
+    - role: ansible-reverse-proxy
     - role: ansible-openvpn-client
       vars:
         - vpn_endpoint: "{{ openvpn2_domain_name }}"
         - client_private_key: "{{ lookup('file', '/vars/azure.key') }}"
-        - openvpn_static_key: "{{ lookup('file', '/vars/server2.key') }}"
+        - openvpn_static_key: "{{ lookup('file', '/vars/server.key') }}"
         - client_certificate: "{{ lookup('file', '/vars/azure.crt') }}"
-        - server_ca: "{{ lookup('file', '/vars/server2.crt') }}"
+        - server_ca: "{{ lookup('file', '/vars/server.crt') }}"
 
     - role: ansible-kimai
       vars:
@@ -182,9 +183,9 @@
       vars:
         - vpn_endpoint: "{{ openvpn2_domain_name }}"
         - client_private_key: "{{ lookup('file', '/vars/lightsail.key') }}"
-        - openvpn_static_key: "{{ lookup('file', '/vars/server2.key') }}"
+        - openvpn_static_key: "{{ lookup('file', '/vars/server.key') }}"
         - client_certificate: "{{ lookup('file', '/vars/lightsail.crt') }}"
-        - server_ca: "{{ lookup('file', '/vars/server2.crt') }}"
+        - server_ca: "{{ lookup('file', '/vars/server.crt') }}"
     - role: ansible-gallery-client
       vars:
         - domain_name: "{{ gallery_client_domain_name }}"
