@@ -12,6 +12,7 @@ ansible/vars/*
 terraform/vars/*
 terraform/terraform/.terraform*
 terraform/terraform/*tfstate*
+terraform/terraform/hosts
 
 terraform.bak/*tfstate*
 !terraform.bak/vars/.gitkeep
@@ -20,3 +21,4 @@ terraform.bak/vars/*
 # Backups
 ansible-vars.tar.gz
 terraform-vars.tar.gz
+backup-private.asc

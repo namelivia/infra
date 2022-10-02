@@ -1,4 +1,4 @@
-FROM quay.io/ansible/ansible-runner:stable-2.11-latest
+FROM quay.io/ansible/ansible-runner:stable-2.12-latest
 COPY ./main.yml /runner/main.yml
 COPY ./requirements.yml /runner/requirements.yml
 COPY ./hosts /runner/inventory/hosts
