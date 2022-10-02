@@ -50,21 +50,12 @@ provider "google" {
   zone    = "europe-west1-b"
 }
 
-/*
-//This is going to be the new key
-module "deployer_key" {
-  source = "github.com/namelivia/terraform-key"
-  ssh_key = var.ssh_key
-  key_name = "new-deployer-key"
+//Bastion
+module "bastion_instance" {
+  source = "github.com/namelivia/terraform-bastion"
+  instance_name = "Bastion"
+  key_name = var.bastion_key_name
 }
-
-//And this is going to be the new bastion
-module "bastion_instances" {
-  source = "github.com/namelivia/terraform-lightsail"
-  instance_name = "bastion"
-  ssh_key = var.ssh_key
-}
-*/
 
 //Instances
 module "digitalocean_droplet" {
@@ -104,15 +95,16 @@ module "digitalocean_dns" {
   domain_name = var.domain_name
   a_records = var.dns_records
   host_ips = {
-    //"bastion" = module.bastion_instances.ip
-    "old_bastion" = var.old_bastion_ip
+    "bastion" = module.bastion_instance.ip
   }
 }
 
+//Hosts file
 locals {
   hosts_file = templatefile("/terraform/hosts.tpl", {
     azure_vm_ip = "${module.azure_instance.ip}"
     google_instance_ip = "${module.google_instance.ip}"
+    bastion_instance_ip = "${module.bastion_instance.ip}"
     ec2_instance_ip = "${module.ec2_instance.ip}"
     digitalocean_droplet_ip = "${module.digitalocean_droplet.ip}"
     lightsail_instance_ip = "${module.lightsail_instance.ip}"

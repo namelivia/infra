@@ -43,9 +43,9 @@ variable "domain_name" {
   description = "Your domain name"
 }
 
-variable "old_bastion_ip" {
+variable "bastion_key_name" {
   type = string
-  description = "The ip for my current bastion"
+  description = "Name for the bastion key"
 }
 
 variable "dns_records" {
