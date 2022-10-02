@@ -294,7 +294,7 @@
     - role: ansible-openvpn-server
       vars:
         - application_name: "openvpn2"
-        - openvpn_config_folder: /vars/openvpn2
+        - openvpn_config_folder: /vars/openvpn
         - domain_name: "{{ openvpn2_domain_name }}"
 
 - hosts: seedbox
