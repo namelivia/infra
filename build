@@ -3,4 +3,6 @@ echo "Building Terraform container..."
 (cd terraform && docker build . -t terraform -q)
 echo "Building Ansible container..."
 (cd ansible && docker build . -t ansible -q)
+echo "Building Infracost container..."
+(cd infracost && docker build . -t infracost -q)
 echo "Sucessfully built"

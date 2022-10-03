@@ -22,3 +22,6 @@ terraform.bak/vars/*
 ansible-vars.tar.gz
 terraform-vars.tar.gz
 backup-private.asc
+
+# Infracost
+infracost/credentials.yml
