@@ -60,6 +60,8 @@ module "bastion_instance" {
 //Instances
 module "digitalocean_droplet" {
   source = "github.com/namelivia/terraform-droplet"
+  name = "namelivia"
+  key_name = "deployer-key"
   ssh_key = var.ssh_key
 }
 
@@ -74,8 +76,9 @@ module "lightsail_instance" {
   ssh_key = var.ssh_key
 }
 
-module "azure_instance" {
-  source = "github.com/namelivia/terraform-azure"
+module "lightsail_secondary_instance" {
+  source = "github.com/namelivia/terraform-lightsail"
+  instance_name = "azure"
   ssh_key = var.ssh_key
 }
 
@@ -102,7 +105,7 @@ module "digitalocean_dns" {
 //Hosts file
 locals {
   hosts_file = templatefile("/terraform/hosts.tpl", {
-    azure_vm_ip = "${module.azure_instance.ip}"
+    azure_vm_ip = "${module.lightsail_secondary_instance.ip}"
     google_instance_ip = "${module.google_instance.ip}"
     bastion_instance_ip = "${module.bastion_instance.ip}"
     ec2_instance_ip = "${module.ec2_instance.ip}"
