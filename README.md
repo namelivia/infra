@@ -11,6 +11,20 @@ These are some of the key features that shape the project:
  - **All logs go to Cloudwatch**: All logs of all applications are sent to an external provider.
  - **It's cloud-agnostic**: To avoid vendor lock-in it is all about linux machines running Docker containers, I tried to avoid cloud specific configuration so I can move things from one provider or even my own physical server.
 
+## Features
+
+Monitoring integrated in Cloudwatch
+
+![screenshot](https://user-images.githubusercontent.com/1571416/194699760-6b96238c-2835-4b47-9288-bbcc97300862.png)
+
+Automatic backups in S3
+
+![screenshot](https://user-images.githubusercontent.com/1571416/194699813-48a95656-7129-4d77-9409-66c51652efe3.png)
+
+Endpoint monitoring using UptimeRobot
+
+![screenshot](https://user-images.githubusercontent.com/1571416/194699867-1e3db96f-7181-4616-820e-1549bd6ca430.png)
+
 ## Usage
 
 Run `./build` to build all containers, and `./run` to let Terraform create the infrastructure and Ansible provision it.
