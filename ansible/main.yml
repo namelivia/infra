@@ -22,26 +22,7 @@
         - openvpn_static_key: "{{ lookup('file', '/vars/server.key') }}"
         - client_certificate: "{{ lookup('file', '/vars/amazon.crt') }}"
         - server_ca: "{{ lookup('file', '/vars/server.crt') }}"
-    - role: ansible-humancoop
-      vars:
-        - domain_name: "{{ humancoop_domain_name }}"
-    - role: ansible-humancoop-backend
-      vars:
-        - domain_name: "{{ humancoop_backend_domain_name }}"
-        - aws_access_key_id: "{{ humancoop_aws_access_key_id }}"
-        - aws_secret_access_key: "{{ humancoop_aws_secret_access_key }}"
-    - role: ansible-flappysonic
-      vars:
-        - domain_name: "{{ flappysonic_domain_name }}"
-    - role: ansible-nightcityride
-      vars:
-        - domain_name: "{{ nightcityride_domain_name }}"
-    - role: ansible-thumbor
-      vars:
-        - domain_name: "{{ thumbor_domain_name }}"
-    - role: ansible-tombraiderjs
-      vars:
-        - domain_name: "{{ tombraiderjs_domain_name }}"
+
 - hosts: digitalocean
   become: true
   vars_files:
@@ -156,6 +137,26 @@
     - role: ansible-mealie
       vars:
         - domain_name: "{{ mealie_domain_name }}"
+    - role: ansible-humancoop
+      vars:
+        - domain_name: "{{ humancoop_domain_name }}"
+    - role: ansible-humancoop-backend
+      vars:
+        - domain_name: "{{ humancoop_backend_domain_name }}"
+        - aws_access_key_id: "{{ humancoop_aws_access_key_id }}"
+        - aws_secret_access_key: "{{ humancoop_aws_secret_access_key }}"
+    - role: ansible-flappysonic
+      vars:
+        - domain_name: "{{ flappysonic_domain_name }}"
+    - role: ansible-nightcityride
+      vars:
+        - domain_name: "{{ nightcityride_domain_name }}"
+    - role: ansible-thumbor
+      vars:
+        - domain_name: "{{ thumbor_domain_name }}"
+    - role: ansible-tombraiderjs
+      vars:
+        - domain_name: "{{ tombraiderjs_domain_name }}"
 
 - hosts: lightsail
   become: true
