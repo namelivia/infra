@@ -82,11 +82,6 @@ module "lightsail_secondary_instance" {
   ssh_key = var.ssh_key
 }
 
-module "google_instance" {
-  source = "github.com/namelivia/terraform-google"
-  ssh_key = var.ssh_key
-}
-
 //DNS Records
 resource "digitalocean_domain" "domain" {
   name = var.domain_name
@@ -106,7 +101,6 @@ module "digitalocean_dns" {
 locals {
   hosts_file = templatefile("/terraform/hosts.tpl", {
     azure_vm_ip = "${module.lightsail_secondary_instance.ip}"
-    google_instance_ip = "${module.google_instance.ip}"
     bastion_instance_ip = "${module.bastion_instance.ip}"
     ec2_instance_ip = "${module.ec2_instance.ip}"
     digitalocean_droplet_ip = "${module.digitalocean_droplet.ip}"
