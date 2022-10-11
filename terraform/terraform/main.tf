@@ -65,11 +65,6 @@ module "digitalocean_droplet" {
   ssh_key = var.ssh_key
 }
 
-module "ec2_instance" {
-  source = "github.com/namelivia/terraform-ec2"
-  ssh_key = var.ssh_key
-}
-
 module "lightsail_instance" {
   source = "github.com/namelivia/terraform-lightsail"
   instance_name = "lightsail"
@@ -102,7 +97,6 @@ locals {
   hosts_file = templatefile("/terraform/hosts.tpl", {
     azure_vm_ip = "${module.lightsail_secondary_instance.ip}"
     bastion_instance_ip = "${module.bastion_instance.ip}"
-    ec2_instance_ip = "${module.ec2_instance.ip}"
     digitalocean_droplet_ip = "${module.digitalocean_droplet.ip}"
     lightsail_instance_ip = "${module.lightsail_instance.ip}"
   })

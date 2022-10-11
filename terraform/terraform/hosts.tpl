@@ -1,5 +1,4 @@
 [hosts]
-amazon ansible_host=${ec2_instance_ip} ansible_user=ubuntu working_directory=/home/ubuntu/
 azure ansible_host=${azure_vm_ip} ansible_user=adminuser working_directory=/home/ubuntu/
 bastion ansible_host=${bastion_instance_ip} ansible_user=ubuntu working_directory=/home/ubuntu/
 lightsail ansible_host=${lightsail_instance_ip} ansible_user=ubuntu working_directory=/home/ubuntu/
