@@ -57,6 +57,11 @@
   vars_files:
     - /vars/variables.yml
   roles:
+
+    - role: ansible-reverse-proxy
+      vars:
+        - client_max_body_size: "100mb"
+
     - role: ansible-openvpn-client
       vars:
         - vpn_endpoint: "{{ openvpn2_domain_name }}"
@@ -79,6 +84,7 @@
         - admin_password: "{{ nextcloud_admin_password }}"
         - dump_day: 2
         - backup_day: 4
+
     - role: ansible-samba-mounts
       vars:
         - gid: "{{ samba_gid }}"
