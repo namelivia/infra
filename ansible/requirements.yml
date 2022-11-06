@@ -88,3 +88,4 @@ roles:
   - src: https://github.com/namelivia/ansible-tweak-overscan
   - src: https://github.com/namelivia/ansible-samba-mounts
   - src: https://github.com/namelivia/ansible-reverse-proxy
+  - src: https://github.com/namelivia/ansible-pleroma
