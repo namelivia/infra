@@ -90,4 +90,4 @@ roles:
   - src: https://github.com/namelivia/ansible-reverse-proxy
   - name: ansible-pleroma
     src: https://github.com/namelivia/ansible-pleroma
-    version: 0.0.1
+    version: 0.0.2
