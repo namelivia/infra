@@ -36,10 +36,15 @@
         - sentry_url: "{{ python_sentry_url }}"
     - role: ansible-movie-quote-twitter-bot
       vars:
-        - consumer_key: "{{ movie_bot_consumer_key }}"
-        - consumer_secret: "{{ movie_bot_consumer_secret }}"
-        - access_token_key: "{{ movie_bot_access_token_key }}"
-        - access_token_secret: "{{ movie_bot_access_token_secret }}"
+        - twitter_consumer_key: "{{ movie_bot_twitter_consumer_key }}"
+        - twitter_consumer_secret: "{{ movie_bot_twitter_consumer_secret }}"
+        - twitter_access_token_key: "{{ movie_bot_twitter_access_token_key }}"
+        - twitter_access_token_secret: "{{ movie_bot_twitter_access_token_secret }}"
+        - mastodon_client_id: "{{ movie_bot_mastodon_client_id }}"
+        - mastodon_client_secret: "{{ movie_bot_mastodon_client_secret }}"
+        - mastodon_api_base_url: "{{ movie_bot_mastodon_api_base_url }}"
+        - mastodon_login: "{{ movie_bot_mastodon_login }}"
+        - mastodon_password: "{{ movie_bot_mastodon_password }}"
         - idle_period: "{{ movie_bot_idle_period }}"
         - sentry_url: "{{ python_sentry_url }}"
     - role: ansible-ghost
