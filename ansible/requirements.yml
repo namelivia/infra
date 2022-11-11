@@ -91,3 +91,4 @@ roles:
   - name: ansible-pleroma
     src: https://github.com/namelivia/ansible-pleroma
     version: 0.0.5
+  - src: https://github.com/namelivia/ansible-gtd-caldav

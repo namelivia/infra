@@ -254,6 +254,11 @@
         - database_user: "{{ expenses_database_user }}"
         - database_password: "{{ expenses_database_password }}"
         - dump_day: 5
+    - role: ansible-gtd-caldav
+      vars:
+        - caldav_url: "{{ caldav_url }}"
+        - username: "{{ caldav_username }}"
+        - password: "{{ caldav_password }}"
     - ansible-notifications-service
     - role: ansible-journaling-service
       vars:
