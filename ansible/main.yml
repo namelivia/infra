@@ -256,7 +256,7 @@
         - dump_day: 5
     - role: ansible-gtd-caldav
       vars:
-        - caldav_url: "{{ caldav_url }}"
+        - caldav_url: "{{ caldav_endpoint_url }}"
         - username: "{{ caldav_username }}"
         - password: "{{ caldav_password }}"
     - ansible-notifications-service
