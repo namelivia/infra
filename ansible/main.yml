@@ -166,6 +166,8 @@
         - db_pass: "{{ pleroma_db_pass }}"
         - db_name: "{{ pleroma_db_name }}"
         - pleroma_config_path: "/vars/pleroma_config.exs"
+        - database_container_name: "{{ pleroma_database_container_name }}"
+        - database_name: "{{ pleroma_db_name }}"
 
 - hosts: lightsail
   become: true
