@@ -168,6 +168,10 @@
         - pleroma_config_path: "/vars/pleroma_config.exs"
         - database_container_name: "{{ pleroma_database_container_name }}"
         - database_name: "{{ pleroma_db_name }}"
+        - database_user: "{{ pleroma_db_user }}"
+        - database_password: "{{ pleroma_db_pass }}"
+        - dump_day: 3
+        - backup_day: 5
 
 - hosts: lightsail
   become: true
