@@ -62,7 +62,6 @@ most of them and costs have been ramping up so probably it will evolve to a chea
 - [garments server](https://github.com/namelivia/garments-server/): Server part of an clothing management app.
 - [journaling service](https://github.com/namelivia/journaling-service/): Journaling service to store events from multiple apps.
 - [user info service](https://github.com/namelivia/user-info-service): User information service to mange user information shared among apps.
-- [notifications service](https://github.com/namelivia/notifications-service): Notifications service to send notifications from apps to messaging services.
 - [mealie](https://github.com/hay-kot/mealie): [Mealie](https://hay-kot.github.io/mealie/) is a self hosted recipe manager.
 - [jackett](https://github.com/Jackett/Jackett): Tracker proxy server
 - [sonarr](https://github.com/Sonarr/Sonarr): [Sonarr](https://github.com/Sonarr/Sonarr) is a series collection manager.
