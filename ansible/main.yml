@@ -195,7 +195,9 @@
         - domain_name: "{{ gallery_server_domain_name }}"
         - subpath: "{{ gallery_server_subpath }}"
     - ansible-ofelia
-    - ansible-apprise
+    - role: ansible-apprise
+      vars:
+        - apprise_config_folder: /vars/apprise
     - role: ansible-plants-client
       vars:
         - domain_name: "{{ plants_client_domain_name }}"
