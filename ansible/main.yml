@@ -269,6 +269,7 @@
         - caldav_url: "{{ caldav_endpoint_url }}"
         - username: "{{ caldav_username }}"
         - password: "{{ caldav_password }}"
+        - notifications_service_endpoint: "{{ caldav_notifications_service_endpoint }}"
     - role: ansible-journaling-service
       vars:
         - database_url: "{{ journaling_database_url }}"
