@@ -311,7 +311,14 @@
   vars_files:
     - /vars/variables.yml
   roles:
-    - ansible-external-storage
+    - role: ansible-external-storage
+      vars:
+        - target_directory: "{{ target_directory_disk_1 }}"
+        - external_storage_device_id: "{{ external_storage_device_id_disk_1 }}"
+    - role: ansible-external-storage
+      vars:
+        - target_directory: "{{ target_directory_disk_2 }}"
+        - external_storage_device_id: "{{ external_storage_device_id_disk_2 }}"
     - role: ansible-deluge
       vars:
         - deluge_downloads_folder: "{{ downloads_folder }}"
