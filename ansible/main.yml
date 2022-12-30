@@ -232,6 +232,7 @@
         - database_name: "{{ plants_database_name }}"
         - database_user: "{{ plants_database_user }}"
         - database_password: "{{ plants_database_password }}"
+        - notifications_service_endpoint: "{{ plants_notifications_service_endpoint }}"
         - dump_day: 3
     - role: ansible-miniflux
       vars:
@@ -263,6 +264,7 @@
         - database_name: "{{ expenses_database_name }}"
         - database_user: "{{ expenses_database_user }}"
         - database_password: "{{ expenses_database_password }}"
+        - notifications_service_endpoint: "{{ expenses_notifications_service_endpoint }}"
         - dump_day: 5
     - role: ansible-gtd-caldav
       vars:
