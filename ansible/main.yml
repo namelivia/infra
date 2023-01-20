@@ -274,8 +274,6 @@
         - notifications_service_endpoint: "{{ caldav_notifications_service_endpoint }}"
     - role: ansible-retroachievements-apprise
       vars:
-        - retroachievements_username: "{{ retroachievements_username }}"
-        - retroachievements_key: "{{ retroachievements_key }}"
         - notifications_service_endpoint: "{{ retroachievements_notifications_service_endpoint }}"
     - role: ansible-journaling-service
       vars:

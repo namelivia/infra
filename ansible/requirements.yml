@@ -92,3 +92,4 @@ roles:
     version: 0.0.7
   - src: https://github.com/namelivia/ansible-gtd-caldav
   - src: https://github.com/namelivia/ansible-apprise
+  - src: https://github.com/namelivia/ansible-retroachievements-apprise
