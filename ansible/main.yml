@@ -166,7 +166,7 @@
         - db_user: "{{ pleroma_db_user }}"
         - db_pass: "{{ pleroma_db_pass }}"
         - db_name: "{{ pleroma_db_name }}"
-        - pleroma_config_path: "/vars/pleroma_config.exs"
+        - relay_list_path: "{{ pleroma_relay_list_path }}"
         - database_container_name: "{{ pleroma_database_container_name }}"
         - database_name: "{{ pleroma_db_name }}"
         - database_user: "{{ pleroma_db_user }}"
