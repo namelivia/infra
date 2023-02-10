@@ -72,3 +72,4 @@ most of them and costs have been ramping up so probably it will evolve to a chea
 - [miniflux](https://github.com/miniflux/miniflux): Rss server.
 - [pleroma](https://pleroma.social/): Social networking software.
 - [apprise](https://github.com/caronc/apprise): Notifications microservice.
+- [immich](https://github.com/immich-app/immich): Picture manager.
