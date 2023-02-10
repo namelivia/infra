@@ -374,4 +374,4 @@
         - server_ca: "{{ lookup('file', '/vars/server.crt') }}"
     - role: ansible-immich
       vars:
-        - gid: "1000"
+        - domain_name: "{{ immlich_domain_name }}"
