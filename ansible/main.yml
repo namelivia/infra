@@ -380,3 +380,6 @@
         - db_password: "{{ immlich_database_password }}"
         - db_database_name: "{{ immlich_database_name }}"
         - redis_hostname: "{{ immlich_redis_hostname }}"
+    - role: ansible-postgres
+      vars:
+        - database_container_name: "{{ postgres_database_container_name }}"
