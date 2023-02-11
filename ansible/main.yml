@@ -385,3 +385,5 @@
         - database_name: "{{ immlich_database_name }}"
         - redis_hostname: "{{ immlich_redis_hostname }}"
     - role: ansible-redis
+      vars:
+        - network_name: "{{ lenovo_redis_network_name }}"
