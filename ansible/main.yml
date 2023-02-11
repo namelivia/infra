@@ -372,14 +372,15 @@
         - openvpn_static_key: "{{ lookup('file', '/vars/server.key') }}"
         - client_certificate: "{{ lookup('file', '/vars/lenovo.crt') }}"
         - server_ca: "{{ lookup('file', '/vars/server.crt') }}"
+    - role: ansible-postgres
+      vars:
+        - database_container_name: "{{ lenovo_postgres_database_container_name }}"
+        - network_name: "{{ lenovo_postgres_database_network_name }}"
     - role: ansible-immich
       vars:
         - domain_name: "{{ immlich_domain_name }}"
-        - db_hostname: "{{ immlich_database_host }}"
-        - db_username: "{{ immlich_database_user }}"
-        - db_password: "{{ immlich_database_password }}"
-        - db_database_name: "{{ immlich_database_name }}"
+        - database_container_name: "{{ lenovo_postgres_database_container_name }}"
+        - database_user: "{{ immlich_database_user }}"
+        - database_password : "{{ immlich_database_password }}"
+        - database_name: "{{ immlich_database_name }}"
         - redis_hostname: "{{ immlich_redis_hostname }}"
-    - role: ansible-postgres
-      vars:
-        - database_container_name: "{{ postgres_database_container_name }}"
