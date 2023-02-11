@@ -94,3 +94,4 @@ roles:
   - src: https://github.com/namelivia/ansible-apprise
   - src: https://github.com/namelivia/ansible-retroachievements-apprise
   - src: https://github.com/namelivia/ansible-immich
+  - src: https://github.com/namelivia/ansible-redis
