@@ -379,7 +379,7 @@
     - role: ansible-immich
       vars:
         - domain_name: "{{ immlich_domain_name }}"
-        - database_container_name: "{{ lenovo_postgres_database_container_name }}"
+        - database_container_name: "postgres-{{ lenovo_postgres_database_container_name }}"
         - database_user: "{{ immlich_database_user }}"
         - database_password : "{{ immlich_database_password }}"
         - database_name: "{{ immlich_database_name }}"
