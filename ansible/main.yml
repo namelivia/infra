@@ -375,3 +375,8 @@
     - role: ansible-immich
       vars:
         - domain_name: "{{ immlich_domain_name }}"
+        - db_hostname: "{{ immlich_database_host }}"
+        - db_username: "{{ immlich_database_user }}"
+        - db_password: "{{ immlich_database_password }}"
+        - db_database_name: "{{ immlich_database_name }}"
+        - redis_hostname: "{{ immlich_redis_hostname }}"
