@@ -395,3 +395,6 @@
     - role: ansible-redis
       vars:
         - network_name: "{{ lenovo_redis_network_name }}"
+    - role: ansible-dashy
+      vars:
+        - domain_name: "{{ dashy_domain_name }}"
