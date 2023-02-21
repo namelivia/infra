@@ -63,7 +63,9 @@ roles:
   # - src: https://github.com/namelivia/ansible-prometheus
   # - src: https://github.com/namelivia/ansible-mailu
   - src: https://github.com/namelivia/ansible-common
-  - src: https://github.com/namelivia/ansible-pomerium
+  - name: ansible-pomerium
+    src: https://github.com/namelivia/ansible-pomerium
+    version: 0.0.1
 
   - name: ansible-ofelia
     src: https://github.com/namelivia/ansible-ofelia
