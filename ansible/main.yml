@@ -301,6 +301,9 @@
   vars_files:
     - /vars/variables.yml
   roles:
+    - role: ansible-reverse-proxy
+      vars:
+        - proxy_buffer_size: "8k"
     - role: ansible-pomerium
       vars:
         - application_name: "pomerium"
