@@ -100,4 +100,4 @@ roles:
   - src: https://github.com/namelivia/ansible-dashy
   - name: ansible-mealie-discord
     src: https://github.com/namelivia/ansible-mealie-discord
-    version: 0.0.1
+    version: 0.0.4
