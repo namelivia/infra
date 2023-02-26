@@ -27,7 +27,10 @@ roles:
     src: https://github.com/namelivia/ansible-humancoop-backend
     version: 1.0.3
 
-  - src: https://github.com/namelivia/ansible-backups
+  - name: ansible-backups
+    src: https://github.com/namelivia/ansible-backups
+    version: 0.0.2
+
   - src: https://github.com/namelivia/ansible-postgres
   - src: https://github.com/namelivia/ansible-fastapi
 
