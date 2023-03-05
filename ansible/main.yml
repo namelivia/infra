@@ -136,6 +136,7 @@
     - role: ansible-mealie
       vars:
         - domain_name: "{{ mealie_domain_name }}"
+        - jwt_auth_jwk_set_url: "{{ mealie_jwk_set_url }}"
     - role: ansible-humancoop
       vars:
         - domain_name: "{{ humancoop_domain_name }}"
