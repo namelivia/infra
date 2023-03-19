@@ -148,9 +148,6 @@
     - role: ansible-flappysonic
       vars:
         - domain_name: "{{ flappysonic_domain_name }}"
-    - role: ansible-nightcityride
-      vars:
-        - domain_name: "{{ nightcityride_domain_name }}"
     - role: ansible-thumbor
       vars:
         - domain_name: "{{ thumbor_domain_name }}"

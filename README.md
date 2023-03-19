@@ -40,7 +40,6 @@ most of them and costs have been ramping up so probably it will evolve to a chea
 
 - [humancoop](https://github.com/humancoop/web-vue): Runs the website for the organization [Humancoop](https://onghumancoop.org).
 - [flappysonic](https://github.com/namelivia/flappysonic/): Runs the website for the game [Flappysonic](https://flappysonic.namelivia.com).
-- [nightcityride](https://github.com/namelivia/nightcityride-server/): Runs the website for the artistic project [Nightcityride](https://nightcityride.namelivia.com).
 - [thumbor](https://github.com/thumbor/thumbor): [Image processing service](thumbor.org) for other elements on the infrastructure.
 - [tombraiderjs](https://github.com/namelivia/tomb-raider-js-demo-site): Runs the website for the demo of [TombRaiderJs](https://tombraiderjs.namelivia.com).
 - [movie quote twitter bot](https://github.com/namelivia/movie-quote-twitter-bot/): Runs [Battle Royale Movie Quotes Twitter Bot](https://twitter.com/BRBot_en).

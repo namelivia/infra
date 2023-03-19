@@ -40,10 +40,6 @@ roles:
 
   - src: https://github.com/namelivia/ansible-flappysonic
 
-  - name: ansible-nightcityride
-    src: https://github.com/namelivia/ansible-nightcityride
-    version: 0.1.0
-
   - src: https://github.com/namelivia/ansible-tombraiderjs
   - src: https://github.com/namelivia/ansible-thumbor
   - src: https://github.com/namelivia/ansible-thumbor2
