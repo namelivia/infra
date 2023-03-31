@@ -375,6 +375,7 @@
     - /vars/variables.yml
   roles:
     - role: ansible-reverse-proxy
+    - role: ansible-prometheus
     - role: ansible-openvpn-client
       vars:
         - vpn_endpoint: "{{ openvpn2_domain_name }}"
