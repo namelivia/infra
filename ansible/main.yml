@@ -15,6 +15,7 @@
   vars_files:
     - /vars/variables.yml
   roles:
+    - role: ansible-cadvisor
     - role: ansible-reverse-proxy
       vars:
         # READ: https://ghost.org/docs/faq/proxying-https-infinite-loops/

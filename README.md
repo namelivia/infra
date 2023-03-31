@@ -74,3 +74,4 @@ most of them and costs have been ramping up so probably it will evolve to a chea
 - [immich](https://github.com/immich-app/immich): Picture manager.
 - [dashy](https://github.com/lissy93/dashy): Dashboard.
 - [mealie-discord](https://github.com/namelivia/mealie-discord): Discord Bot to ask what's for lunch.
+- [cadvisor](https://github.com/google/cadvisor): cAdvisor to monitor containers

@@ -101,6 +101,7 @@ roles:
   - src: https://github.com/namelivia/ansible-immich
   - src: https://github.com/namelivia/ansible-redis
   - src: https://github.com/namelivia/ansible-dashy
+  - src: https://github.com/namelivia/ansible-cadvisor
   - name: ansible-mealie-discord
     src: https://github.com/namelivia/ansible-mealie-discord
     version: 0.0.4
