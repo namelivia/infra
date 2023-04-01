@@ -376,6 +376,8 @@
   roles:
     - role: ansible-reverse-proxy
     - role: ansible-prometheus
+      vars:
+        - domain_name: "{{ prometheus_domain_name }}"
     - role: ansible-openvpn-client
       vars:
         - vpn_endpoint: "{{ openvpn2_domain_name }}"
