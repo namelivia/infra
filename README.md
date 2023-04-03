@@ -76,3 +76,4 @@ most of them and costs have been ramping up so probably it will evolve to a chea
 - [mealie-discord](https://github.com/namelivia/mealie-discord): Discord Bot to ask what's for lunch.
 - [cadvisor](https://github.com/google/cadvisor): cAdvisor to monitor containers.
 - [prometheus](https://github.com/prometheus/prometheus): Prometheus to gather metrics.
+- [grafana](https://grafana.com/): Grafana to display metrics.

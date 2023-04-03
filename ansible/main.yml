@@ -375,6 +375,9 @@
     - /vars/variables.yml
   roles:
     - role: ansible-reverse-proxy
+    - role: ansible-grafana
+      vars:
+        - domain_name: "{{ grafana_domain_name }}"
     - role: ansible-prometheus
       vars:
         - domain_name: "{{ prometheus_domain_name }}"
