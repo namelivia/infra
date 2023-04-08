@@ -102,6 +102,7 @@
   vars_files:
     - /vars/variables.yml
   roles:
+    - role: ansible-cadvisor
     - role: ansible-reverse-proxy
     - role: ansible-openvpn-client
       vars:
@@ -178,6 +179,7 @@
   vars_files:
     - /vars/variables.yml
   roles:
+    - role: ansible-cadvisor
     - role: ansible-reverse-proxy
     - role: ansible-openvpn-client
       vars:
@@ -300,6 +302,7 @@
   vars_files:
     - /vars/variables.yml
   roles:
+    - role: ansible-cadvisor
     - role: ansible-reverse-proxy
       vars:
         - proxy_buffer_size: "8k"
