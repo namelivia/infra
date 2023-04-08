@@ -378,6 +378,7 @@
     - /vars/variables.yml
   roles:
     - role: ansible-reverse-proxy
+    - role: ansible-cadvisor
     - role: ansible-grafana
       vars:
         - domain_name: "{{ grafana_domain_name }}"
