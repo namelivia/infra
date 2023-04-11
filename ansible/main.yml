@@ -37,10 +37,12 @@
         - sentry_url: "{{ python_sentry_url }}"
     - role: ansible-movie-quote-twitter-bot
       vars:
+        - twitter_enabled: "{{ movie_bot_twitter_enabled }}"
         - twitter_consumer_key: "{{ movie_bot_twitter_consumer_key }}"
         - twitter_consumer_secret: "{{ movie_bot_twitter_consumer_secret }}"
         - twitter_access_token_key: "{{ movie_bot_twitter_access_token_key }}"
         - twitter_access_token_secret: "{{ movie_bot_twitter_access_token_secret }}"
+        - mastodon_enabled: "{{ movie_bot_mastodon_enabled }}"
         - mastodon_client_id: "{{ movie_bot_mastodon_client_id }}"
         - mastodon_client_secret: "{{ movie_bot_mastodon_client_secret }}"
         - mastodon_api_base_url: "{{ movie_bot_mastodon_api_base_url }}"
@@ -401,7 +403,7 @@
         - domain_name: "{{ immlich_domain_name }}"
         - database_container_name: "postgres-{{ lenovo_postgres_database_container_name }}"
         - database_user: "{{ immlich_database_user }}"
-        - database_password : "{{ immlich_database_password }}"
+        - database_password: "{{ immlich_database_password }}"
         - database_name: "{{ immlich_database_name }}"
         - redis_hostname: "{{ immlich_redis_hostname }}"
     - role: ansible-redis
