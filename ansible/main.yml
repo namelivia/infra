@@ -68,7 +68,7 @@
 
     - role: ansible-reverse-proxy
       vars:
-        - client_max_body_size: "100mb"
+        - client_max_body_sizes: "{{ raspberry_proxy_client_max_body_sizes }}"
 
     - role: ansible-openvpn-client
       vars:
@@ -107,7 +107,7 @@
     - role: ansible-cadvisor
     - role: ansible-reverse-proxy
       vars:
-        - client_max_body_size: "100mb"
+        - client_max_body_sizes: "{{ azure_proxy_client_max_body_sizes }}"
     - role: ansible-openvpn-client
       vars:
         - vpn_endpoint: "{{ openvpn2_domain_name }}"
@@ -310,6 +310,7 @@
     - role: ansible-reverse-proxy
       vars:
         - proxy_buffer_size: "8k"
+        - client_max_body_sizes: "{{ bastion_proxy_client_max_body_sizes }}"
     - role: ansible-pomerium
       vars:
         - application_name: "pomerium"
