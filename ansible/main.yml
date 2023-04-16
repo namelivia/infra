@@ -106,6 +106,8 @@
   roles:
     - role: ansible-cadvisor
     - role: ansible-reverse-proxy
+      vars:
+        - client_max_body_size: "100mb"
     - role: ansible-openvpn-client
       vars:
         - vpn_endpoint: "{{ openvpn2_domain_name }}"
