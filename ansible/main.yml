@@ -143,6 +143,7 @@
       vars:
         - domain_name: "{{ mealie_domain_name }}"
         - jwt_auth_jwk_set_url: "{{ mealie_jwk_set_url }}"
+        - log_level: "{{ mealie_log_level }}"
     - role: ansible-flappysonic
       vars:
         - domain_name: "{{ flappysonic_domain_name }}"
