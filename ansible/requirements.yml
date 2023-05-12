@@ -49,7 +49,7 @@ roles:
 
   - name: ansible-ghost
     src: https://github.com/namelivia/ansible-ghost
-    version: 1.2.11
+    version: 1.2.12
 
   - src: https://github.com/namelivia/ansible-journaling-service
   - src: https://github.com/namelivia/ansible-user-info-service
