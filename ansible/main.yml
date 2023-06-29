@@ -384,6 +384,8 @@
         - admin_password: "{{ grafana_admin_password }}"
         - user: "{{ grafana_user }}"
         - group: "{{ grafana_group }}"
+        - uid: "{{ grafana_uid }}"
+        - gid: "{{ grafana_gid }}"
     - role: ansible-prometheus
       vars:
         - domain_name: "{{ prometheus_domain_name }}"
