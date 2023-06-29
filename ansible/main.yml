@@ -380,6 +380,8 @@
     - role: ansible-grafana
       vars:
         - domain_name: "{{ grafana_domain_name }}"
+        - admin_user: "{{ grafana_admin_user }}"
+        - admin_password: "{{ grafana_admin_password }}"
     - role: ansible-prometheus
       vars:
         - domain_name: "{{ prometheus_domain_name }}"
