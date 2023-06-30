@@ -386,6 +386,7 @@
         - group: "{{ grafana_group }}"
         - uid: "{{ grafana_uid }}"
         - gid: "{{ grafana_gid }}"
+        - grafana_config_folder: /vars/grafana
     - role: ansible-prometheus
       vars:
         - domain_name: "{{ prometheus_domain_name }}"
