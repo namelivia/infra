@@ -273,6 +273,9 @@
     - role: ansible-retroachievements-apprise
       vars:
         - notifications_service_endpoint: "{{ retroachievements_notifications_service_endpoint }}"
+    - role: ansible-recipe-suggestions
+      vars:
+        - notifications_service_endpoint: "{{ recipe_suggestions_notifications_service_endpoint }}"
     - role: ansible-journaling-service
       vars:
         - database_url: "{{ journaling_database_url }}"

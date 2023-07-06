@@ -92,6 +92,7 @@ roles:
   - src: https://github.com/namelivia/ansible-gtd-caldav
   - src: https://github.com/namelivia/ansible-apprise
   - src: https://github.com/namelivia/ansible-retroachievements-apprise
+  - src: https://github.com/namelivia/ansible-recipe-suggestions
   - src: https://github.com/namelivia/ansible-immich
   - src: https://github.com/namelivia/ansible-redis
   - src: https://github.com/namelivia/ansible-dashy
