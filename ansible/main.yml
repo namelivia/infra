@@ -380,6 +380,9 @@
   roles:
     - role: ansible-reverse-proxy
     - role: ansible-cadvisor
+    - role: ansible-loki
+      vars:
+        - domain_name: "{{ loki_domain_name }}"
     - role: ansible-grafana
       vars:
         - domain_name: "{{ grafana_domain_name }}"

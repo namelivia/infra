@@ -99,6 +99,7 @@ roles:
   - src: https://github.com/namelivia/ansible-cadvisor
   - src: https://github.com/namelivia/ansible-prometheus
   - src: https://github.com/namelivia/ansible-grafana
+  - src: https://github.com/namelivia/ansible-loki
   - name: ansible-mealie-discord
     src: https://github.com/namelivia/ansible-mealie-discord
     version: 0.0.4

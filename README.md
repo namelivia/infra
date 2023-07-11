@@ -76,3 +76,4 @@ most of them and costs have been ramping up so probably it will evolve to a chea
 - [cadvisor](https://github.com/google/cadvisor): cAdvisor to monitor containers.
 - [prometheus](https://github.com/prometheus/prometheus): Prometheus to gather metrics.
 - [grafana](https://grafana.com/): Grafana to display metrics.
+- [loki](https://grafana.com/oss/loki/): Loki to store logs.
