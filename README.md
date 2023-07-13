@@ -63,6 +63,7 @@ most of them and costs have been ramping up so probably it will evolve to a chea
 - [mealie](https://github.com/hay-kot/mealie): [Mealie](https://hay-kot.github.io/mealie/) is a self hosted recipe manager.
 - [jackett](https://github.com/Jackett/Jackett): Tracker proxy server
 - [sonarr](https://github.com/Sonarr/Sonarr): [Sonarr](https://github.com/Sonarr/Sonarr) is a series collection manager.
+- [lidarr](https://github.com/Lidarr/Lidarr): [Lidarr](https://github.com/Lidarr/Lidarr) is a music collection manager.
 - [radarr](https://github.com/Radarr/Radarr): [Radarr](https://radarr.video/) is a movie colection manager.
 - [deluge](https://github.com/deluge-torrent/deluge): [Deluge](https://deluge-torrent.org) is a torrent client.
 - [amule](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwjsi-SShNP2AhUMMewKHRE3BawQFnoECAYQAQ&url=https%3A%2F%2Fgithub.com%2Famule-project%2Famule&usg=AOvVaw08pianVkOSDYC8tRsyaNgG): [Amule](https://www.amule.org/) is an EDonkey network client.

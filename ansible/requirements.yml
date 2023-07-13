@@ -73,6 +73,7 @@ roles:
   - src: https://github.com/namelivia/ansible-deluge
   - src: https://github.com/namelivia/ansible-jackett
   - src: https://github.com/namelivia/ansible-sonarr
+  - src: https://github.com/namelivia/ansible-lidarr
   - src: https://github.com/namelivia/ansible-bazarr
   - src: https://github.com/namelivia/ansible-radarr
   - src: https://github.com/namelivia/ansible-amule

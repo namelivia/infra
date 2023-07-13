@@ -422,3 +422,4 @@
       vars:
         - domain_name: "{{ dashy_domain_name }}"
     - role: ansible-mealie-discord
+    - role: ansible-lidarr
