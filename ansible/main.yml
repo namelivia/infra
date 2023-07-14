@@ -423,3 +423,8 @@
         - domain_name: "{{ dashy_domain_name }}"
     - role: ansible-mealie-discord
     - role: ansible-lidarr
+      vars:
+        - user: "{{ lidarr_user }}"
+        - group: "{{ lidarr_group }}"
+        - uid: "{{ lidarr_uid }}"
+        - gid: "{{ lidarr_gid }}"
