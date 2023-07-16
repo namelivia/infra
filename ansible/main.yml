@@ -431,6 +431,6 @@
 
     - role: ansible-samba-mounts
       vars:
-        - gid: "{{ samba_gid }}"
-        - uid: "{{ samba_uid }}"
+        - gid: "{{ lidarr_gid }}"
+        - uid: "{{ lidarr_uid }}"
         - samba_mounts: "{{ lidarr_samba_mounts }}"
