@@ -428,3 +428,9 @@
         - group: "{{ lidarr_group }}"
         - uid: "{{ lidarr_uid }}"
         - gid: "{{ lidarr_gid }}"
+
+    - role: ansible-samba-mounts
+      vars:
+        - gid: "{{ samba_gid }}"
+        - uid: "{{ samba_uid }}"
+        - samba_mounts: "{{ lidarr_samba_mounts }}"
