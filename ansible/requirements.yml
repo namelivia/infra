@@ -30,7 +30,7 @@ roles:
 
   - name: ansible-anki
     src: https://github.com/namelivia/ansible-anki
-    version: 1.0.0
+    version: 1.2.0
 
   - src: https://github.com/namelivia/ansible-flappysonic
 
