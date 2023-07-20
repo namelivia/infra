@@ -15,7 +15,7 @@ roles:
 
   - name: ansible-movie-quote-twitter-bot
     src: https://github.com/namelivia/ansible-movie-quote-twitter-bot
-    version: 1.0.4
+    version: 1.0.5
 
   - name: ansible-like-and-share-twitter-bot
     src: https://github.com/namelivia/ansible-like-and-share-twitter-bot
