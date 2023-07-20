@@ -45,7 +45,7 @@ roles:
 
   - name: ansible-nextcloud
     src: https://github.com/namelivia/ansible-nextcloud
-    version: 2.0.4
+    version: 2.0.5
 
   - name: ansible-ghost
     src: https://github.com/namelivia/ansible-ghost
