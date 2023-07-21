@@ -396,6 +396,8 @@
     - role: ansible-prometheus
       vars:
         - domain_name: "{{ prometheus_domain_name }}"
+        - gid: "{{ prometheus_gid }}"
+        - uid: "{{ prometheus_uid }}"
     - role: ansible-openvpn-client
       vars:
         - vpn_endpoint: "{{ openvpn2_domain_name }}"
