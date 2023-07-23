@@ -121,6 +121,7 @@
     - role: ansible-kimai
       vars:
         - domain_name: "{{ kimai_domain_name }}"
+        - host_port: "{{ kimai_host_port }}"
         - database_name: "{{ kimai_database_name }}"
         - database_user: "{{ kimai_database_user }}"
         - database_password: "{{ kimai_database_password }}"
@@ -131,17 +132,17 @@
         - mysql_root_password: "{{ kimai_mysql_root_password }}"
     - role: ansible-anki
       vars:
-        - domain_name: "{{ anki_domain_name }}"
-    - role: ansible-gallery-client
-      vars:
-        - domain_name: "{{ gallery_client_2_domain_name }}"
-        - gallery_api_endpoint: "{{ gallery_api_endpoint_2 }}"
-    - role: ansible-gallery-server
-      vars:
-        - domain_name: "{{ gallery_server_2_domain_name }}"
-        - aws_bucket: "{{ aws_bucket_gallery_server_2 }}"
-        - aws_dynamo_table: "{{ aws_dynamo_table_2 }}"
-        - subpath: "{{ gallery_server_2_subpath }}"
+        - host_port: "{{ anki_host_port }}"
+#    - role: ansible-gallery-client
+#      vars:
+#        - host_port: "{{ gallery_client_2_host_port }}"
+#        - gallery_api_endpoint: "{{ gallery_api_endpoint_2 }}"
+#    - role: ansible-gallery-server
+#      vars:
+#        - domain_name: "{{ gallery_server_2_domain_name }}"
+#        - host_port: "{{ gallery_server_2_host_port }}"
+#        - aws_bucket: "{{ aws_bucket_gallery_server_2 }}"
+#        - aws_dynamo_table: "{{ aws_dynamo_table_2 }}"
     - role: ansible-mealie
       vars:
         - domain_name: "{{ mealie_domain_name }}"
@@ -149,13 +150,13 @@
         - log_level: "{{ mealie_log_level }}"
     - role: ansible-flappysonic
       vars:
-        - domain_name: "{{ flappysonic_domain_name }}"
+        - host_port: "{{ flappysonic_host_port }}"
     - role: ansible-thumbor
       vars:
-        - domain_name: "{{ thumbor_domain_name }}"
+        - host_port: "{{ thumbor_host_port }}"
     - role: ansible-tombraiderjs
       vars:
-        - domain_name: "{{ tombraiderjs_domain_name }}"
+        - host_port: "{{ tombraiderjs_host_port }}"
     - role: ansible-pleroma
       vars:
         - domain_name: "{{ pleroma_domain_name }}"
@@ -173,6 +174,7 @@
         - database_password: "{{ pleroma_db_pass }}"
         - dump_day: 3
         - backup_day: 5
+        - host_port: "{{ pleroma_host_port }}"
 
 - hosts: lightsail
   become: true
