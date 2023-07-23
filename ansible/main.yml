@@ -83,7 +83,7 @@
     - role: ansible-nextcloud
       vars:
         - app_container_name: nextcloud-app
-        - domain_name: "{{ nextcloud_domain_name }}"
+        - host_port: "{{ nextcloud_host_port }}"
         - database_container_name: nextcloud-database
         - database_name: "{{ nextcloud_database_name }}"
         - database_user: "{{ nextcloud_database_user }}"
