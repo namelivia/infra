@@ -146,6 +146,7 @@
     - role: ansible-mealie
       vars:
         - domain_name: "{{ mealie_domain_name }}"
+        - host_port: "{{ mealie_host_port }}"
         - jwt_auth_jwk_set_url: "{{ mealie_jwk_set_url }}"
         - log_level: "{{ mealie_log_level }}"
     - role: ansible-flappysonic
