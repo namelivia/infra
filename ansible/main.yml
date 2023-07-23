@@ -197,6 +197,7 @@
         - host_port: "{{ gallery_client_host_port }}"
     - role: ansible-gallery-server
       vars:
+        - domain_name: "{{ gallery_server_domain_name }}"
         - host_port: "{{ gallery_server_host_port }}"
     - ansible-ofelia
     - role: ansible-apprise
