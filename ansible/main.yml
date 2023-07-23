@@ -194,46 +194,43 @@
         - server_ca: "{{ lookup('file', '/vars/server.crt') }}"
     - role: ansible-gallery-client
       vars:
-        - domain_name: "{{ gallery_client_domain_name }}"
+        - host_port: "{{ gallery_client_host_port }}"
     - role: ansible-gallery-server
       vars:
-        - domain_name: "{{ gallery_server_domain_name }}"
-        - subpath: "{{ gallery_server_subpath }}"
+        - host_port: "{{ gallery_server_host_port }}"
     - ansible-ofelia
     - role: ansible-apprise
       vars:
         - apprise_config_folder: /vars/apprise
     - role: ansible-plants-client
       vars:
-        - domain_name: "{{ plants_client_domain_name }}"
+        - host_port: "{{ plants_client_host_port }}"
     - role: ansible-postgres
       vars:
         - database_container_name: "{{ postgres_database_container_name }}"
     - role: ansible-garments-client
       vars:
-        - domain_name: "{{ garments_client_domain_name }}"
+        - host_port: "{{ garments_client_host_port }}"
     - role: ansible-itemtree-client
       vars:
-        - domain_name: "{{ itemtree_client_domain_name }}"
+        - host_port: "{{ itemtree_client_host_port }}"
     - role: ansible-expenses-client
       vars:
-        - domain_name: "{{ expenses_client_domain_name }}"
+        - host_port: "{{ expenses_client_host_port }}"
     - role: ansible-garments-server
       vars:
         - database_url: "{{ garments_database_url }}"
         - database_container_name: "{{ garments_database_container_name }}"
         - database_name: "{{ garments_database_name }}"
-        - domain_name: "{{ garments_server_domain_name }}"
-        - subpath: "{{ garments_server_subpath }}"
+        - host_port: "{{ garments_server_host_port }}"
         - database_user: "{{ garments_database_user }}"
         - database_password: "{{ garments_database_password }}"
         - dump_day: 4
     - role: ansible-plants-server
       vars:
         - database_url: "{{ plants_database_url }}"
-        - domain_name: "{{ plants_server_domain_name }}"
+        - host_port: "{{ plants_server_host_port }}"
         - database_container_name: "{{ plants_database_container_name }}"
-        - subpath: "{{ plants_server_subpath }}"
         - database_name: "{{ plants_database_name }}"
         - database_user: "{{ plants_database_user }}"
         - database_password: "{{ plants_database_password }}"
@@ -242,7 +239,7 @@
     - role: ansible-miniflux
       vars:
         - database_url: "{{ miniflux_database_url }}"
-        - domain_name: "{{ miniflux_domain_name }}"
+        - host_port: "{{ miniflux_host_port }}"
         - database_container_name: "{{ miniflux_database_container_name }}"
         - database_name: "{{ miniflux_database_name }}"
         - database_user: "{{ miniflux_database_user }}"
@@ -253,8 +250,7 @@
     - role: ansible-itemtree-server
       vars:
         - database_url: "{{ itemtree_database_url }}"
-        - domain_name: "{{ itemtree_server_domain_name }}"
-        - subpath: "{{ itemtree_server_subpath }}"
+        - host_port: "{{ itemtree_server_host_port }}"
         - database_container_name: "{{ itemtree_database_container_name }}"
         - database_name: "{{ itemtree_database_name }}"
         - database_user: "{{ itemtree_database_user }}"
@@ -263,9 +259,8 @@
     - role: ansible-expenses-server
       vars:
         - database_url: "{{ expenses_database_url }}"
-        - domain_name: "{{ expenses_server_domain_name }}"
+        - host_port: "{{ expenses_server_host_port }}"
         - database_container_name: "{{ expenses_database_container_name }}"
-        - subpath: "{{ expenses_server_subpath }}"
         - database_name: "{{ expenses_database_name }}"
         - database_user: "{{ expenses_database_user }}"
         - database_password: "{{ expenses_database_password }}"
