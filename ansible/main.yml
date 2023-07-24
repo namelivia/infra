@@ -68,10 +68,6 @@
   roles:
 
     - role: prometheus.prometheus.node_exporter
-    - role: ansible-reverse-proxy
-      vars:
-        - client_max_body_sizes: "{{ raspberry_proxy_client_max_body_sizes }}"
-
     - role: ansible-openvpn-client
       vars:
         - vpn_endpoint: "{{ openvpn2_domain_name }}"
@@ -108,9 +104,6 @@
   roles:
     - role: prometheus.prometheus.node_exporter
     - role: ansible-cadvisor
-    - role: ansible-reverse-proxy
-      vars:
-        - client_max_body_sizes: "{{ azure_proxy_client_max_body_sizes }}"
     - role: ansible-openvpn-client
       vars:
         - vpn_endpoint: "{{ openvpn2_domain_name }}"
@@ -184,7 +177,6 @@
   roles:
     - role: prometheus.prometheus.node_exporter
     - role: ansible-cadvisor
-    - role: ansible-reverse-proxy
     - role: ansible-openvpn-client
       vars:
         - vpn_endpoint: "{{ openvpn2_domain_name }}"
@@ -384,7 +376,6 @@
     - /vars/variables.yml
   roles:
     - role: prometheus.prometheus.node_exporter
-    - role: ansible-reverse-proxy
     - role: ansible-cadvisor
     - role: ansible-loki
       vars:
