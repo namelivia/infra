@@ -388,10 +388,10 @@
     - role: ansible-cadvisor
     - role: ansible-loki
       vars:
-        - domain_name: "{{ loki_domain_name }}"
+        - host_port: "{{ loki_host_port }}"
     - role: ansible-grafana
       vars:
-        - domain_name: "{{ grafana_domain_name }}"
+        - host_port: "{{ grafana_host_port }}"
         - admin_user: "{{ grafana_admin_user }}"
         - admin_password: "{{ grafana_admin_password }}"
         - user: "{{ grafana_user }}"
@@ -401,7 +401,7 @@
         - grafana_config_folder: /vars/grafana
     - role: ansible-prometheus
       vars:
-        - domain_name: "{{ prometheus_domain_name }}"
+        - host_port: "{{ prometheus_host_port }}"
         - gid: "{{ prometheus_gid }}"
         - uid: "{{ prometheus_uid }}"
     - role: ansible-openvpn-client
@@ -417,18 +417,18 @@
         - network_name: "{{ lenovo_postgres_database_network_name }}"
     - role: ansible-immich
       vars:
-        - domain_name: "{{ immlich_domain_name }}"
+        - host_port: "{{ immich_host_port }}"
         - database_container_name: "postgres-{{ lenovo_postgres_database_container_name }}"
-        - database_user: "{{ immlich_database_user }}"
-        - database_password: "{{ immlich_database_password }}"
-        - database_name: "{{ immlich_database_name }}"
-        - redis_hostname: "{{ immlich_redis_hostname }}"
+        - database_user: "{{ immich_database_user }}"
+        - database_password: "{{ immich_database_password }}"
+        - database_name: "{{ immich_database_name }}"
+        - redis_hostname: "{{ immich_redis_hostname }}"
     - role: ansible-redis
       vars:
         - network_name: "{{ lenovo_redis_network_name }}"
     - role: ansible-dashy
       vars:
-        - domain_name: "{{ dashy_domain_name }}"
+        - host_port: "{{ dashy_host_port }}"
     - role: ansible-mealie-discord
     - role: ansible-samba-mounts
       vars:
