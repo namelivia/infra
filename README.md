@@ -13,9 +13,9 @@ These are some of the key features that shape the project:
 
 ## Features
 
-Monitoring integrated in Cloudwatch
+Monitoring integrated in Grafana
 
-![screenshot](https://user-images.githubusercontent.com/1571416/194699760-6b96238c-2835-4b47-9288-bbcc97300862.png)
+![screenshot](https://github.com/namelivia/infra/assets/1571416/e22bf156-0fd5-466e-bcea-c9e0479bf42a)
 
 Automatic backups in S3
 
@@ -24,6 +24,8 @@ Automatic backups in S3
 Endpoint monitoring using UptimeRobot
 
 ![screenshot](https://user-images.githubusercontent.com/1571416/194699867-1e3db96f-7181-4616-820e-1549bd6ca430.png)
+
+Authenticated applications managed by [Pomerium](https://www.pomerium.com)
 
 ## Usage
 
