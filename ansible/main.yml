@@ -175,6 +175,7 @@
   vars_files:
     - /vars/variables.yml
   roles:
+    - role: ansible-iptables
     - role: prometheus.prometheus.node_exporter
     - role: ansible-cadvisor
     - role: ansible-openvpn-client
