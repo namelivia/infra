@@ -176,6 +176,8 @@
     - /vars/variables.yml
   roles:
     - role: ansible-iptables
+      vars:
+        - exposed_ports: "{{ lightsail_exposed_ports }}"
     - role: prometheus.prometheus.node_exporter
     - role: ansible-cadvisor
     - role: ansible-openvpn-client
