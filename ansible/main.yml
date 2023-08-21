@@ -151,24 +151,6 @@
     - role: ansible-tombraiderjs
       vars:
         - host_port: "{{ tombraiderjs_host_port }}"
-    - role: ansible-pleroma
-      vars:
-        - domain_name: "{{ pleroma_domain_name }}"
-        - docker_network_name: "{{ pleroma_network_name }}"
-        - instance_name: "{{ pleroma_instance_name }}"
-        - admin_mail: "{{ pleroma_admin_mail }}"
-        - notify_mail: "{{ pleroma_notify_mail }}"
-        - db_user: "{{ pleroma_db_user }}"
-        - db_pass: "{{ pleroma_db_pass }}"
-        - db_name: "{{ pleroma_db_name }}"
-        - relay_list_path: "{{ pleroma_relay_list_path }}"
-        - database_container_name: "{{ pleroma_database_container_name }}"
-        - database_name: "{{ pleroma_db_name }}"
-        - database_user: "{{ pleroma_db_user }}"
-        - database_password: "{{ pleroma_db_pass }}"
-        - dump_day: 3
-        - backup_day: 5
-        - host_port: "{{ pleroma_host_port }}"
 
 - hosts: lightsail
   become: true
@@ -436,3 +418,21 @@
         - uid: "{{ lidarr_uid }}"
         - gid: "{{ lidarr_gid }}"
     - role: ansible-funkwhale
+    - role: ansible-pleroma
+      vars:
+        - domain_name: "{{ pleroma_domain_name }}"
+        - docker_network_name: "{{ pleroma_network_name }}"
+        - instance_name: "{{ pleroma_instance_name }}"
+        - admin_mail: "{{ pleroma_admin_mail }}"
+        - notify_mail: "{{ pleroma_notify_mail }}"
+        - db_user: "{{ pleroma_db_user }}"
+        - db_pass: "{{ pleroma_db_pass }}"
+        - db_name: "{{ pleroma_db_name }}"
+        - relay_list_path: "{{ pleroma_relay_list_path }}"
+        - database_container_name: "postgres-{{ lenovo_postgres_database_container_name }}"
+        - database_name: "{{ pleroma_db_name }}"
+        - database_user: "{{ pleroma_db_user }}"
+        - database_password: "{{ pleroma_db_pass }}"
+        - dump_day: 3
+        - backup_day: 5
+        - host_port: "{{ pleroma_host_port }}"
