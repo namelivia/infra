@@ -426,7 +426,7 @@
         - admin_mail: "{{ pleroma_admin_mail }}"
         - notify_mail: "{{ pleroma_notify_mail }}"
         - database_user: "{{ pleroma_db_user }}"
-        - database_pass: "{{ pleroma_db_pass }}"
+        - database_password: "{{ pleroma_db_pass }}"
         - database_name: "{{ pleroma_db_name }}"
         - relay_list_path: "{{ pleroma_relay_list_path }}"
         - database_container_name: "postgres-{{ lenovo_postgres_database_container_name }}"
