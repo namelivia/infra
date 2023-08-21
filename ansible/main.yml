@@ -433,7 +433,7 @@
         - database_name: "{{ pleroma_db_name }}"
         - database_user: "{{ pleroma_db_user }}"
         - database_password: "{{ pleroma_db_pass }}"
-        - user: "{{ plerome_user }}"
+        - user: "{{ pleroma_user }}"
         - group: "{{ pleroma_group }}"
         - uid: "{{ pleroma_uid }}"
         - gid: "{{ pleroma_gid }}"
