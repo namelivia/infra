@@ -90,7 +90,7 @@ roles:
   - src: https://github.com/namelivia/ansible-reverse-proxy
   - name: ansible-pleroma
     src: https://github.com/namelivia/ansible-pleroma
-    version: 0.0.16
+    version: 0.0.18
   - src: https://github.com/namelivia/ansible-gtd-caldav
   - src: https://github.com/namelivia/ansible-apprise
   - src: https://github.com/namelivia/ansible-retroachievements-apprise
