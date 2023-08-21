@@ -433,6 +433,10 @@
         - database_name: "{{ pleroma_db_name }}"
         - database_user: "{{ pleroma_db_user }}"
         - database_password: "{{ pleroma_db_pass }}"
+        - user: "{{ plerome_user }}"
+        - group: "{{ pleroma_group }}"
+        - uid: "{{ pleroma_uid }}"
+        - gid: "{{ pleroma_gid }}"
         - dump_day: 3
         - backup_day: 5
         - host_port: "{{ pleroma_host_port }}"
