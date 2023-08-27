@@ -102,7 +102,9 @@ roles:
   - name: ansible-prometheus
     src: https://github.com/namelivia/ansible-prometheus
     version: 0.0.5
-  - src: https://github.com/namelivia/ansible-grafana
+  - name: ansible-grafana
+    src: https://github.com/namelivia/ansible-grafana
+    version: 0.0.4
   - src: https://github.com/namelivia/ansible-loki
   - name: ansible-mealie-discord
     src: https://github.com/namelivia/ansible-mealie-discord
