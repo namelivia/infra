@@ -424,6 +424,9 @@
         - gid: "{{ lidarr_gid }}"
     - role: ansible-funkwhale
     - role: ansible-homebank-report
+      vars:
+        - graphs_path: "{{ homebank_graphs_path }}"
+        - xml_file: "{{ homebank_xml_file }}"
     - role: ansible-pleroma
       vars:
         - domain_name: "{{ pleroma_domain_name }}"
