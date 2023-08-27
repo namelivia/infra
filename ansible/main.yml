@@ -176,7 +176,9 @@
       vars:
         - domain_name: "{{ gallery_server_domain_name }}"
         - host_port: "{{ gallery_server_host_port }}"
-    - ansible-ofelia
+    - role: ansible-ofelia
+      vars:
+        - ofelia_config_path: "{{ ofelia_lightsail_config_path }}"
     - role: ansible-apprise
       vars:
         - apprise_config_folder: /vars/apprise
@@ -362,6 +364,9 @@
   roles:
     - role: prometheus.prometheus.node_exporter
     - role: ansible-cadvisor
+    - role: ansible-ofelia
+      vars:
+        - ofelia_config_path: "{{ ofelia_lenovo_config_path }}"
     - role: ansible-loki
       vars:
         - host_port: "{{ loki_host_port }}"
