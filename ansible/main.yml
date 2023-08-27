@@ -418,6 +418,7 @@
         - uid: "{{ lidarr_uid }}"
         - gid: "{{ lidarr_gid }}"
     - role: ansible-funkwhale
+    - role: ansible-homebank-report
     - role: ansible-pleroma
       vars:
         - domain_name: "{{ pleroma_domain_name }}"

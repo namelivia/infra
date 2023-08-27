@@ -109,3 +109,4 @@ roles:
     version: 0.0.5
   - src: https://github.com/namelivia/ansible-iptables
   - src: https://github.com/namelivia/ansible-funkwhale
+  - src: https://github.com/namelivia/ansible-homebank-report

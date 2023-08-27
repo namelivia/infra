@@ -81,3 +81,4 @@ most of them and costs have been ramping up so probably it will evolve to a chea
 - [grafana](https://grafana.com/): Grafana to display metrics.
 - [loki](https://grafana.com/oss/loki/): Loki to store logs.
 - [funkwhale](https://funkwhale.audio/): Funkwhale for listening to music.
+- [homebank-report](https://github.com/namelivia/homebank-report): Generate a report from a HomeBank file.
