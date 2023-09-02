@@ -427,7 +427,8 @@
       vars:
         - graphs_path: "{{ homebank_graphs_path }}"
         - xml_file: "{{ homebank_xml_file }}"
-        - notifications_service_endpoint: "{{ homebank_report_notifications_service_endpoint }}"
+        - notifications_config_path: "{{ homebank_report_notifications_config_path }}"
+        - notifications_config_file: "{{ homebank_report_notifications_config_file }}"
     - role: ansible-pleroma
       vars:
         - domain_name: "{{ pleroma_domain_name }}"
