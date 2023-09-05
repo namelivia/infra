@@ -458,3 +458,5 @@
         - database_password: "{{ babybuddy_database_password }}"
         - database_name: "{{ babybuddy_database_name }}"
         - database_container_name: "postgres-{{ lenovo_postgres_database_container_name }}"
+        - dump_day: 2
+        - backup_day: 4
