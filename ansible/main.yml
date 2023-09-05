@@ -453,3 +453,4 @@
         - uid: "{{ babybuddy_uid }}"
         - gid: "{{ babybuddy_gid }}"
         - url: "{{ babybuddy_url }}"
+        - host_port: "{{ babybuddy_host_port }}"
