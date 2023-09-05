@@ -448,3 +448,8 @@
         - dump_day: 3
         - backup_day: 5
         - host_port: "{{ pleroma_host_port }}"
+    - role: ansible-babybuddy
+      vars:
+        - uid: "{{ babybuddy_uid }}"
+        - gid: "{{ babybuddy_gid }}"
+        - url: "{{ babybuddy_url }}"
