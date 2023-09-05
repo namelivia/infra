@@ -454,3 +454,7 @@
         - gid: "{{ babybuddy_gid }}"
         - url: "{{ babybuddy_url }}"
         - host_port: "{{ babybuddy_host_port }}"
+        - database_user: "{{ babybuddy_database_user}}"
+        - database_password: "{{ babybuddy_database_password }}"
+        - database_name: "{{ babybuddy_database_name }}"
+        - database_container_name: "postgres-{{ lenovo_postgres_database_container_name }}"
