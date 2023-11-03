@@ -460,3 +460,6 @@
         - database_container_name: "postgres-{{ lenovo_postgres_database_container_name }}"
         - dump_day: 2
         - backup_day: 4
+    - role: ansible-tink-homebank
+      vars:
+        - notifications_service_endpoint: "{{ tink_notifications_service_endpoint }}"

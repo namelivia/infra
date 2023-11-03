@@ -83,3 +83,4 @@ most of them and costs have been ramping up so probably it will evolve to a chea
 - [funkwhale](https://funkwhale.audio/): Funkwhale for listening to music.
 - [homebank-report](https://github.com/namelivia/homebank-report): Generate a report from a HomeBank file.
 - [babybuddy](https://github.com/babybuddy/babybuddy): Baby habits tracker.
+- [tink-homebank](https://github.com/namelivia/tink-homebank): Retrieve information from Tink and push it to Homebank.
