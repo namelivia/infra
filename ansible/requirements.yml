@@ -114,3 +114,4 @@ roles:
   - src: https://github.com/namelivia/ansible-homebank-report
   - src: https://github.com/namelivia/ansible-babybuddy
   - src: https://github.com/namelivia/ansible-tink-homebank
+  - src: https://github.com/namelivia/ansible-tink-homebank-endpoint
