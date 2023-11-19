@@ -350,8 +350,9 @@
   vars_files:
     - /vars/variables.yml
   roles:
-    - ansible-cec
-    - ansible-tweak-overscan
+   # Not needed anymore
+   #- ansible-cec
+   #- ansible-tweak-overscan
     - role: ansible-samba-mounts
       vars:
         - gid: "{{ samba_gid }}"
