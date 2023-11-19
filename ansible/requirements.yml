@@ -104,7 +104,7 @@ roles:
     version: 0.0.5
   - name: ansible-grafana
     src: https://github.com/namelivia/ansible-grafana
-    version: 0.0.8
+    version: 0.0.9
   - src: https://github.com/namelivia/ansible-loki
   - name: ansible-mealie-discord
     src: https://github.com/namelivia/ansible-mealie-discord
