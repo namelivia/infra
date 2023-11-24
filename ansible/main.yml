@@ -468,3 +468,4 @@
       vars:
         - host_port: "{{ tink_homebank_host_port }}"
         - csv_path: "{{ tink_csv_path }}"
+        - notifications_service_endpoint: "{{ tink_notifications_service_endpoint }}"
