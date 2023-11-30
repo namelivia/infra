@@ -479,3 +479,8 @@
         - database_container_name: "postgres-{{ lenovo_postgres_database_container_name }}"
         - dump_day: 2
         - backup_day: 4
+    - role: ansible-firefly-importer
+      vars:
+        - docker_network_name: "{{ firefly_network_name }}"
+        - firefly_3_access_token: "{{ firefly_access_token }}"
+        - firefly_3_url: "{{ firefly_url }}"
