@@ -86,3 +86,4 @@ most of them and costs have been ramping up so probably it will evolve to a chea
 - [tink-homebank](https://github.com/namelivia/tink-homebank): Retrieve information from Tink and push it to Homebank.
 - [tink-homebank-endpoint](https://github.com/namelivia/tink-homebank-endpoint): Retrieve information from Tink and push it to Homebank, endpoint part.
 - [firefly iii](https://www.firefly-iii.org/): A free and open source personal finance manager.
+- [restic](https://restic.net): Restic as a backup program.

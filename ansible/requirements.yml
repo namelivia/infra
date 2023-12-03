@@ -117,3 +117,4 @@ roles:
   - src: https://github.com/namelivia/ansible-tink-homebank-endpoint
   - src: https://github.com/namelivia/ansible-firefly
   - src: https://github.com/namelivia/ansible-firefly-importer
+  - src: https://github.com/namelivia/ansible-restic
