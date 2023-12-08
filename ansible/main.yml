@@ -485,3 +485,8 @@
         - firefly_3_access_token: "{{ firefly_access_token }}"
         - firefly_3_url: "{{ firefly_url }}"
     - role: ansible-restic
+      vars:
+        - restic_repository: "{{ lenovo_restic_repository }}"
+        - restic_password: "{{ lenovo_restic_password }}"
+        - aws_access_key_id: "{{ lenovo_restic_aws_access_key_id }}"
+        - aws_secret_access_key: "{{ lenovo_restic_secret_access_key }}"
