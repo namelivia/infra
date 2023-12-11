@@ -92,6 +92,24 @@ module "digitalocean_dns" {
   }
 }
 
+//Backup bucket
+module "backup_bucket" {
+  source = "github.com/namelivia/terraform-backup-bucket"
+  bucket_name = var.backup_bucket_name
+}
+
+output "backup_access_key" {
+  value = module.backup_bucket.access_key
+}
+
+output "backup_access_secret" {
+  value = nonsensitive(module.backup_bucket.secret_key)
+}
+
+output "backup_bucket_url" {
+  value = module.backup_bucket.bucket_url
+}
+
 //Hosts file
 locals {
   hosts_file = templatefile("/terraform/hosts.tpl", {

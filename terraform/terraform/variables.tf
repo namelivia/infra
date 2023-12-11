@@ -56,3 +56,8 @@ variable "dns_records" {
   }))
 }
 
+variable "backup_bucket_name" {
+  type = string
+  description = "Name of the bucket to store backups"
+}
+
