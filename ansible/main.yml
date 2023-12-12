@@ -381,6 +381,22 @@
         - bazarr_movies_folder: "{{ movies_folder }}"
         - bazarr_tv_folder: "{{ tv_folder }}"
     - ansible-amule
+    - role: ansible-restic
+      vars:
+        - aws_access_key_id: "{{ restic_aws_access_key_id }}"
+        - aws_secret_access_key: "{{ restic_aws_secret_access_key }}"
+
+    - role: ansible-external-storage
+      vars:
+        - target_directory: "{{ target_directory_disk_1 }}"
+        - external_storage_device_id: "{{ external_storage_device_id_disk_1 }}"
+    - role: ansible-external-storage
+      vars:
+        - target_directory: "{{ target_directory_disk_2 }}"
+        - external_storage_device_id: "{{ external_storage_device_id_disk_2 }}"
+    - role: ansible-samba
+      vars:
+        - home_username: "{{ samba_host_home_username }}"
 
 - hosts: retropie
   become: true
