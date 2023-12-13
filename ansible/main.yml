@@ -363,6 +363,10 @@
         - trusted_domains: "{{ nextcloud_domain_name }}"
         - admin_user: "{{ nextcloud_admin_user }}"
         - admin_password: "{{ nextcloud_admin_password }}"
+        - user: "{{ nextcloud_user }}"
+        - group: "{{ nextcloud_group }}"
+        - uid: "{{ nextcloud_uid }}"
+        - gid: "{{ nextcloud_gid }}"
         - dump_day: 2
         - backup_day: 4
 
