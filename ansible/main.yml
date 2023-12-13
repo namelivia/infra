@@ -80,7 +80,7 @@
       vars:
         - app_container_name: nextcloud-app
         - host_port: "{{ nextcloud_host_port }}"
-        - database_container_name: nextcloud-database
+        - database_container_name: "{{ nextcloud_database_container_name }}"
         - database_name: "{{ nextcloud_database_name }}"
         - database_user: "{{ nextcloud_database_user }}"
         - database_password: "{{ nextcloud_database_password }}"
