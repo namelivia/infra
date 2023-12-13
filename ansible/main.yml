@@ -347,6 +347,10 @@
     - role: ansible-samba
       vars:
         - home_username: "{{ samba_host_home_username }}"
+    - role: ansible-postgres
+      vars:
+        - database_container_name: "{{ seedbox_postgres_database_container_name }}"
+        - network_name: "{{ seedbox_postgres_database_network_name }}"
     - role: ansible-nextcloud
       vars:
         - app_container_name: nextcloud-app
