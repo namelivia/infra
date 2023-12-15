@@ -32,7 +32,7 @@ roles:
 
   - name: ansible-anki
     src: https://github.com/namelivia/ansible-anki
-    version: 2.0.0
+    version: 3.0.0
 
   - src: https://github.com/namelivia/ansible-flappysonic
 
@@ -43,7 +43,7 @@ roles:
 
   - name: ansible-kimai
     src: https://github.com/namelivia/ansible-kimai
-    version: 3.0.0
+    version: 4.0.0
 
   - name: ansible-nextcloud
     src: https://github.com/namelivia/ansible-nextcloud
@@ -83,7 +83,7 @@ roles:
   # - src: https://github.com/namelivia/ansible-flaresolverr Consumes too much memory
   - name: ansible-mealie
     src: https://github.com/namelivia/ansible-mealie
-    version: 2.0.2
+    version: 3.0.0
   - src: https://github.com/namelivia/ansible-cec
   - src: https://github.com/namelivia/ansible-tweak-overscan
   - src: https://github.com/namelivia/ansible-samba-mounts
