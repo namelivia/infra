@@ -290,6 +290,7 @@
       vars:
         - aws_access_key_id: "{{ restic_aws_access_key_id }}"
         - aws_secret_access_key: "{{ restic_aws_secret_access_key }}"
+        - initial_targets_file_path: "{{ seedbox2_initial_targets_file_path }}"
     - role: ansible-cadvisor
     - role: ansible-openvpn-client
       vars:
