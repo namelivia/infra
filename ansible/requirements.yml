@@ -51,7 +51,7 @@ roles:
 
   - name: ansible-ghost
     src: https://github.com/namelivia/ansible-ghost
-    version: 1.5.3
+    version: 2.0.0
 
   - src: https://github.com/namelivia/ansible-journaling-service
   - src: https://github.com/namelivia/ansible-user-info-service
