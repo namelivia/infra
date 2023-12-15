@@ -17,6 +17,10 @@
   roles:
     - role: prometheus.prometheus.node_exporter
     - role: ansible-cadvisor
+    - role: ansible-restic
+      vars:
+        - aws_access_key_id: "{{ restic_aws_access_key_id }}"
+        - aws_secret_access_key: "{{ restic_aws_secret_access_key }}"
     - role: ansible-reverse-proxy
       vars:
         # READ: https://ghost.org/docs/faq/proxying-https-infinite-loops/
@@ -68,6 +72,10 @@
   roles:
     - role: prometheus.prometheus.node_exporter
     - role: ansible-cadvisor
+    - role: ansible-restic
+      vars:
+        - aws_access_key_id: "{{ restic_aws_access_key_id }}"
+        - aws_secret_access_key: "{{ restic_aws_secret_access_key }}"
     - role: ansible-openvpn-client
       vars:
         - vpn_endpoint: "{{ openvpn2_domain_name }}"
@@ -126,6 +134,10 @@
         - exposed_ports: "{{ lightsail_exposed_ports }}"
     - role: prometheus.prometheus.node_exporter
     - role: ansible-cadvisor
+    - role: ansible-restic
+      vars:
+        - aws_access_key_id: "{{ restic_aws_access_key_id }}"
+        - aws_secret_access_key: "{{ restic_aws_secret_access_key }}"
     - role: ansible-openvpn-client
       vars:
         - vpn_endpoint: "{{ openvpn2_domain_name }}"
@@ -250,6 +262,10 @@
   roles:
     - role: prometheus.prometheus.node_exporter
     - role: ansible-cadvisor
+    - role: ansible-restic
+      vars:
+        - aws_access_key_id: "{{ restic_aws_access_key_id }}"
+        - aws_secret_access_key: "{{ restic_aws_secret_access_key }}"
     - role: ansible-reverse-proxy
       vars:
         - proxy_buffer_size: "8k"
@@ -270,6 +286,11 @@
     - /vars/variables.yml
   roles:
     - role: prometheus.prometheus.node_exporter
+    - role: ansible-restic
+      vars:
+        - aws_access_key_id: "{{ restic_aws_access_key_id }}"
+        - aws_secret_access_key: "{{ restic_aws_secret_access_key }}"
+    - role: ansible-cadvisor
     - role: ansible-openvpn-client
       vars:
         - vpn_endpoint: "{{ openvpn2_domain_name }}"
@@ -296,10 +317,6 @@
         - bazarr_movies_folder: "{{ movies_folder }}"
         - bazarr_tv_folder: "{{ tv_folder }}"
     - ansible-amule
-    - role: ansible-restic
-      vars:
-        - aws_access_key_id: "{{ restic_aws_access_key_id }}"
-        - aws_secret_access_key: "{{ restic_aws_secret_access_key }}"
     - role: ansible-external-storage
       vars:
         - target_directory: "{{ target_directory_disk_1 }}"
@@ -354,6 +371,10 @@
   roles:
     - role: prometheus.prometheus.node_exporter
     - role: ansible-cadvisor
+    - role: ansible-restic
+      vars:
+        - aws_access_key_id: "{{ restic_aws_access_key_id }}"
+        - aws_secret_access_key: "{{ restic_aws_secret_access_key }}"
     - role: ansible-ofelia
       vars:
         - ofelia_config_path: "{{ ofelia_lenovo_config_path }}"
@@ -473,7 +494,3 @@
         - docker_network_name: "{{ firefly_network_name }}"
         - firefly_3_access_token: "{{ firefly_access_token }}"
         - firefly_3_url: "{{ firefly_url }}"
-    - role: ansible-restic
-      vars:
-        - aws_access_key_id: "{{ restic_aws_access_key_id }}"
-        - aws_secret_access_key: "{{ restic_aws_secret_access_key }}"
