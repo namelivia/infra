@@ -350,10 +350,6 @@
         - gid: "{{ nextcloud_gid }}"
         - dump_day: 2
         - backup_day: 4
-    - role: ansible-backups
-      tasks_from: setup-restic-backups
-      vars:
-        file_path: "{{ seedbox_restic_extra_backup_path }}"
 
 - hosts: retropie
   become: true
