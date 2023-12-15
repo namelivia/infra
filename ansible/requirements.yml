@@ -25,7 +25,7 @@ roles:
 
   - name: ansible-backups
     src: https://github.com/namelivia/ansible-backups
-    version: 0.0.4
+    version: 0.0.6
 
   - src: https://github.com/namelivia/ansible-postgres
   - src: https://github.com/namelivia/ansible-fastapi
