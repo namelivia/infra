@@ -475,7 +475,7 @@
     - role: ansible-tink-homebank
       vars:
         - notifications_service_endpoint: "{{ tink_notifications_service_endpoint }}"
-    - role: ansible-tink-homebank-endpoint
+    - role: ansible-tink-firefly-endpoint
       vars:
         - host_port: "{{ tink_homebank_host_port }}"
         - csv_path: "{{ tink_csv_path }}"
