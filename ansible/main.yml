@@ -493,3 +493,4 @@
         - firefly_3_access_token: "{{ firefly_access_token }}"
         - firefly_3_url: "{{ firefly_url }}"
         - import_files_dir: "{{ firefly_import_files_dir }}"
+        - notifications_endpoint: "{{ firefly_importer_notifications_endpoint }}"
