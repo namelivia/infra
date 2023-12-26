@@ -477,6 +477,9 @@
         - host_port: "{{ tink_homebank_host_port }}"
         - csv_path: "{{ tink_csv_path }}"
         - notifications_service_endpoint: "{{ tink_notifications_service_endpoint }}"
+        - firefly_personal_access_token: "{{ firefly_endpoint_presonal_access_token }}"
+        - firefly_url: "{{ firefly_endpoint_firefly_url }}"
+        - app_url: "{{ firefly_endpoint_app_url }}"
     - role: ansible-firefly
       vars:
         - host_port: "{{ firefly_host_port }}"
