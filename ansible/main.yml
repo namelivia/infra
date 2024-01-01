@@ -425,11 +425,6 @@
     - role: ansible-mealie-discord
     - role: ansible-samba-mounts
       vars:
-        - gid: "{{ lidarr_gid }}"
-        - uid: "{{ lidarr_uid }}"
-        - samba_mounts: "{{ lidarr_samba_mounts }}"
-    - role: ansible-samba-mounts
-      vars:
         - gid: "{{ lenovo_samba_gid }}"
         - uid: "{{ lenovo_samba_uid }}"
         - samba_mounts: "{{ lenovo_samba_mounts }}"
