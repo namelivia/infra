@@ -430,8 +430,8 @@
         - samba_mounts: "{{ lidarr_samba_mounts }}"
     - role: ansible-samba-mounts
       vars:
-        - gid: "{{ lenovo_gid }}"
-        - uid: "{{ lenovo_uid }}"
+        - gid: "{{ lenovo_samba_gid }}"
+        - uid: "{{ lenovo_samba_uid }}"
         - samba_mounts: "{{ lenovo_samba_mounts }}"
     - role: ansible-lidarr
       vars:
