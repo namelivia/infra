@@ -435,12 +435,6 @@
         - uid: "{{ lidarr_uid }}"
         - gid: "{{ lidarr_gid }}"
     - role: ansible-funkwhale
-    - role: ansible-homebank-report
-      vars:
-        - graphs_path: "{{ homebank_graphs_path }}"
-        - xml_file: "{{ homebank_xml_file }}"
-        - notifications_config_path: "{{ homebank_report_notifications_config_path }}"
-        - notifications_config_file: "{{ homebank_report_notifications_config_file }}"
     - role: ansible-pleroma
       vars:
         - domain_name: "{{ pleroma_domain_name }}"
