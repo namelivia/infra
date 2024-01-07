@@ -111,7 +111,6 @@ roles:
     version: 0.0.5
   - src: https://github.com/namelivia/ansible-iptables
   - src: https://github.com/namelivia/ansible-funkwhale
-  - src: https://github.com/namelivia/ansible-homebank-report
   - src: https://github.com/namelivia/ansible-babybuddy
   - src: https://github.com/namelivia/ansible-tink-firefly-endpoint
   - src: https://github.com/namelivia/ansible-firefly
