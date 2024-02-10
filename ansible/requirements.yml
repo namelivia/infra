@@ -4,7 +4,7 @@ collections:
   - community.docker
   - ansible.posix
   - name: prometheus.prometheus
-    vresion: 0.5.0
+    version: 0.5.0
 
 roles:
   - src: https://github.com/namelivia/ansible-expenses-client
@@ -90,7 +90,7 @@ roles:
   - src: https://github.com/namelivia/ansible-reverse-proxy
   - name: ansible-pleroma
     src: https://github.com/namelivia/ansible-pleroma
-    version: 0.0.19
+    version: 0.0.20
   - src: https://github.com/namelivia/ansible-gtd-caldav
   - src: https://github.com/namelivia/ansible-apprise
   - src: https://github.com/namelivia/ansible-retroachievements-apprise
@@ -101,10 +101,10 @@ roles:
   - src: https://github.com/namelivia/ansible-cadvisor
   - name: ansible-prometheus
     src: https://github.com/namelivia/ansible-prometheus
-    version: 0.0.5
+    version: 0.0.6
   - name: ansible-grafana
     src: https://github.com/namelivia/ansible-grafana
-    version: 0.0.10
+    version: 0.0.11
   - src: https://github.com/namelivia/ansible-loki
   - name: ansible-mealie-discord
     src: https://github.com/namelivia/ansible-mealie-discord
