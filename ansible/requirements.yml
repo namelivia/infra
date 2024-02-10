@@ -67,7 +67,7 @@ roles:
 
   - name: ansible-ofelia
     src: https://github.com/namelivia/ansible-ofelia
-    version: 0.0.3
+    version: 0.0.4
 
   - src: https://github.com/namelivia/ansible-openvpn-client
   - src: https://github.com/namelivia/ansible-openvpn-server
