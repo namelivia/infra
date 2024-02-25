@@ -164,6 +164,7 @@
     - role: ansible-postgres
       vars:
         - database_container_name: "{{ postgres_database_container_name }}"
+        - should_publish_ports: true
     - role: ansible-garments-client
       vars:
         - host_port: "{{ garments_client_host_port }}"
