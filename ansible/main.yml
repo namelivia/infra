@@ -98,6 +98,7 @@
         - admin_mail: "{{ kimai_admin_mail }}"
         - admin_pass: "{{ kimai_admin_pass }}"
         - mysql_root_password: "{{ kimai_mysql_root_password }}"
+        - should_publish_ports: true
     - role: ansible-anki
       vars:
         - host_port: "{{ anki_host_port }}"
