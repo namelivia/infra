@@ -63,7 +63,7 @@ roles:
   - src: https://github.com/namelivia/ansible-common
   - name: ansible-pomerium
     src: https://github.com/namelivia/ansible-pomerium
-    version: 0.0.13
+    version: 0.0.14
 
   - name: ansible-ofelia
     src: https://github.com/namelivia/ansible-ofelia

@@ -271,10 +271,6 @@
       vars:
         - aws_access_key_id: "{{ restic_aws_access_key_id }}"
         - aws_secret_access_key: "{{ restic_aws_secret_access_key }}"
-    - role: ansible-reverse-proxy
-      vars:
-        - proxy_buffer_size: "8k"
-        - client_max_body_sizes: "{{ bastion_proxy_client_max_body_sizes }}"
     - role: ansible-pomerium
       vars:
         - application_name: "pomerium"
