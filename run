@@ -1,6 +1,16 @@
 #!/bin/bash
+
 echo "Running Terraform..."
-(cd terraform && docker run -v $(pwd)/terraform:/terraform -it terraform)
+(cd terraform && docker run \
+    -v $(pwd)/terraform:/terraform \
+    -it \
+    terraform)
+
 echo "Running Ansible..."
-(cd ansible && docker run -it --mount type=bind,source="$(pwd)"/runner,target=/home/runner ansible)
-echo "Sucessfully run"
+(cd ansible && docker run \
+    -it \
+    -v "$(pwd)/hosts:/runner/inventory/hosts" \
+    --mount type=bind,source="$(pwd)"/runner,target=/home/runner \
+    ansible)
+
+echo "Successfully run"
