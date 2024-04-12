@@ -10,6 +10,7 @@ echo "Running Ansible..."
 (cd ansible && docker run \
     -it \
     -v "$(pwd)/hosts:/runner/inventory/hosts" \
+    -v "$(pwd)/main.yml:/runner/main.yml" \
     --mount type=bind,source="$(pwd)"/runner,target=/home/runner \
     ansible)
 
