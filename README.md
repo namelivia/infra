@@ -29,7 +29,7 @@ Authenticated applications managed by [Pomerium](https://www.pomerium.com)
 
 ## Usage
 
-Run `./build` to build all containers, and `./run` to let Terraform create the infrastructure and Ansible provision it.
+Execute `./run` and select the desired actions.
 
 ## Topolgy
 
