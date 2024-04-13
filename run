@@ -1,17 +1,85 @@
 #!/bin/bash
 
-echo "Running Terraform..."
-(cd terraform && docker run \
-    -v $(pwd)/terraform:/terraform \
-    -it \
-    terraform)
 
-echo "Running Ansible..."
-(cd ansible && docker run \
-    -it \
-    -v "$(pwd)/hosts:/runner/inventory/hosts" \
-    -v "$(pwd)/main.yml:/runner/main.yml" \
-    --mount type=bind,source="$(pwd)"/runner,target=/home/runner \
-    ansible)
+# TERRAFORM
+build_terraform() {
+    echo "Building Terraform container..."
+    (cd terraform && docker build . -t terraform -q)
+}
 
-echo "Successfully run"
+run_terraform() {
+    echo "Running Terraform..."
+    (cd terraform && docker run \
+        -v $(pwd)/terraform:/terraform \
+        -it \
+        terraform)
+}
+
+# ANSIBLE
+build_ansible() {
+    echo "Building Ansible container..."
+    (cd ansible && docker build . -t ansible -q)
+}
+
+run_ansible() {
+    echo "Running Ansible..."
+    (cd ansible && docker run \
+        -it \
+        -v "$(pwd)/hosts:/runner/inventory/hosts" \
+        -v "$(pwd)/main.yml:/runner/main.yml" \
+        --mount type=bind,source="$(pwd)"/runner,target=/home/runner \
+        ansible)
+}
+
+# UI
+check_for_gum() {
+    if ! command -v gum &> /dev/null
+    then
+        echo "Gum is required: https://github.com/charmbracelet/gum"
+        exit
+    fi
+}
+
+select_build() {
+    echo "Select the container to build:"
+    build=$(gum choose none terraform ansible all)
+}
+
+select_run() {
+    echo "Select the container to run:"
+    run=$(gum choose none terraform ansible all)
+}
+
+# SELECTION LOGIC
+build_containers() {
+    if [ "$build" == "terraform" ]; then
+        build_terraform
+    elif [ "$build" == "ansible" ]; then
+        build_ansible
+    elif [ "$build" == "all" ]; then
+        build_terraform
+        build_ansible
+    fi
+}
+
+run_containers() {
+    if [ "$run" == "terraform" ]; then
+        run_terraform
+    elif [ "$run" == "ansible" ]; then
+        run_ansible
+    elif [ "$run" == "all" ]; then
+        run_terraform
+        run_ansible
+    fi
+}
+
+# MAIN
+main() {
+    check_for_gum
+    select_build
+    build_containers
+    select_run
+    run_containers
+}
+
+main
