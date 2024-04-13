@@ -27,7 +27,9 @@ run_ansible() {
         -it \
         -v "$(pwd)/hosts:/runner/inventory/hosts" \
         -v "$(pwd)/main.yml:/runner/main.yml" \
-        --mount type=bind,source="$(pwd)"/runner,target=/home/runner \
+        -v "$(pwd)/requirements.yml:/runner/requirements.yml" \
+        -v "$(pwd)/vars:/vars" \
+        -v "ansible:/home/runner/.ansible" \
         ansible)
 }
 
