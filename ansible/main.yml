@@ -352,6 +352,7 @@
         - gid: "{{ nextcloud_gid }}"
         - dump_day: 2
         - backup_day: 4
+    - ansible-metube
 
 - hosts: retropie
   become: true
