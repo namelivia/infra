@@ -85,3 +85,4 @@ most of them and costs have been ramping up so probably it will evolve to a chea
 - [tink-firefly-endpoint](https://github.com/namelivia/tink-firefly-endpoint): Retrieve information from Tink and push it to Firefly, endpoint part.
 - [firefly iii](https://www.firefly-iii.org/): A free and open source personal finance manager.
 - [restic](https://restic.net): Restic as a backup program.
+- [metube](https://github.com/alexta69/metube): Self-hosted YouTube downloader.
