@@ -352,9 +352,7 @@
         - gid: "{{ nextcloud_gid }}"
         - dump_day: 2
         - backup_day: 4
-    - role: ansible-metube
-      vars:
-        - metube_downloads_folder: "{{ metube_downloads_folder }}"
+    - ansible-metube
 
 - hosts: retropie
   become: true
