@@ -99,7 +99,7 @@ roles:
   - src: https://github.com/namelivia/ansible-redis
   - name: ansible-dashy
     src: https://github.com/namelivia/ansible-dashy
-    version: 0.1.0
+    version: 0.2.3
   - src: https://github.com/namelivia/ansible-cadvisor
   - name: ansible-prometheus
     src: https://github.com/namelivia/ansible-prometheus

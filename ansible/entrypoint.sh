@@ -1,3 +1,3 @@
 #!/bin/bash
-ansible-galaxy install -r requirements.yml && \
+ansible-galaxy install -f -r requirements.yml && \
 ansible-runner run /runner
