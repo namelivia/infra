@@ -100,7 +100,9 @@ roles:
   - name: ansible-dashy
     src: https://github.com/namelivia/ansible-dashy
     version: 0.2.3
-  - src: https://github.com/namelivia/ansible-cadvisor
+  - name: ansible-cadvisor
+    src: https://github.com/namelivia/ansible-cadvisor
+    version: 0.0.1
   - name: ansible-prometheus
     src: https://github.com/namelivia/ansible-prometheus
     version: 0.0.7
