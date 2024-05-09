@@ -102,7 +102,7 @@ roles:
     version: 0.2.3
   - name: ansible-cadvisor
     src: https://github.com/namelivia/ansible-cadvisor
-    version: 0.0.1
+    version: 0.0.4
   - name: ansible-prometheus
     src: https://github.com/namelivia/ansible-prometheus
     version: 0.0.7
