@@ -293,6 +293,8 @@
         - aws_secret_access_key: "{{ restic_aws_secret_access_key }}"
         - initial_targets_file_path: "{{ seedbox2_initial_targets_file_path }}"
     - role: ansible-cadvisor
+      vars: 
+        - enable_load_reader: "false" # https://github.com/namelivia/infra/issues/16
     - role: ansible-openvpn-client
       vars:
         - vpn_endpoint: "{{ openvpn2_domain_name }}"
@@ -374,6 +376,8 @@
   roles:
     - role: prometheus.prometheus.node_exporter
     - role: ansible-cadvisor
+      vars: 
+        - enable_load_reader: "false" # https://github.com/namelivia/infra/issues/16
     - role: ansible-restic
       vars:
         - aws_access_key_id: "{{ restic_aws_access_key_id }}"
