@@ -1,6 +1,21 @@
 #!/bin/bash
 
 
+TAGS="restic"
+HOSTS=""
+
+if [ -n "$TAGS" ]; then
+    TAGS_OPTION="--tags $TAGS"
+else
+    TAGS_OPTION=""
+fi
+
+if [ -n "$HOSTS" ]; then
+    HOSTS_OPTION="--limit $HOSTS"
+else
+    HOSTS_OPTION=""
+fi
+
 # TERRAFORM
 build_terraform() {
     echo "Building Terraform container..."
@@ -23,14 +38,26 @@ build_ansible() {
 
 run_ansible() {
     echo "Running Ansible..."
-    (cd ansible && docker run \
-        -it \
-        -v "$(pwd)/hosts:/runner/inventory/hosts" \
-        -v "$(pwd)/main.yml:/runner/main.yml" \
-        -v "$(pwd)/requirements.yml:/runner/requirements.yml" \
-        -v "$(pwd)/vars:/vars" \
-        -v "ansible:/home/runner/.ansible" \
-        ansible)
+    (cd ansible && \
+        docker run \
+            -it \
+            -v "$(pwd)/hosts:/etc/ansible/hosts" \
+            -v "$(pwd)/main.yml:/runner/main.yml" \
+            -v "$(pwd)/requirements.yml:/runner/requirements.yml" \
+            -v "$(pwd)/vars:/vars" \
+            -v "ansible:/home/runner/.ansible" \
+            ansible ansible-galaxy install -r /runner/requirements.yml \
+    ) && \
+    (cd ansible && \
+        docker run \
+            -it \
+            -v "$(pwd)/hosts:/etc/ansible/hosts" \
+            -v "$(pwd)/main.yml:/runner/main.yml" \
+            -v "$(pwd)/requirements.yml:/runner/requirements.yml" \
+            -v "$(pwd)/vars:/vars" \
+            -v "ansible:/home/runner/.ansible" \
+            ansible ansible-playbook /runner/main.yml --key-file /runner/env/ssh_key --ssh-common-args='-o StrictHostKeyChecking=no' $TAGS_OPTION $HOSTS_OPTION
+    )
 }
 
 # UI

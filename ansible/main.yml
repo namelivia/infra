@@ -16,12 +16,16 @@
     - /vars/variables.yml
   roles:
     - role: prometheus.prometheus.node_exporter
+      tags: node-exporter
     - role: ansible-cadvisor
+      tags: cadvisor
     - role: ansible-restic
+      tags: restic
       vars:
         - aws_access_key_id: "{{ restic_aws_access_key_id }}"
         - aws_secret_access_key: "{{ restic_aws_secret_access_key }}"
     - role: ansible-reverse-proxy
+      tags: nginx-reverse-proxy
       vars:
         # READ: https://ghost.org/docs/faq/proxying-https-infinite-loops/
         - proto_override: "https"
@@ -32,7 +36,9 @@
         - openvpn_static_key: "{{ lookup('file', '/vars/server.key') }}"
         - client_certificate: "{{ lookup('file', '/vars/digitalocean.crt') }}"
         - server_ca: "{{ lookup('file', '/vars/server.crt') }}"
+      tags: openvpn-client
     - role: ansible-like-and-share-twitter-bot
+      tags: like-and-share-twitter-bot
       vars:
         - consumer_key: "{{ like_bot_consumer_key }}"
         - consumer_secret: "{{ like_bot_consumer_secret }}"
@@ -41,6 +47,7 @@
         - idle_period: "{{ like_bot_idle_period }}"
         - sentry_url: "{{ python_sentry_url }}"
     - role: ansible-movie-quote-twitter-bot
+      tags: movie-quote-twitter-bot
       vars:
         - twitter_enabled: "{{ movie_bot_twitter_enabled }}"
         - twitter_consumer_key: "{{ movie_bot_twitter_consumer_key }}"
@@ -56,6 +63,7 @@
         - idle_period: "{{ movie_bot_idle_period }}"
         - sentry_url: "{{ python_sentry_url }}"
     - role: ansible-ghost
+      tags: ghost
       vars:
         - domain_name: "{{ ghost_domain_name }}"
         - database_name: "{{ ghost_database_name }}"
@@ -71,12 +79,16 @@
     - /vars/variables.yml
   roles:
     - role: prometheus.prometheus.node_exporter
+      tags: node-exporter
     - role: ansible-cadvisor
+      tags: cadvisor
     - role: ansible-restic
+      tags: restic
       vars:
         - aws_access_key_id: "{{ restic_aws_access_key_id }}"
         - aws_secret_access_key: "{{ restic_aws_secret_access_key }}"
     - role: ansible-openvpn-client
+      tags: openvpn-client
       vars:
         - vpn_endpoint: "{{ openvpn2_domain_name }}"
         - client_private_key: "{{ lookup('file', '/vars/azure.key') }}"
@@ -84,9 +96,11 @@
         - client_certificate: "{{ lookup('file', '/vars/azure.crt') }}"
         - server_ca: "{{ lookup('file', '/vars/server.crt') }}"
     - role: ansible-iptables
+      tags: iptables
       vars:
         - exposed_ports: "{{ azure_exposed_ports }}"
     - role: ansible-kimai
+      tags: kimai
       vars:
         - domain_name: "{{ kimai_domain_name }}"
         - host_port: "{{ kimai_host_port }}"
@@ -100,6 +114,7 @@
         - mysql_root_password: "{{ kimai_mysql_root_password }}"
         - should_publish_ports: true
     - role: ansible-anki
+      tags: anki
       vars:
         - host_port: "{{ anki_host_port }}"
 #    - role: ansible-gallery-client
@@ -113,18 +128,22 @@
 #        - aws_bucket: "{{ aws_bucket_gallery_server_2 }}"
 #        - aws_dynamo_table: "{{ aws_dynamo_table_2 }}"
     - role: ansible-mealie
+      tags: mealie
       vars:
         - domain_name: "{{ mealie_domain_name }}"
         - host_port: "{{ mealie_host_port }}"
         - jwt_auth_jwk_set_url: "{{ mealie_jwk_set_url }}"
         - log_level: "{{ mealie_log_level }}"
     - role: ansible-flappysonic
+      tags: flappysonic
       vars:
         - host_port: "{{ flappysonic_host_port }}"
     - role: ansible-thumbor
+      tags: thumbor
       vars:
         - host_port: "{{ thumbor_host_port }}"
     - role: ansible-tombraiderjs
+      tags: tombraiderjs
       vars:
         - host_port: "{{ tombraiderjs_host_port }}"
 
@@ -134,15 +153,20 @@
     - /vars/variables.yml
   roles:
     - role: ansible-iptables
+      tags: iptables
       vars:
         - exposed_ports: "{{ lightsail_exposed_ports }}"
     - role: prometheus.prometheus.node_exporter
+      tags: node_exporter
     - role: ansible-cadvisor
+      tags: cadvisor
     - role: ansible-restic
+      tags: restic
       vars:
         - aws_access_key_id: "{{ restic_aws_access_key_id }}"
         - aws_secret_access_key: "{{ restic_aws_secret_access_key }}"
     - role: ansible-openvpn-client
+      tags: openvpn-client
       vars:
         - vpn_endpoint: "{{ openvpn2_domain_name }}"
         - client_private_key: "{{ lookup('file', '/vars/lightsail.key') }}"
@@ -150,35 +174,45 @@
         - client_certificate: "{{ lookup('file', '/vars/lightsail.crt') }}"
         - server_ca: "{{ lookup('file', '/vars/server.crt') }}"
     - role: ansible-gallery-client
+      tags: gallery-client
       vars:
         - host_port: "{{ gallery_client_host_port }}"
     - role: ansible-gallery-server
+      tags: gallery-server
       vars:
         - domain_name: "{{ gallery_server_domain_name }}"
         - host_port: "{{ gallery_server_host_port }}"
     - role: ansible-ofelia
+      tags: ofelia
       vars:
         - ofelia_config_path: "{{ ofelia_lightsail_config_path }}"
     - role: ansible-apprise
+      tags: apprise
       vars:
         - apprise_config_folder: /vars/apprise
     - role: ansible-plants-client
+      tags: plants-client
       vars:
         - host_port: "{{ plants_client_host_port }}"
     - role: ansible-postgres
+      tags: postgres
       vars:
         - database_container_name: "{{ postgres_database_container_name }}"
         - should_publish_ports: true
     - role: ansible-garments-client
+      tags: garments-client
       vars:
         - host_port: "{{ garments_client_host_port }}"
     - role: ansible-itemtree-client
+      tags: itemtree-client
       vars:
         - host_port: "{{ itemtree_client_host_port }}"
     - role: ansible-expenses-client
+      tags: expenses-client
       vars:
         - host_port: "{{ expenses_client_host_port }}"
     - role: ansible-garments-server
+      tags: garments-server
       vars:
         - database_url: "{{ garments_database_url }}"
         - database_container_name: "{{ garments_database_container_name }}"
@@ -188,6 +222,7 @@
         - database_password: "{{ garments_database_password }}"
         - dump_day: 4
     - role: ansible-plants-server
+      tags: plants-server
       vars:
         - database_url: "{{ plants_database_url }}"
         - host_port: "{{ plants_server_host_port }}"
@@ -198,6 +233,7 @@
         - notifications_service_endpoint: "{{ plants_notifications_service_endpoint }}"
         - dump_day: 3
     - role: ansible-miniflux
+      tags: miniflux
       vars:
         - database_url: "{{ miniflux_database_url }}"
         - host_port: "{{ miniflux_host_port }}"
@@ -209,6 +245,7 @@
         - admin_password: "{{ miniflux_admin_password }}"
         - dump_day: 4
     - role: ansible-itemtree-server
+      tags: itemtree-server
       vars:
         - database_url: "{{ itemtree_database_url }}"
         - host_port: "{{ itemtree_server_host_port }}"
@@ -218,6 +255,7 @@
         - database_password: "{{ itemtree_database_password }}"
         - dump_day: 3
     - role: ansible-expenses-server
+      tags: expenses-server
       vars:
         - database_url: "{{ expenses_database_url }}"
         - host_port: "{{ expenses_server_host_port }}"
@@ -228,18 +266,22 @@
         - notifications_service_endpoint: "{{ expenses_notifications_service_endpoint }}"
         - dump_day: 5
     - role: ansible-gtd-caldav
+      tags: gtd-caldav
       vars:
         - caldav_url: "{{ caldav_endpoint_url }}"
         - username: "{{ caldav_username }}"
         - password: "{{ caldav_password }}"
         - notifications_service_endpoint: "{{ caldav_notifications_service_endpoint }}"
     - role: ansible-retroachievements-apprise
+      tags: retroachievements-apprise
       vars:
         - notifications_service_endpoint: "{{ retroachievements_notifications_service_endpoint }}"
     - role: ansible-recipe-suggestions
+      tags: recipe-suggestions
       vars:
         - notifications_service_endpoint: "{{ recipe_suggestions_notifications_service_endpoint }}"
     - role: ansible-journaling-service
+      tags: journaling-service
       vars:
         - database_url: "{{ journaling_database_url }}"
         - database_container_name: "{{ journaling_database_container_name }}"
@@ -248,6 +290,7 @@
         - database_password: "{{ journaling_database_password }}"
         - dump_day: 4
     - role: ansible-user-info-service
+      tags: user-info-service
       vars:
         - database_url: "{{ users_database_url }}"
         - jwk_endpoint: "{{ pomerium_jwk_endpoint }}"
@@ -257,6 +300,7 @@
         - database_password: "{{ users_database_password }}"
         - dump_day: 2
     - role: ansible-thumbor2
+      tags: thumbor
       vars:
         - backup_day: 3
 
@@ -266,16 +310,21 @@
     - /vars/variables.yml
   roles:
     - role: prometheus.prometheus.node_exporter
+      tags: node-exporter
     - role: ansible-cadvisor
+      tags: cadvisor
     - role: ansible-restic
+      tags: restic
       vars:
         - aws_access_key_id: "{{ restic_aws_access_key_id }}"
         - aws_secret_access_key: "{{ restic_aws_secret_access_key }}"
     - role: ansible-pomerium
+      tags: pomerium
       vars:
         - application_name: "pomerium"
         - pomerium_config_path: "/vars/pomerium_config.yaml"
     - role: ansible-openvpn-server
+      tags: openvpn-server
       vars:
         - application_name: "openvpn2"
         - openvpn_config_folder: /vars/openvpn
@@ -287,15 +336,19 @@
     - /vars/variables.yml
   roles:
     - role: prometheus.prometheus.node_exporter
+      tags: node-exporter
     - role: ansible-restic
+      tags: restic
       vars:
         - aws_access_key_id: "{{ restic_aws_access_key_id }}"
         - aws_secret_access_key: "{{ restic_aws_secret_access_key }}"
         - initial_targets_file_path: "{{ seedbox2_initial_targets_file_path }}"
     - role: ansible-cadvisor
+      tags: cadvisor
       vars: 
         - enable_load_reader: "false" # https://github.com/namelivia/infra/issues/16
     - role: ansible-openvpn-client
+      tags: openvpn-client
       vars:
         - vpn_endpoint: "{{ openvpn2_domain_name }}"
         - client_private_key: "{{ lookup('file', '/vars/seedbox2.key') }}"
@@ -303,40 +356,51 @@
         - client_certificate: "{{ lookup('file', '/vars/seedbox2.crt') }}"
         - server_ca: "{{ lookup('file', '/vars/server.crt') }}"
     - role: ansible-deluge
+      tags: deluge
       vars:
         - deluge_downloads_folder: "{{ downloads_folder }}"
         - deluge_movies_folder: "{{ movies_folder }}"
         - deluge_tv_folder: "{{ tv_folder }}"
-    - ansible-jackett
+    - role: ansible-jackett
+      tags: jackett
     - role: ansible-sonarr
+      tags: sonarr
       vars:
         - sonarr_downloads_folder: "{{ downloads_folder }}"
         - sonarr_tv_folder: "{{ tv_folder }}"
     - role: ansible-radarr
+      tags: radarr
       vars:
         - radarr_downloads_folder: "{{ downloads_folder }}"
         - radarr_movies_folder: "{{ movies_folder }}"
     - role: ansible-bazarr
+      tags: bazarr
       vars:
         - bazarr_movies_folder: "{{ movies_folder }}"
         - bazarr_tv_folder: "{{ tv_folder }}"
-    - ansible-amule
+    - role: ansible-amule
+      tags: amule
     - role: ansible-external-storage
+      tags: external-storage
       vars:
         - target_directory: "{{ target_directory_disk_1 }}"
         - external_storage_device_id: "{{ external_storage_device_id_disk_1 }}"
     - role: ansible-external-storage
+      tags: external-storage
       vars:
         - target_directory: "{{ target_directory_disk_2 }}"
         - external_storage_device_id: "{{ external_storage_device_id_disk_2 }}"
     - role: ansible-samba
+      tags: samba
       vars:
         - home_username: "{{ samba_host_home_username }}"
     - role: ansible-postgres
+      tags: postgres
       vars:
         - database_container_name: "{{ seedbox_postgres_database_container_name }}"
         - network_name: "{{ seedbox_postgres_database_network_name }}"
     - role: ansible-nextcloud
+      tags: nextcloud
       vars:
         - app_container_name: nextcloud-app
         - host_port: "{{ nextcloud_host_port }}"
@@ -354,7 +418,8 @@
         - gid: "{{ nextcloud_gid }}"
         - dump_day: 2
         - backup_day: 4
-    - ansible-metube
+    - role: ansible-metube
+      tags: metube
 
 - hosts: retropie
   become: true
@@ -365,6 +430,7 @@
    #- ansible-cec
    #- ansible-tweak-overscan
     - role: ansible-samba-mounts
+      tags: samba-mounts
       vars:
         - gid: "{{ samba_gid }}"
         - uid: "{{ samba_uid }}"
@@ -375,20 +441,26 @@
     - /vars/variables.yml
   roles:
     - role: prometheus.prometheus.node_exporter
+      tags: node-exporter
     - role: ansible-cadvisor
+      tags: cadvisor
       vars: 
         - enable_load_reader: "false" # https://github.com/namelivia/infra/issues/16
     - role: ansible-restic
+      tags: restic
       vars:
         - aws_access_key_id: "{{ restic_aws_access_key_id }}"
         - aws_secret_access_key: "{{ restic_aws_secret_access_key }}"
     - role: ansible-ofelia
+      tags: ofelia
       vars:
         - ofelia_config_path: "{{ ofelia_lenovo_config_path }}"
     - role: ansible-loki
+      tags: loki
       vars:
         - host_port: "{{ loki_host_port }}"
     - role: ansible-grafana
+      tags: grafana
       vars:
         - host_port: "{{ grafana_host_port }}"
         - admin_user: "{{ grafana_admin_user }}"
@@ -399,11 +471,13 @@
         - gid: "{{ grafana_gid }}"
         - grafana_config_folder: /vars/grafana
     - role: ansible-prometheus
+      tags: prometheus
       vars:
         - host_port: "{{ prometheus_host_port }}"
         - gid: "{{ prometheus_gid }}"
         - uid: "{{ prometheus_uid }}"
     - role: ansible-openvpn-client
+      tags: openvpn-client
       vars:
         - vpn_endpoint: "{{ openvpn2_domain_name }}"
         - client_private_key: "{{ lookup('file', '/vars/lenovo.key') }}"
@@ -411,10 +485,12 @@
         - client_certificate: "{{ lookup('file', '/vars/lenovo.crt') }}"
         - server_ca: "{{ lookup('file', '/vars/server.crt') }}"
     - role: ansible-postgres
+      tags: postgres
       vars:
         - database_container_name: "{{ lenovo_postgres_database_container_name }}"
         - network_name: "{{ lenovo_postgres_database_network_name }}"
     - role: ansible-immich
+      tags: immich
       vars:
         - host_port: "{{ immich_host_port }}"
         - database_container_name: "postgres-{{ lenovo_postgres_database_container_name }}"
@@ -423,25 +499,32 @@
         - database_name: "{{ immich_database_name }}"
         - redis_hostname: "{{ immich_redis_hostname }}"
     - role: ansible-redis
+      tags: redis
       vars:
         - network_name: "{{ lenovo_redis_network_name }}"
     - role: ansible-dashy
+      tags: dashy
       vars:
         - host_port: "{{ dashy_host_port }}"
     - role: ansible-mealie-discord
+      tags: mealie-discord
     - role: ansible-samba-mounts
+      tags: samba-mounts
       vars:
         - gid: "{{ lenovo_samba_gid }}"
         - uid: "{{ lenovo_samba_uid }}"
         - samba_mounts: "{{ lenovo_samba_mounts }}"
     - role: ansible-lidarr
+      tags: lidarr
       vars:
         - user: "{{ lidarr_user }}"
         - group: "{{ lidarr_group }}"
         - uid: "{{ lidarr_uid }}"
         - gid: "{{ lidarr_gid }}"
     - role: ansible-funkwhale
+      tags: funkwhale
     - role: ansible-pleroma
+      tags: pleroma
       vars:
         - domain_name: "{{ pleroma_domain_name }}"
         - docker_network_name: "{{ pleroma_network_name }}"
@@ -461,6 +544,7 @@
         - backup_day: 5
         - host_port: "{{ pleroma_host_port }}"
     - role: ansible-babybuddy
+      tags: babybuddy
       vars:
         - uid: "{{ babybuddy_uid }}"
         - gid: "{{ babybuddy_gid }}"
@@ -473,6 +557,7 @@
         - dump_day: 2
         - backup_day: 4
     - role: ansible-tink-firefly-endpoint
+      tags: tink-firefly-endpoint
       vars:
         - host_port: "{{ tink_homebank_host_port }}"
         - csv_path: "{{ tink_csv_path }}"
@@ -480,6 +565,7 @@
         - firefly_personal_access_token: "{{ firefly_access_token }}"
         - app_url: "{{ firefly_endpoint_app_url }}"
     - role: ansible-firefly
+      tags: firefly
       vars:
         - host_port: "{{ firefly_host_port }}"
         - database_user: "{{ firefly_database_user}}"
@@ -490,6 +576,7 @@
         - dump_day: 2
         - backup_day: 4
     - role: ansible-firefly-importer
+      tags: firefly-importer
       vars:
         - docker_network_name: "{{ firefly_network_name }}"
         - firefly_3_access_token: "{{ firefly_access_token }}"
