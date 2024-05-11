@@ -13,6 +13,10 @@ These are some of the key features that shape the project:
 
 ## Features
 
+Interactive UI to perform focused deployments
+
+![screenshot](https://github.com/namelivia/infra/assets/1571416/1dd7d73d-bbb7-4b4a-9892-1952ce3069dd)
+
 Monitoring integrated in Grafana
 
 ![screenshot](https://github.com/namelivia/infra/assets/1571416/e22bf156-0fd5-466e-bcea-c9e0479bf42a)
@@ -29,7 +33,7 @@ Authenticated applications managed by [Pomerium](https://www.pomerium.com)
 
 ## Usage
 
-Execute `./run` and select the desired actions.
+Execute `./run` and select the desired actions. The script will ask you to install `jq` and `gum` if you don't have them installed.
 
 ## Topolgy
 
