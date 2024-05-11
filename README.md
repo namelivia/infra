@@ -2,7 +2,7 @@
 
 ## About
 
-This repository contains the code to build, deploy and manage my personal infrastructure. It all started with an old laptop on a chair in a corner of the room manually configured and has evolved over time. This repository represents the current state of it and it will keep evolving as my needs change or whenver I discover better ways of doing thigs. The value for you could be mostly educational as you probably don't want to replicate all my infrastructure as your needs will probably be diffrent.
+This repository contains the code to build, deploy and manage my personal infrastructure. It all started with an old laptop on a chair in a corner of the room manually configured and has evolved over time. This repository represents the current state of it and it will keep evolving as my needs change or whenver I discover better ways of doing things. The value for you could be mostly educational as you probably don't want to replicate all my infrastructure as your needs will most likely be diffrent.
 
 These are some of the key features that shape the project:
 
