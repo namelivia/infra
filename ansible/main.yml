@@ -157,7 +157,7 @@
       vars:
         - exposed_ports: "{{ lightsail_exposed_ports }}"
     - role: prometheus.prometheus.node_exporter
-      tags: node_exporter
+      tags: node-exporter
     - role: ansible-cadvisor
       tags: cadvisor
     - role: ansible-restic

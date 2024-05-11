@@ -1,9 +1,23 @@
 #!/bin/bash
 
 source bash/ansible.sh
-source bash/terraform.sh
 source bash/ui.sh
 
+# TERRAFORM
+build_terraform() {
+    echo "Building Terraform container..."
+    (cd terraform && docker build . -t terraform -q)
+}
+
+run_terraform() {
+    echo "Running Terraform..."
+    (cd terraform && docker run \
+        -v $(pwd)/terraform:/terraform \
+        -it \
+        terraform)
+}
+
+# SELECTION LOGIC
 build_containers() {
     if [ "$build" == "terraform" ]; then
         build_terraform
@@ -30,6 +44,7 @@ run_containers() {
     fi
 }
 
+# MAIN
 main() {
     check_for_gum
     check_for_jq
