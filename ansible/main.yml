@@ -311,6 +311,10 @@
   roles:
     - role: prometheus.prometheus.node_exporter
       tags: node-exporter
+    - role: ansible-iptables
+      tags: iptables
+      vars:
+        - exposed_ports: "{{ bastion_exposed_ports }}"
     - role: ansible-cadvisor
       tags: cadvisor
     - role: ansible-restic
