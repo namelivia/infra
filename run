@@ -19,13 +19,13 @@ run_containers() {
     if [ "$run" == "terraform" ]; then
         run_terraform
     elif [ "$run" == "ansible" ]; then
-        list_hosts
         list_tags
+        list_hosts
         run_ansible
     elif [ "$run" == "all" ]; then
         run_terraform
-        list_hosts
         list_tags
+        list_hosts
         run_ansible
     fi
 }

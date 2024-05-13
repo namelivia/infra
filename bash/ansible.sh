@@ -16,7 +16,7 @@ list_hosts() {
             -v "ansible:/home/runner/.ansible" \
             ansible ansible-inventory --list | jq -r '.hosts.hosts[]'
     )
-    selectedHosts=$(echo $hosts | tr ' ' '\n' | gum filter --no-limit)
+    selectedHosts=$(echo "all $hosts" | tr ' ' '\n' | gum filter --no-limit)
 }
 
 list_tags() {
@@ -36,18 +36,14 @@ list_tags() {
 }
 
 run_ansible() {
-    if [ -n "$selectedTags" ]; then
-        joinedTags=$(echo $selectedTags | tr ' ' ',')
-        tagsOption="--tags $joinedTags"
-    else
-        tagsOption=""
-    fi
+    joinedTags=$(echo $selectedTags | tr ' ' ',')
+    tagsOption="--tags $joinedTags"
 
-    if [ -n "$selectedHosts" ]; then
+    if [ "$selectedHosts" == "all" ]; then
+        hostsOption=""
+    else
         joinedHosts=$(echo $selectedHosts | tr ' ' ',')
         hostsOption="--limit $joinedHosts"
-    else
-        hostsOption=""
     fi
 
     echo "Running Ansible..."
