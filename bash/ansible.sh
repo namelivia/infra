@@ -30,7 +30,7 @@ list_tags() {
             -v "ansible:/home/runner/.ansible" \
             ansible ansible-playbook /runner/main.yml --list-tags
     )
-    allTags=$(echo $listTagsOutput | grep -o 'TASK TAGS: \[.*\]' | sed 's/^.*TASK TAGS: \[\([^]]*\)].*$/\1/p' | tr ',' ' ')
+    allTags=$(echo "$listTagsOutput" | grep -o 'TASK TAGS: \[.*\]' | sed -n 's/TASK TAGS: \[\([^]]*\)].*/\1/p' | tr ',' ' ')
     selectedTags=$(echo $allTags | tr ' ' '\n' | sort | uniq | gum filter --no-limit)
     echo $selectedTags
 }
