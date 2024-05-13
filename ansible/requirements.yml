@@ -11,114 +11,65 @@ roles:
     version: 0.1.0
     name: monorepo
     roles:
-      - ansible-gallery-client
+      - ansible-amule
+      - ansible-apprise
+      - ansible-anki
+      - ansible-babybuddy
+      - ansible-backups
+      - ansible-bazarr
+      - ansible-cadvisor
+      - ansible-common
+      - ansible-dashy
+      - ansible-deluge
       - ansible-expenses-client
-
-  - src: https://github.com/namelivia/ansible-expenses-server
-  - src: https://github.com/namelivia/ansible-itemtree-client
-  - src: https://github.com/namelivia/ansible-plants-client
-  - src: https://github.com/namelivia/ansible-gallery-server
-  - src: https://github.com/namelivia/ansible-garments-client
-
-  - name: ansible-movie-quote-twitter-bot
-    src: https://github.com/namelivia/ansible-movie-quote-twitter-bot
-    version: 1.0.5
-
-  - name: ansible-like-and-share-twitter-bot
-    src: https://github.com/namelivia/ansible-like-and-share-twitter-bot
-    version: 1.1.0
-
-  - name: ansible-backups
-    src: https://github.com/namelivia/ansible-backups
-    version: 0.0.6
-
-  - src: https://github.com/namelivia/ansible-postgres
-  - src: https://github.com/namelivia/ansible-fastapi
-
-  - name: ansible-anki
-    src: https://github.com/namelivia/ansible-anki
-    version: 3.0.0
-
-  - src: https://github.com/namelivia/ansible-flappysonic
-
-  - src: https://github.com/namelivia/ansible-tombraiderjs
-  - src: https://github.com/namelivia/ansible-thumbor
-  - src: https://github.com/namelivia/ansible-thumbor2
-  - src: https://github.com/namelivia/ansible-gitlab
-
-  - name: ansible-nextcloud
-    src: https://github.com/namelivia/ansible-nextcloud
-    version: 4.4.0
-
-  - name: ansible-ghost
-    src: https://github.com/namelivia/ansible-ghost
-    version: 2.0.1
-
-  - src: https://github.com/namelivia/ansible-journaling-service
-  - src: https://github.com/namelivia/ansible-user-info-service
-  - src: https://github.com/namelivia/ansible-garments-server
-  - src: https://github.com/namelivia/ansible-plants-server
-  - src: https://github.com/namelivia/ansible-miniflux
-  - src: https://github.com/namelivia/ansible-itemtree-server
-  # - src: https://github.com/namelivia/ansible-mailu
-  - src: https://github.com/namelivia/ansible-common
-  - name: ansible-pomerium
-    src: https://github.com/namelivia/ansible-pomerium
-    version: 0.0.14
-
-  - name: ansible-ofelia
-    src: https://github.com/namelivia/ansible-ofelia
-    version: 0.0.4
-
-  - src: https://github.com/namelivia/ansible-openvpn-client
-  - src: https://github.com/namelivia/ansible-openvpn-server
-  - src: https://github.com/namelivia/ansible-deluge
-  - src: https://github.com/namelivia/ansible-jackett
-  - src: https://github.com/namelivia/ansible-sonarr
-  - src: https://github.com/namelivia/ansible-lidarr
-  - src: https://github.com/namelivia/ansible-bazarr
-  - src: https://github.com/namelivia/ansible-radarr
-  - src: https://github.com/namelivia/ansible-amule
-  - src: https://github.com/namelivia/ansible-external-storage
-  - src: https://github.com/namelivia/ansible-samba
-  # - src: https://github.com/namelivia/ansible-flaresolverr Consumes too much memory
-  - name: ansible-mealie
-    src: https://github.com/namelivia/ansible-mealie
-    version: 3.0.0
-  - src: https://github.com/namelivia/ansible-cec
-  - src: https://github.com/namelivia/ansible-tweak-overscan
-  - src: https://github.com/namelivia/ansible-samba-mounts
-  - src: https://github.com/namelivia/ansible-reverse-proxy
-  - name: ansible-pleroma
-    src: https://github.com/namelivia/ansible-pleroma
-    version: 0.0.20
-  - src: https://github.com/namelivia/ansible-gtd-caldav
-  - src: https://github.com/namelivia/ansible-apprise
-  - src: https://github.com/namelivia/ansible-retroachievements-apprise
-  - src: https://github.com/namelivia/ansible-recipe-suggestions
-  - src: https://github.com/namelivia/ansible-immich
-  - src: https://github.com/namelivia/ansible-redis
-  - name: ansible-dashy
-    src: https://github.com/namelivia/ansible-dashy
-    version: 0.2.3
-  - name: ansible-cadvisor
-    src: https://github.com/namelivia/ansible-cadvisor
-    version: 0.0.6
-  - name: ansible-prometheus
-    src: https://github.com/namelivia/ansible-prometheus
-    version: 0.0.7
-  - name: ansible-grafana
-    src: https://github.com/namelivia/ansible-grafana
-    version: 0.0.12
-  - src: https://github.com/namelivia/ansible-loki
-  - name: ansible-mealie-discord
-    src: https://github.com/namelivia/ansible-mealie-discord
-    version: 0.0.6
-  - src: https://github.com/namelivia/ansible-iptables
-  - src: https://github.com/namelivia/ansible-funkwhale
-  - src: https://github.com/namelivia/ansible-babybuddy
-  - src: https://github.com/namelivia/ansible-tink-firefly-endpoint
-  - src: https://github.com/namelivia/ansible-firefly
-  - src: https://github.com/namelivia/ansible-firefly-importer
-  - src: https://github.com/namelivia/ansible-restic
-  - src: https://github.com/namelivia/ansible-metube
+      - ansible-expenses-server
+      - ansible-external-storage
+      - ansible-fastapi
+      - ansible-firefly
+      - ansible-firefly-importer
+      - ansible-flappysonic
+      - ansible-gallery-client
+      - ansible-gallery-server
+      - ansible-garments-client
+      - ansible-garments-server
+      - ansible-ghost
+      - ansible-grafana
+      - ansible-gtd-caldav
+      - ansible-immich
+      - ansible-iptables
+      - ansible-itemtree-client
+      - ansible-itemtree-server
+      - ansible-jackett
+      - ansible-journaling-service
+      - ansible-lidarr
+      - ansible-like-and-share-twitter-bot
+      - ansible-loki
+      - ansible-mealie
+      - ansible-mealie-discord
+      - ansible-metube
+      - ansible-miniflux
+      - ansible-movie-quote-twitter-bot
+      - ansible-nextcloud
+      - ansible-ofelia
+      - ansible-openvpn-client
+      - ansible-openvpn-server
+      - ansible-plants-client
+      - ansible-plants-server
+      - ansible-pleroma
+      - ansible-pomerium
+      - ansible-postgres
+      - ansible-prometheus
+      - ansible-radarr
+      - ansible-recpie-suggestions
+      - ansible-redis
+      - ansible-restic
+      - ansible-retroachievements-apprise
+      - ansible-reverse-proxy
+      - ansible-samba
+      - ansible-samba-mounts
+      - ansible-sonarr
+      - ansible-thumbor
+      - ansible-thumbor2
+      - ansible-tink-firefly-endpoint
+      - ansible-tombraiderjs
+      - ansible-user-info-service
