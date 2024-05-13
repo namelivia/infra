@@ -8,6 +8,12 @@ collections:
 
 roles:
   - src: https://github.com/namelivia/ansible-monorepo
+    version: 0.1.0
+    name: monorepo
+    roles:
+      - ansible-gallery-client
+      - ansible-expenses-client
+
   - src: https://github.com/namelivia/ansible-expenses-server
   - src: https://github.com/namelivia/ansible-itemtree-client
   - src: https://github.com/namelivia/ansible-plants-client
