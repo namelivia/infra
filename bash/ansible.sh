@@ -59,7 +59,7 @@ run_ansible() {
             -v "$(pwd)/requirements.yml:/runner/requirements.yml" \
             -v "$(pwd)/vars:/vars" \
             -v "ansible:/home/runner/.ansible" \
-            ansible ansible-galaxy install -r /runner/requirements.yml \
+            ansible ansible-galaxy install -f -r /runner/requirements.yml \
     ) && \
     (cd ansible && \
         docker run \
