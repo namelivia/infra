@@ -46,10 +46,6 @@ roles:
   - src: https://github.com/namelivia/ansible-thumbor2
   - src: https://github.com/namelivia/ansible-gitlab
 
-  - name: ansible-kimai
-    src: https://github.com/namelivia/ansible-kimai
-    version: 4.2.0
-
   - name: ansible-nextcloud
     src: https://github.com/namelivia/ansible-nextcloud
     version: 4.4.0

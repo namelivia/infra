@@ -102,6 +102,7 @@
     - role: ansible-kimai
       tags: kimai
       vars:
+        - version: "fpm-2.11.0-prod"
         - domain_name: "{{ kimai_domain_name }}"
         - host_port: "{{ kimai_host_port }}"
         - database_name: "{{ kimai_database_name }}"
