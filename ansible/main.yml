@@ -102,7 +102,6 @@
     - role: ansible-kimai
       tags: kimai
       vars:
-        - version: "fpm-2.11.0-prod"
         - domain_name: "{{ kimai_domain_name }}"
         - host_port: "{{ kimai_host_port }}"
         - database_name: "{{ kimai_database_name }}"
@@ -168,7 +167,6 @@
       tags: gallery-client
       vars:
         - host_port: "{{ gallery_client_host_port }}"
-        - version: "latest"
     - role: ansible-gallery-server
       tags: gallery-server
       vars:
@@ -203,7 +201,6 @@
       tags: expenses-client
       vars:
         - host_port: "{{ expenses_client_host_port }}"
-        - version: "latest"
     - role: ansible-garments-server
       tags: garments-server
       vars:
