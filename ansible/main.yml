@@ -117,16 +117,6 @@
       tags: anki
       vars:
         - host_port: "{{ anki_host_port }}"
-#    - role: ansible-gallery-client
-#      vars:
-#        - host_port: "{{ gallery_client_2_host_port }}"
-#        - gallery_api_endpoint: "{{ gallery_api_endpoint_2 }}"
-#    - role: ansible-gallery-server
-#      vars:
-#        - domain_name: "{{ gallery_server_2_domain_name }}"
-#        - host_port: "{{ gallery_server_2_host_port }}"
-#        - aws_bucket: "{{ aws_bucket_gallery_server_2 }}"
-#        - aws_dynamo_table: "{{ aws_dynamo_table_2 }}"
     - role: ansible-mealie
       tags: mealie
       vars:
@@ -177,6 +167,7 @@
       tags: gallery-client
       vars:
         - host_port: "{{ gallery_client_host_port }}"
+        - version: "latest"
     - role: ansible-gallery-server
       tags: gallery-server
       vars:
@@ -211,6 +202,7 @@
       tags: expenses-client
       vars:
         - host_port: "{{ expenses_client_host_port }}"
+        - version: "latest"
     - role: ansible-garments-server
       tags: garments-server
       vars:
