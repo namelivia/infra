@@ -3,6 +3,9 @@
   become: true
   vars_files:
     - /vars/variables.yml
+  collections:
+    - namelivia.monorepo
+
   roles:
     - role: ansible-common
       vars:
@@ -14,6 +17,9 @@
   become: true
   vars_files:
     - /vars/variables.yml
+  collections:
+    - namelivia.monorepo
+
   roles:
     - role: prometheus.prometheus.node_exporter
       tags: node-exporter
@@ -77,6 +83,10 @@
   become: true
   vars_files:
     - /vars/variables.yml
+
+  collections:
+    - namelivia.monorepo
+
   roles:
     - role: prometheus.prometheus.node_exporter
       tags: node-exporter
@@ -141,6 +151,10 @@
   become: true
   vars_files:
     - /vars/variables.yml
+
+  collections:
+    - namelivia.monorepo
+
   roles:
     - role: ansible-iptables
       tags: iptables
@@ -298,6 +312,9 @@
   become: true
   vars_files:
     - /vars/variables.yml
+  collections:
+    - namelivia.monorepo
+
   roles:
     - role: prometheus.prometheus.node_exporter
       tags: node-exporter
@@ -328,6 +345,8 @@
   become: true
   vars_files:
     - /vars/variables.yml
+  collections:
+    - namelivia.monorepo
   roles:
     - role: prometheus.prometheus.node_exporter
       tags: node-exporter
@@ -419,6 +438,8 @@
   become: true
   vars_files:
     - /vars/variables.yml
+  collections:
+    - namelivia.monorepo
   roles:
    # Not needed anymore
    #- ansible-cec
@@ -433,6 +454,8 @@
   become: true
   vars_files:
     - /vars/variables.yml
+  collections:
+    - namelivia.monorepo
   roles:
     - role: prometheus.prometheus.node_exporter
       tags: node-exporter
@@ -515,8 +538,6 @@
         - group: "{{ lidarr_group }}"
         - uid: "{{ lidarr_uid }}"
         - gid: "{{ lidarr_gid }}"
-    - role: ansible-funkwhale
-      tags: funkwhale
     - role: ansible-pleroma
       tags: pleroma
       vars:
