@@ -598,3 +598,8 @@
         - firefly_3_url: "{{ firefly_url }}"
         - import_files_dir: "{{ firefly_import_files_dir }}"
         - notifications_endpoint: "{{ firefly_importer_notifications_endpoint }}"
+    - role: nginx
+      tags: nginx
+      vars:
+        - host_port: "{{ nginx_host_port }}"
+        - container_name: "{{ nginx_container_name }}"
