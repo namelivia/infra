@@ -1,4 +1,4 @@
-nf---
+---
 - hosts: all
   become: true
   vars_files:
@@ -191,10 +191,6 @@ nf---
       tags: ofelia
       vars:
         - ofelia_config_path: "{{ ofelia_lightsail_config_path }}"
-    - role: ansible-apprise
-      tags: apprise
-      vars:
-        - apprise_config_folder: /vars/apprise
     - role: ansible-plants-client
       tags: plants-client
       vars:
@@ -204,6 +200,14 @@ nf---
       vars:
         - database_container_name: "{{ postgres_database_container_name }}"
         - should_publish_ports: true
+    - role: ansible-apprise
+      tags: apprise
+      vars:
+        - apprise_config_folder: /vars/apprise
+    - role: ansible-thumbor2
+      tags: thumbor
+      vars:
+        - backup_day: 3
     - role: ansible-garments-client
       tags: garments-client
       vars:
@@ -216,27 +220,6 @@ nf---
       tags: expenses-client
       vars:
         - host_port: "{{ expenses_client_host_port }}"
-    - role: ansible-garments-server
-      tags: garments-server
-      vars:
-        - database_url: "{{ garments_database_url }}"
-        - database_container_name: "{{ garments_database_container_name }}"
-        - database_name: "{{ garments_database_name }}"
-        - host_port: "{{ garments_server_host_port }}"
-        - database_user: "{{ garments_database_user }}"
-        - database_password: "{{ garments_database_password }}"
-        - dump_day: 4
-    - role: ansible-plants-server
-      tags: plants-server
-      vars:
-        - database_url: "{{ plants_database_url }}"
-        - host_port: "{{ plants_server_host_port }}"
-        - database_container_name: "{{ plants_database_container_name }}"
-        - database_name: "{{ plants_database_name }}"
-        - database_user: "{{ plants_database_user }}"
-        - database_password: "{{ plants_database_password }}"
-        - notifications_service_endpoint: "{{ plants_notifications_service_endpoint }}"
-        - dump_day: 3
     - role: ansible-miniflux
       tags: miniflux
       vars:
@@ -248,7 +231,29 @@ nf---
         - database_password: "{{ miniflux_database_password }}"
         - admin_username: "{{ miniflux_admin_username }}"
         - admin_password: "{{ miniflux_admin_password }}"
+        - database_network_name: "database_network"
         - dump_day: 4
+    - role: ansible-journaling-service
+      tags: journaling-service
+      vars:
+        - database_url: "{{ journaling_database_url }}"
+        - database_container_name: "{{ journaling_database_container_name }}"
+        - database_name: "{{ journaling_database_name }}"
+        - database_user: "{{ journaling_database_user }}"
+        - database_password: "{{ journaling_database_password }}"
+        - database_network_name: "database_network"
+        - dump_day: 4
+    - role: ansible-user-info-service
+      tags: user-info-service
+      vars:
+        - database_url: "{{ users_database_url }}"
+        - jwk_endpoint: "{{ pomerium_jwk_endpoint }}"
+        - database_container_name: "{{ users_database_container_name }}"
+        - database_name: "{{ users_database_name }}"
+        - database_user: "{{ users_database_user }}"
+        - database_password: "{{ users_database_password }}"
+        - database_network_name: "database_network"
+        - dump_day: 2
     - role: ansible-itemtree-server
       tags: itemtree-server
       vars:
@@ -258,6 +263,10 @@ nf---
         - database_name: "{{ itemtree_database_name }}"
         - database_user: "{{ itemtree_database_user }}"
         - database_password: "{{ itemtree_database_password }}"
+        - images_service_network_name: "images_service_network"
+        - user_info_service_network_name: "user_info_service_network"
+        - journaling_service_network_name: "journaling_service_network"
+        - database_network_name: "database_network"
         - dump_day: 3
     - role: ansible-expenses-server
       tags: expenses-server
@@ -269,7 +278,40 @@ nf---
         - database_user: "{{ expenses_database_user }}"
         - database_password: "{{ expenses_database_password }}"
         - notifications_service_endpoint: "{{ expenses_notifications_service_endpoint }}"
+        - images_service_network_name: "images_service_network"
+        - user_info_service_network_name: "user_info_service_network"
+        - journaling_service_network_name: "journaling_service_network"
+        - database_network_name: "database_network"
         - dump_day: 5
+    - role: ansible-garments-server
+      tags: garments-server
+      vars:
+        - database_url: "{{ garments_database_url }}"
+        - database_container_name: "{{ garments_database_container_name }}"
+        - database_name: "{{ garments_database_name }}"
+        - host_port: "{{ garments_server_host_port }}"
+        - database_user: "{{ garments_database_user }}"
+        - database_password: "{{ garments_database_password }}"
+        - images_service_network_name: "images_service_network"
+        - user_info_service_network_name: "user_info_service_network"
+        - journaling_service_network_name: "journaling_service_network"
+        - database_network_name: "database_network"
+        - dump_day: 4
+    - role: ansible-plants-server
+      tags: plants-server
+      vars:
+        - database_url: "{{ plants_database_url }}"
+        - host_port: "{{ plants_server_host_port }}"
+        - database_container_name: "{{ plants_database_container_name }}"
+        - database_name: "{{ plants_database_name }}"
+        - database_user: "{{ plants_database_user }}"
+        - database_password: "{{ plants_database_password }}"
+        - notifications_service_endpoint: "{{ plants_notifications_service_endpoint }}"
+        - images_service_network_name: "images_service_network"
+        - user_info_service_network_name: "user_info_service_network"
+        - journaling_service_network_name: "journaling_service_network"
+        - database_network_name: "database_network"
+        - dump_day: 3
     - role: ansible-gtd-caldav
       tags: gtd-caldav
       vars:
@@ -285,29 +327,6 @@ nf---
       tags: recipe-suggestions
       vars:
         - notifications_service_endpoint: "{{ recipe_suggestions_notifications_service_endpoint }}"
-    - role: ansible-journaling-service
-      tags: journaling-service
-      vars:
-        - database_url: "{{ journaling_database_url }}"
-        - database_container_name: "{{ journaling_database_container_name }}"
-        - database_name: "{{ journaling_database_name }}"
-        - database_user: "{{ journaling_database_user }}"
-        - database_password: "{{ journaling_database_password }}"
-        - dump_day: 4
-    - role: ansible-user-info-service
-      tags: user-info-service
-      vars:
-        - database_url: "{{ users_database_url }}"
-        - jwk_endpoint: "{{ pomerium_jwk_endpoint }}"
-        - database_container_name: "{{ users_database_container_name }}"
-        - database_name: "{{ users_database_name }}"
-        - database_user: "{{ users_database_user }}"
-        - database_password: "{{ users_database_password }}"
-        - dump_day: 2
-    - role: ansible-thumbor2
-      tags: thumbor
-      vars:
-        - backup_day: 3
 
 - hosts: bastion
   become: true
@@ -332,18 +351,18 @@ nf---
       vars:
         - aws_access_key_id: "{{ restic_aws_access_key_id }}"
         - aws_secret_access_key: "{{ restic_aws_secret_access_key }}"
-    - role: ansible-pomerium
-      tags: pomerium
-      vars:
-        - application_name: "pomerium"
-        - pomerium_config_path: "/vars/pomerium_config.yaml"
-        - vpn_network_name: "openvpn_network"
     - role: ansible-openvpn-server
       tags: openvpn-server
       vars:
         - application_name: "openvpn2"
         - openvpn_config_folder: /vars/openvpn
         - domain_name: "{{ openvpn2_domain_name }}"
+    - role: ansible-pomerium
+      tags: pomerium
+      vars:
+        - application_name: "pomerium"
+        - pomerium_config_path: "/vars/pomerium_config.yaml"
+        - vpn_network_name: "openvpn_network"
 
 - hosts: seedbox2
   become: true
@@ -433,6 +452,7 @@ nf---
         - group: "{{ nextcloud_group }}"
         - uid: "{{ nextcloud_uid }}"
         - gid: "{{ nextcloud_gid }}"
+        - database_network_name: "database_network"
         - dump_day: 2
         - backup_day: 4
     - role: ansible-metube
@@ -476,10 +496,20 @@ nf---
       tags: ofelia
       vars:
         - ofelia_config_path: "{{ ofelia_lenovo_config_path }}"
+    - role: ansible-postgres
+      tags: postgres
+      vars:
+        - database_container_name: "{{ lenovo_postgres_database_container_name }}"
     - role: ansible-loki
       tags: loki
       vars:
         - host_port: "{{ loki_host_port }}"
+    - role: ansible-prometheus
+      tags: prometheus
+      vars:
+        - host_port: "{{ prometheus_host_port }}"
+        - gid: "{{ prometheus_gid }}"
+        - uid: "{{ prometheus_uid }}"
     - role: ansible-grafana
       tags: grafana
       vars:
@@ -491,12 +521,9 @@ nf---
         - uid: "{{ grafana_uid }}"
         - gid: "{{ grafana_gid }}"
         - grafana_config_folder: /vars/grafana
-    - role: ansible-prometheus
-      tags: prometheus
-      vars:
-        - host_port: "{{ prometheus_host_port }}"
-        - gid: "{{ prometheus_gid }}"
-        - uid: "{{ prometheus_uid }}"
+        - database_network_name: "database_network"
+        - loki_network_name: "loki_network"
+        - prometheus_network_name: "prometheus_network"
     - role: ansible-openvpn-client
       tags: openvpn-client
       vars:
@@ -505,11 +532,6 @@ nf---
         - openvpn_static_key: "{{ lookup('file', '/vars/server.key') }}"
         - client_certificate: "{{ lookup('file', '/vars/lenovo.crt') }}"
         - server_ca: "{{ lookup('file', '/vars/server.crt') }}"
-    - role: ansible-postgres
-      tags: postgres
-      vars:
-        - database_container_name: "{{ lenovo_postgres_database_container_name }}"
-        - network_name: "{{ lenovo_postgres_database_network_name }}"
     - role: ansible-immich
       tags: immich
       vars:
@@ -519,10 +541,10 @@ nf---
         - database_password: "{{ immich_database_password }}"
         - database_name: "{{ immich_database_name }}"
         - redis_hostname: "{{ immich_redis_hostname }}"
+        - redis_network_name: "redis_network"
+        - database_network_name: "database_network"
     - role: ansible-redis
       tags: redis
-      vars:
-        - network_name: "{{ lenovo_redis_network_name }}"
     - role: ansible-dashy
       tags: dashy
       vars:
@@ -546,7 +568,6 @@ nf---
       tags: pleroma
       vars:
         - domain_name: "{{ pleroma_domain_name }}"
-        - docker_network_name: "{{ pleroma_network_name }}"
         - instance_name: "{{ pleroma_instance_name }}"
         - admin_mail: "{{ pleroma_admin_mail }}"
         - notify_mail: "{{ pleroma_notify_mail }}"
@@ -562,6 +583,7 @@ nf---
         - dump_day: 3
         - backup_day: 5
         - host_port: "{{ pleroma_host_port }}"
+        - database_network_name: "database_network"
     - role: ansible-babybuddy
       tags: babybuddy
       vars:
@@ -573,6 +595,7 @@ nf---
         - database_password: "{{ babybuddy_database_password }}"
         - database_name: "{{ babybuddy_database_name }}"
         - database_container_name: "postgres-{{ lenovo_postgres_database_container_name }}"
+        - database_network_name: "database_network"
         - dump_day: 2
         - backup_day: 4
     - role: ansible-tink-firefly-endpoint
@@ -594,10 +617,10 @@ nf---
         - database_container_name: "postgres-{{ lenovo_postgres_database_container_name }}"
         - dump_day: 2
         - backup_day: 4
+        - database_network_name: "database_network"
     - role: ansible-firefly-importer
       tags: firefly-importer
       vars:
-        - docker_network_name: "{{ firefly_network_name }}"
         - firefly_3_access_token: "{{ firefly_access_token }}"
         - firefly_3_url: "{{ firefly_url }}"
         - import_files_dir: "{{ firefly_import_files_dir }}"
