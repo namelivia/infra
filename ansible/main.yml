@@ -187,6 +187,9 @@
       vars:
         - domain_name: "{{ gallery_server_domain_name }}"
         - host_port: "{{ gallery_server_host_port }}"
+        - user_info_service_network_name: "user_info_service_network"
+        - aws_access_key_id: "{{ gallery_server_aws_access_key_id }}"
+        - aws_secret_access_key: "{{ gallery_server_aws_secret_access_key }}"
     - role: ansible-ofelia
       tags: ofelia
       vars:
@@ -267,6 +270,7 @@
         - user_info_service_network_name: "user_info_service_network"
         - journaling_service_network_name: "journaling_service_network"
         - database_network_name: "database_network"
+        - notifications_service_network_name: "apprise_network"
         - dump_day: 3
     - role: ansible-expenses-server
       tags: expenses-server
@@ -281,6 +285,7 @@
         - images_service_network_name: "images_service_network"
         - user_info_service_network_name: "user_info_service_network"
         - journaling_service_network_name: "journaling_service_network"
+        - notifications_service_network_name: "apprise_network"
         - database_network_name: "database_network"
         - dump_day: 5
     - role: ansible-garments-server
@@ -295,6 +300,7 @@
         - images_service_network_name: "images_service_network"
         - user_info_service_network_name: "user_info_service_network"
         - journaling_service_network_name: "journaling_service_network"
+        - notifications_service_network_name: "apprise_network"
         - database_network_name: "database_network"
         - dump_day: 4
     - role: ansible-plants-server
@@ -310,6 +316,7 @@
         - images_service_network_name: "images_service_network"
         - user_info_service_network_name: "user_info_service_network"
         - journaling_service_network_name: "journaling_service_network"
+        - notifications_service_network_name: "apprise_network"
         - database_network_name: "database_network"
         - dump_day: 3
     - role: ansible-gtd-caldav
