@@ -128,6 +128,14 @@
       tags: anki
       vars:
         - host_port: "{{ anki_host_port }}"
+    - role: ansible-ankirust
+      tags: ankirust
+      vars:
+        - host_port: "{{ ankirust_host_port }}"
+        - user: "{{ ankirust_user }}"
+        - password: "{{ ankirust_password }}"
+        - uid: "{{ ankirust_uid }}"
+        - gid: "{{ ankirust_gid }}"
     - role: ansible-mealie
       tags: mealie
       vars:
