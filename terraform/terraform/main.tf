@@ -86,6 +86,12 @@ module "lightsail_secondary_instance" {
   ssh_key = var.ssh_key
 }
 
+module "hetzner_server" {
+  source = "github.com/namelivia/terraform-hetzner"
+  server_name = "hetzner"
+  ssh_key = var.ssh_key
+}
+
 //DNS Records
 resource "digitalocean_domain" "domain" {
   name = var.domain_name
@@ -126,6 +132,7 @@ locals {
     bastion_instance_ip = "${module.bastion_instance.ip}"
     digitalocean_droplet_ip = "${module.digitalocean_droplet.ip}"
     lightsail_instance_ip = "${module.lightsail_instance.ip}"
+    hetzner_server_ip = "${module.hetzner_server.ip}"
   })
 }
 
