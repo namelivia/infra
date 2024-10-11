@@ -184,18 +184,6 @@
         - openvpn_static_key: "{{ lookup('file', '/vars/server.key') }}"
         - client_certificate: "{{ lookup('file', '/vars/lightsail.crt') }}"
         - server_ca: "{{ lookup('file', '/vars/server.crt') }}"
-    - role: ansible-gallery-client
-      tags: gallery-client
-      vars:
-        - host_port: "{{ gallery_client_host_port }}"
-    - role: ansible-gallery-server
-      tags: gallery-server
-      vars:
-        - domain_name: "{{ gallery_server_domain_name }}"
-        - host_port: "{{ gallery_server_host_port }}"
-        - user_info_service_network_name: "user_info_service_network"
-        - aws_access_key_id: "{{ gallery_server_aws_access_key_id }}"
-        - aws_secret_access_key: "{{ gallery_server_aws_secret_access_key }}"
     - role: ansible-ofelia
       tags: ofelia
       vars:
