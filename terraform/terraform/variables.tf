@@ -38,6 +38,12 @@ variable "do_token" {
   description = "Token for Digital Ocean"
 }
 
+variable "hcloud_token" {
+  type = string
+  sensitive = true
+  description = "Token for Hetzner Cloud"
+}
+
 variable "domain_name" {
   type = string
   description = "Your domain name"

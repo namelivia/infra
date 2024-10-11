@@ -20,6 +20,11 @@ terraform {
       source = "hashicorp/google"
       version = "=4.37.0"
     }
+
+    hcloud = {
+      source = "hetznercloud/hcloud"
+      version = "=1.48.1"
+    }
   }
 }
 
@@ -32,6 +37,10 @@ provider "aws" {
 
 provider "digitalocean" {
   token = var.do_token
+}
+
+provider "hcloud" {
+  token = var.hcloud_token
 }
 
 provider "azurerm" {
