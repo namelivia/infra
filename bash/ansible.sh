@@ -10,10 +10,10 @@ list_hosts() {
         docker run \
             -it \
             -v "$(pwd)/hosts:/etc/ansible/hosts" \
-            -v "$(pwd)/main.yml:/runner/main.yml" \
-            -v "$(pwd)/requirements.yml:/runner/requirements.yml" \
-            -v "$(pwd)/vars:/vars" \
-            -v "ansible:/home/runner/.ansible" \
+            -v "$(pwd)/main.yml:/app/main.yml" \
+            -v "$(pwd)/requirements.yml:/app/requirements.yml" \
+            -v "$(pwd)/vars:/app/vars" \
+            -v "ansible:/root/.ansible" \
             ansible ansible-inventory --list | jq -r '.hosts.hosts[]'
     )
     selectedHosts=$(echo "all $hosts" | tr ' ' '\n' | gum filter --no-limit)
@@ -24,11 +24,11 @@ list_tags() {
         docker run \
             -it \
             -v "$(pwd)/hosts:/etc/ansible/hosts" \
-            -v "$(pwd)/main.yml:/runner/main.yml" \
-            -v "$(pwd)/requirements.yml:/runner/requirements.yml" \
-            -v "$(pwd)/vars:/vars" \
-            -v "ansible:/home/runner/.ansible" \
-            ansible ansible-playbook /runner/main.yml --list-tags
+            -v "$(pwd)/main.yml:/app/main.yml" \
+            -v "$(pwd)/requirements.yml:/app/requirements.yml" \
+            -v "$(pwd)/vars:/app/vars" \
+            -v "ansible:/root/.ansible" \
+            ansible ansible-playbook /app/main.yml --list-tags
     )
     if [ $? -ne 0 ]; then
         echo $listTagsOutput
@@ -55,20 +55,20 @@ run_ansible() {
         docker run \
             -it \
             -v "$(pwd)/hosts:/etc/ansible/hosts" \
-            -v "$(pwd)/main.yml:/runner/main.yml" \
-            -v "$(pwd)/requirements.yml:/runner/requirements.yml" \
-            -v "$(pwd)/vars:/vars" \
-            -v "ansible:/home/runner/.ansible" \
-            ansible ansible-galaxy install -f -r /runner/requirements.yml \
+            -v "$(pwd)/main.yml:/app/main.yml" \
+            -v "$(pwd)/requirements.yml:/app/requirements.yml" \
+            -v "$(pwd)/vars:/app/vars" \
+            -v "ansible:/root/.ansible" \
+            ansible ansible-galaxy install -f -r /app/requirements.yml \
     ) && \
     (cd ansible && \
         docker run \
             -it \
             -v "$(pwd)/hosts:/etc/ansible/hosts" \
-            -v "$(pwd)/main.yml:/runner/main.yml" \
-            -v "$(pwd)/requirements.yml:/runner/requirements.yml" \
-            -v "$(pwd)/vars:/vars" \
-            -v "ansible:/home/runner/.ansible" \
-            ansible ansible-playbook /runner/main.yml --key-file /runner/env/ssh_key --ssh-common-args='-o StrictHostKeyChecking=no' $tagsOption $hostsOption
+            -v "$(pwd)/main.yml:/app/main.yml" \
+            -v "$(pwd)/requirements.yml:/app/requirements.yml" \
+            -v "$(pwd)/vars:/app/vars" \
+            -v "ansible:/root/.ansible" \
+            ansible ansible-playbook /app/main.yml --key-file /app/env/ssh_key --ssh-common-args='-o StrictHostKeyChecking=no' $tagsOption $hostsOption
     )
 }

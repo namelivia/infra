@@ -2,7 +2,7 @@
 - hosts: all
   become: true
   vars_files:
-    - /vars/variables.yml
+    - /app/vars/variables.yml
   collections:
     - namelivia.monorepo
 
@@ -16,7 +16,7 @@
 - hosts: digitalocean
   become: true
   vars_files:
-    - /vars/variables.yml
+    - /app/vars/variables.yml
   collections:
     - namelivia.monorepo
 
@@ -83,7 +83,7 @@
 - hosts: azure
   become: true
   vars_files:
-    - /vars/variables.yml
+    - /app/vars/variables.yml
 
   collections:
     - namelivia.monorepo
@@ -157,7 +157,7 @@
 - hosts: lightsail
   become: true
   vars_files:
-    - /vars/variables.yml
+    - /app/vars/variables.yml
 
   collections:
     - namelivia.monorepo
@@ -332,7 +332,7 @@
 - hosts: bastion
   become: true
   vars_files:
-    - /vars/variables.yml
+    - /app/vars/variables.yml
   collections:
     - namelivia.monorepo
 
@@ -368,7 +368,7 @@
 - hosts: seedbox2
   become: true
   vars_files:
-    - /vars/variables.yml
+    - /app/vars/variables.yml
   collections:
     - namelivia.monorepo
   roles:
@@ -462,7 +462,7 @@
 - hosts: retropie
   become: true
   vars_files:
-    - /vars/variables.yml
+    - /app/vars/variables.yml
   collections:
     - namelivia.monorepo
   roles:
@@ -478,7 +478,7 @@
 - hosts: lenovo
   become: true
   vars_files:
-    - /vars/variables.yml
+    - /app/vars/variables.yml
   collections:
     - namelivia.monorepo
   roles:
