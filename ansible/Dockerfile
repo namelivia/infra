@@ -1,3 +1,5 @@
-FROM quay.io/ansible/ansible-runner:stable-2.12-latest
-COPY ./ssh_key /runner/env/ssh_key
-ENV ANSIBLE_TIMEOUT=120
+FROM python:3.13.0-alpine
+RUN apk add --no-cache git openssh-client
+RUN pip install ansible
+WORKDIR /app
+COPY ./ssh_key /app/env/ssh_key
