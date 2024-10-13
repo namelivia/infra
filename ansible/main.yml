@@ -8,6 +8,7 @@
 
   roles:
     - role: ansible-common
+      tags: common
       vars:
         - encryption_key_path: "{{ backup_encryption_key_path }}"
         - aws_access_key_id: "{{ backup_aws_access_key_id }}"
