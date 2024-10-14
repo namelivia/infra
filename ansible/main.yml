@@ -8,6 +8,7 @@
 
   roles:
     - role: ansible-common
+      tags: common
       vars:
         - encryption_key_path: "{{ backup_encryption_key_path }}"
         - aws_access_key_id: "{{ backup_aws_access_key_id }}"
@@ -33,10 +34,10 @@
     - role: ansible-openvpn-client
       vars:
         - vpn_endpoint: "{{ openvpn2_domain_name }}"
-        - client_private_key: "{{ lookup('file', '/vars/digitalocean.key') }}"
-        - openvpn_static_key: "{{ lookup('file', '/vars/server.key') }}"
-        - client_certificate: "{{ lookup('file', '/vars/digitalocean.crt') }}"
-        - server_ca: "{{ lookup('file', '/vars/server.crt') }}"
+        - client_private_key: "{{ lookup('file', '/app/vars/digitalocean.key') }}"
+        - openvpn_static_key: "{{ lookup('file', '/app/vars/server.key') }}"
+        - client_certificate: "{{ lookup('file', '/app/vars/digitalocean.crt') }}"
+        - server_ca: "{{ lookup('file', '/app/vars/server.crt') }}"
       tags: openvpn-client
     - role: ansible-like-and-share-twitter-bot
       tags: like-and-share-twitter-bot
@@ -80,6 +81,40 @@
         - mysql_root_password: "{{ghost_mysql_root_password}}"
         - reverse_proxy_network_name: "reverse_proxy_network" # Connect ghost with the reverse proxy
 
+- hosts: hetzner
+  become: true
+  vars_files:
+    - /app/vars/variables.yml
+  collections:
+    - namelivia.monorepo
+
+  roles:
+    - role: prometheus.prometheus.node_exporter
+      tags: node-exporter
+    - role: ansible-cadvisor
+      tags: cadvisor
+    - role: ansible-restic
+      tags: restic
+      vars:
+        - aws_access_key_id: "{{ restic_aws_access_key_id }}"
+        - aws_secret_access_key: "{{ restic_aws_secret_access_key }}"
+    - role: ansible-openvpn-client
+      vars:
+        - vpn_endpoint: "{{ openvpn2_domain_name }}"
+        - client_private_key: "{{ lookup('file', '/app/vars/hetzner.key') }}"
+        - openvpn_static_key: "{{ lookup('file', '/app/vars/server.key') }}"
+        - client_certificate: "{{ lookup('file', '/app/vars/hetzner.crt') }}"
+        - server_ca: "{{ lookup('file', '/app/vars/server.crt') }}"
+      tags: openvpn-client
+    - role: ansible-flappysonic
+      tags: flappysonic
+      vars:
+        - host_port: "{{ flappysonic_host_port }}"
+    - role: ansible-tombraiderjs
+      tags: tombraiderjs
+      vars:
+        - host_port: "{{ tombraiderjs_host_port }}"
+
 - hosts: azure
   become: true
   vars_files:
@@ -102,10 +137,10 @@
       tags: openvpn-client
       vars:
         - vpn_endpoint: "{{ openvpn2_domain_name }}"
-        - client_private_key: "{{ lookup('file', '/vars/azure.key') }}"
-        - openvpn_static_key: "{{ lookup('file', '/vars/server.key') }}"
-        - client_certificate: "{{ lookup('file', '/vars/azure.crt') }}"
-        - server_ca: "{{ lookup('file', '/vars/server.crt') }}"
+        - client_private_key: "{{ lookup('file', '/app/vars/azure.key') }}"
+        - openvpn_static_key: "{{ lookup('file', '/app/vars/server.key') }}"
+        - client_certificate: "{{ lookup('file', '/app/vars/azure.crt') }}"
+        - server_ca: "{{ lookup('file', '/app/vars/server.crt') }}"
     - role: ansible-iptables
       tags: iptables
       vars:
@@ -141,18 +176,10 @@
         - host_port: "{{ mealie_host_port }}"
         - jwt_auth_jwk_set_url: "{{ mealie_jwk_set_url }}"
         - log_level: "{{ mealie_log_level }}"
-    - role: ansible-flappysonic
-      tags: flappysonic
-      vars:
-        - host_port: "{{ flappysonic_host_port }}"
     - role: ansible-thumbor
       tags: thumbor
       vars:
         - host_port: "{{ thumbor_host_port }}"
-    - role: ansible-tombraiderjs
-      tags: tombraiderjs
-      vars:
-        - host_port: "{{ tombraiderjs_host_port }}"
 
 - hosts: lightsail
   become: true
@@ -180,10 +207,10 @@
       tags: openvpn-client
       vars:
         - vpn_endpoint: "{{ openvpn2_domain_name }}"
-        - client_private_key: "{{ lookup('file', '/vars/lightsail.key') }}"
-        - openvpn_static_key: "{{ lookup('file', '/vars/server.key') }}"
-        - client_certificate: "{{ lookup('file', '/vars/lightsail.crt') }}"
-        - server_ca: "{{ lookup('file', '/vars/server.crt') }}"
+        - client_private_key: "{{ lookup('file', '/app/vars/lightsail.key') }}"
+        - openvpn_static_key: "{{ lookup('file', '/app/vars/server.key') }}"
+        - client_certificate: "{{ lookup('file', '/app/vars/lightsail.crt') }}"
+        - server_ca: "{{ lookup('file', '/app/vars/server.crt') }}"
     - role: ansible-ofelia
       tags: ofelia
       vars:
@@ -200,7 +227,7 @@
     - role: ansible-apprise
       tags: apprise
       vars:
-        - apprise_config_folder: /vars/apprise
+        - apprise_config_folder: /app/vars/apprise
     - role: ansible-thumbor2
       tags: thumbor
       vars:
@@ -356,13 +383,13 @@
       tags: openvpn-server
       vars:
         - application_name: "openvpn2"
-        - openvpn_config_folder: /vars/openvpn
+        - openvpn_config_folder: /app/vars/openvpn
         - domain_name: "{{ openvpn2_domain_name }}"
     - role: ansible-pomerium
       tags: pomerium
       vars:
         - application_name: "pomerium"
-        - pomerium_config_path: "/vars/pomerium_config.yaml"
+        - pomerium_config_path: "/app/vars/pomerium_config.yaml"
         - vpn_network_name: "openvpn_network"
 
 - hosts: seedbox2
@@ -388,10 +415,10 @@
       tags: openvpn-client
       vars:
         - vpn_endpoint: "{{ openvpn2_domain_name }}"
-        - client_private_key: "{{ lookup('file', '/vars/seedbox2.key') }}"
-        - openvpn_static_key: "{{ lookup('file', '/vars/server.key') }}"
-        - client_certificate: "{{ lookup('file', '/vars/seedbox2.crt') }}"
-        - server_ca: "{{ lookup('file', '/vars/server.crt') }}"
+        - client_private_key: "{{ lookup('file', '/app/vars/seedbox2.key') }}"
+        - openvpn_static_key: "{{ lookup('file', '/app/vars/server.key') }}"
+        - client_certificate: "{{ lookup('file', '/app/vars/seedbox2.crt') }}"
+        - server_ca: "{{ lookup('file', '/app/vars/server.crt') }}"
     - role: ansible-deluge
       tags: deluge
       vars:
@@ -521,7 +548,7 @@
         - group: "{{ grafana_group }}"
         - uid: "{{ grafana_uid }}"
         - gid: "{{ grafana_gid }}"
-        - grafana_config_folder: /vars/grafana
+        - grafana_config_folder: /app/vars/grafana
         - database_network_name: "database_network"
         - loki_network_name: "loki_network"
         - prometheus_network_name: "prometheus_network"
@@ -529,10 +556,10 @@
       tags: openvpn-client
       vars:
         - vpn_endpoint: "{{ openvpn2_domain_name }}"
-        - client_private_key: "{{ lookup('file', '/vars/lenovo.key') }}"
-        - openvpn_static_key: "{{ lookup('file', '/vars/server.key') }}"
-        - client_certificate: "{{ lookup('file', '/vars/lenovo.crt') }}"
-        - server_ca: "{{ lookup('file', '/vars/server.crt') }}"
+        - client_private_key: "{{ lookup('file', '/app/vars/lenovo.key') }}"
+        - openvpn_static_key: "{{ lookup('file', '/app/vars/server.key') }}"
+        - client_certificate: "{{ lookup('file', '/app/vars/lenovo.crt') }}"
+        - server_ca: "{{ lookup('file', '/app/vars/server.crt') }}"
     - role: ansible-immich
       tags: immich
       vars:
