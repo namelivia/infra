@@ -114,6 +114,20 @@
       tags: tombraiderjs
       vars:
         - host_port: "{{ tombraiderjs_host_port }}"
+    - role: ansible-thumbor
+      tags: thumbor
+      vars:
+        - host_port: "{{ thumbor_host_port }}"
+    - role: ansible-anki
+      tags: anki
+      vars:
+        - host_port: "{{ anki_host_port }}"
+        - user: "{{ anki_user }}"
+        - password: "{{ anki_password }}"
+        - uid: "{{ anki_uid }}"
+        - gid: "{{ anki_gid }}"
+        - owner: "{{ anki_owner }}"
+        - group: "{{ anki_group }}"
 
 - hosts: azure
   become: true
@@ -159,16 +173,6 @@
         - admin_pass: "{{ kimai_admin_pass }}"
         - mysql_root_password: "{{ kimai_mysql_root_password }}"
         - should_publish_ports: true
-    - role: ansible-anki
-      tags: anki
-      vars:
-        - host_port: "{{ anki_host_port }}"
-        - user: "{{ anki_user }}"
-        - password: "{{ anki_password }}"
-        - uid: "{{ anki_uid }}"
-        - gid: "{{ anki_gid }}"
-        - owner: "{{ anki_owner }}"
-        - group: "{{ anki_group }}"
     - role: ansible-mealie
       tags: mealie
       vars:
