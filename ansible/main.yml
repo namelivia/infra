@@ -93,6 +93,8 @@
       tags: node-exporter
     - role: ansible-cadvisor
       tags: cadvisor
+      vars: 
+        - enable_load_reader: "false" # https://github.com/namelivia/infra/issues/16
     - role: ansible-restic
       tags: restic
       vars:
