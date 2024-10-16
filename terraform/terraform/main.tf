@@ -136,7 +136,6 @@ output "backup_bucket_url" {
 //Hosts file
 locals {
   hosts_file = templatefile("/terraform/hosts.tpl", {
-    azure_vm_ip = "${module.lightsail_secondary_instance.ip}"
     bastion_instance_ip = "${module.bastion_instance.ip}"
     lightsail_instance_ip = "${module.lightsail_instance.ip}"
     hetzner_server_ip = "${module.hetzner_server.ip}"

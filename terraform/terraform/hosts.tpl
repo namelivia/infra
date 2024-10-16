@@ -1,5 +1,4 @@
 [hosts]
-azure ansible_host=${azure_vm_ip} ansible_user=adminuser working_directory=/home/ubuntu/
 bastion ansible_host=${bastion_instance_ip} ansible_user=ubuntu working_directory=/home/ubuntu/
 lightsail ansible_host=${lightsail_instance_ip} ansible_user=ubuntu working_directory=/home/ubuntu/
 hetzner ansible_host=${hetzner_server_ip} ansible_user=root working_directory=/root/
