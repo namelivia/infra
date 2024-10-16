@@ -67,13 +67,6 @@ module "bastion_instance" {
 }
 
 //Instances
-module "digitalocean_droplet" {
-  source = "github.com/namelivia/terraform-droplet"
-  name = "namelivia"
-  key_name = "deployer-key"
-  ssh_key = var.ssh_key
-}
-
 module "lightsail_instance" {
   source = "github.com/namelivia/terraform-lightsail"
   instance_name = "lightsail"
@@ -155,6 +148,7 @@ locals {
     lightsail_instance_ip = "${module.lightsail_instance.ip}"
     hetzner_server_ip = "${module.hetzner_server.ip}"
     hetzner_server_2_ip = "${module.hetzner_server_2.ip}"
+    hetzner_server_3_ip = "${module.hetzner_server_3.ip}"
   })
 }
 
