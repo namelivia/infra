@@ -14,73 +14,6 @@
         - aws_access_key_id: "{{ backup_aws_access_key_id }}"
         - aws_secret_access_key: "{{ backup_aws_secret_access_key }}"
 
-- hosts: digitalocean
-  become: true
-  vars_files:
-    - /app/vars/variables.yml
-  collections:
-    - namelivia.monorepo
-
-  roles:
-    - role: prometheus.prometheus.node_exporter
-      tags: node-exporter
-    - role: ansible-cadvisor
-      tags: cadvisor
-    - role: ansible-restic
-      tags: restic
-      vars:
-        - aws_access_key_id: "{{ restic_aws_access_key_id }}"
-        - aws_secret_access_key: "{{ restic_aws_secret_access_key }}"
-    - role: ansible-openvpn-client
-      vars:
-        - vpn_endpoint: "{{ openvpn2_domain_name }}"
-        - client_private_key: "{{ lookup('file', '/app/vars/digitalocean.key') }}"
-        - openvpn_static_key: "{{ lookup('file', '/app/vars/server.key') }}"
-        - client_certificate: "{{ lookup('file', '/app/vars/digitalocean.crt') }}"
-        - server_ca: "{{ lookup('file', '/app/vars/server.crt') }}"
-      tags: openvpn-client
-    - role: ansible-like-and-share-twitter-bot
-      tags: like-and-share-twitter-bot
-      vars:
-        - consumer_key: "{{ like_bot_consumer_key }}"
-        - consumer_secret: "{{ like_bot_consumer_secret }}"
-        - access_token_key: "{{ like_bot_access_token_key }}"
-        - access_token_secret: "{{ like_bot_access_token_secret }}"
-        - idle_period: "{{ like_bot_idle_period }}"
-        - sentry_url: "{{ python_sentry_url }}"
-    - role: ansible-movie-quote-twitter-bot
-      tags: movie-quote-twitter-bot
-      vars:
-        - twitter_enabled: "{{ movie_bot_twitter_enabled }}"
-        - twitter_consumer_key: "{{ movie_bot_twitter_consumer_key }}"
-        - twitter_consumer_secret: "{{ movie_bot_twitter_consumer_secret }}"
-        - twitter_access_token_key: "{{ movie_bot_twitter_access_token_key }}"
-        - twitter_access_token_secret: "{{ movie_bot_twitter_access_token_secret }}"
-        - mastodon_enabled: "{{ movie_bot_mastodon_enabled }}"
-        - mastodon_client_id: "{{ movie_bot_mastodon_client_id }}"
-        - mastodon_client_secret: "{{ movie_bot_mastodon_client_secret }}"
-        - mastodon_api_base_url: "{{ movie_bot_mastodon_api_base_url }}"
-        - mastodon_login: "{{ movie_bot_mastodon_login }}"
-        - mastodon_password: "{{ movie_bot_mastodon_password }}"
-        - idle_period: "{{ movie_bot_idle_period }}"
-        - sentry_url: "{{ python_sentry_url }}"
-    - role: ansible-reverse-proxy
-      tags: nginx-reverse-proxy
-      vars:
-        # READ: https://ghost.org/docs/faq/proxying-https-infinite-loops/
-        - proto_override: "https"
-    - role: ansible-ghost
-      tags: ghost
-      vars:
-        - domain_name: "{{ ghost_domain_name }}"
-        - database_name: "{{ ghost_database_name }}"
-        - database_user: "{{ ghost_database_user }}"
-        - database_password: "{{ ghost_database_password }}"
-        - dump_day: 2
-        - backup_day: 4
-        - mysql_root_password: "{{ghost_mysql_root_password}}"
-        - reverse_proxy_network_name: "reverse_proxy_network" # Connect ghost with the reverse proxy
-
 - hosts: hetzner
   become: true
   vars_files:
@@ -183,6 +116,38 @@
         - client_certificate: "{{ lookup('file', '/app/vars/hetzner2.crt') }}"
         - server_ca: "{{ lookup('file', '/app/vars/server.crt') }}"
       tags: openvpn-client
+    - role: ansible-movie-quote-twitter-bot
+      tags: movie-quote-twitter-bot
+      vars:
+        - twitter_enabled: "{{ movie_bot_twitter_enabled }}"
+        - twitter_consumer_key: "{{ movie_bot_twitter_consumer_key }}"
+        - twitter_consumer_secret: "{{ movie_bot_twitter_consumer_secret }}"
+        - twitter_access_token_key: "{{ movie_bot_twitter_access_token_key }}"
+        - twitter_access_token_secret: "{{ movie_bot_twitter_access_token_secret }}"
+        - mastodon_enabled: "{{ movie_bot_mastodon_enabled }}"
+        - mastodon_client_id: "{{ movie_bot_mastodon_client_id }}"
+        - mastodon_client_secret: "{{ movie_bot_mastodon_client_secret }}"
+        - mastodon_api_base_url: "{{ movie_bot_mastodon_api_base_url }}"
+        - mastodon_login: "{{ movie_bot_mastodon_login }}"
+        - mastodon_password: "{{ movie_bot_mastodon_password }}"
+        - idle_period: "{{ movie_bot_idle_period }}"
+        - sentry_url: "{{ python_sentry_url }}"
+    - role: ansible-reverse-proxy
+      tags: nginx-reverse-proxy
+      vars:
+        # READ: https://ghost.org/docs/faq/proxying-https-infinite-loops/
+        - proto_override: "https"
+    - role: ansible-ghost
+      tags: ghost
+      vars:
+        - domain_name: "{{ ghost_domain_name }}"
+        - database_name: "{{ ghost_database_name }}"
+        - database_user: "{{ ghost_database_user }}"
+        - database_password: "{{ ghost_database_password }}"
+        - dump_day: 2
+        - backup_day: 4
+        - mysql_root_password: "{{ghost_mysql_root_password}}"
+        - reverse_proxy_network_name: "reverse_proxy_network" # Connect ghost with the reverse proxy
 
 - hosts: lightsail
   become: true
