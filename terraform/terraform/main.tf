@@ -86,10 +86,24 @@ module "lightsail_secondary_instance" {
   ssh_key = var.ssh_key
 }
 
+module "hetzner_key" {
+  source = "github.com/namelivia/terraform-hetzner-key"
+  key_name = "hetzner"
+  ssh_key = var.ssh_key
+}
+
 module "hetzner_server" {
   source = "github.com/namelivia/terraform-hetzner"
   server_name = "hetzner"
-  ssh_key = var.ssh_key
+  server_type = "cx22"
+  ssh_key_id = module.hetzner_key.ssh_key_id
+}
+
+module "hetzner_server_2" {
+  source = "github.com/namelivia/terraform-hetzner"
+  server_name = "hetzner2"
+  server_type = "cx11"
+  ssh_key_id = module.hetzner_key.ssh_key_id
 }
 
 //DNS Records
@@ -133,6 +147,7 @@ locals {
     digitalocean_droplet_ip = "${module.digitalocean_droplet.ip}"
     lightsail_instance_ip = "${module.lightsail_instance.ip}"
     hetzner_server_ip = "${module.hetzner_server.ip}"
+    hetzner_server_2_ip = "${module.hetzner_server_2.ip}"
   })
 }
 
