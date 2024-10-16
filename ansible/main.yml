@@ -138,6 +138,16 @@
         - username: "{{ caldav_username }}"
         - password: "{{ caldav_password }}"
         - notifications_service_endpoint: "{{ caldav_notifications_service_endpoint }}"
+    - role: ansible-ofelia
+      tags: ofelia
+      vars:
+        - ofelia_config_path: "{{ ofelia_hetzner3_config_path }}"
+        - ofelia_user: "{{ ofelia_hetzner3_user }}"
+        - ofelia_group: "{{ ofelia_hetzner3_group }}"
+    - role: ansible-iptables
+      tags: iptables
+      vars:
+        - exposed_ports: "{{ hetzner3_exposed_ports }}"
     - role: ansible-apprise
       tags: apprise
       vars:
@@ -238,23 +248,11 @@
         - openvpn_static_key: "{{ lookup('file', '/app/vars/server.key') }}"
         - client_certificate: "{{ lookup('file', '/app/vars/lightsail.crt') }}"
         - server_ca: "{{ lookup('file', '/app/vars/server.crt') }}"
-    - role: ansible-iptables
-      tags: iptables
-      vars:
-        - exposed_ports: "{{ lightsail_exposed_ports }}"
-    - role: ansible-ofelia
-      tags: ofelia
-      vars:
-        - ofelia_config_path: "{{ ofelia_lightsail_config_path }}"
     - role: ansible-postgres
       tags: postgres
       vars:
         - database_container_name: "{{ postgres_database_container_name }}"
         - should_publish_ports: true
-    - role: ansible-apprise
-      tags: apprise
-      vars:
-        - apprise_config_folder: /app/vars/apprise
     - role: ansible-thumbor2
       tags: thumbor
       vars:
@@ -524,6 +522,8 @@
       tags: ofelia
       vars:
         - ofelia_config_path: "{{ ofelia_lenovo_config_path }}"
+        - ofelia_user: "{{ ofelia_lenovo_user }}"
+        - ofelia_group: "{{ ofelia_lenovo_group }}"
     - role: ansible-postgres
       tags: postgres
       vars:
