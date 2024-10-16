@@ -144,7 +144,6 @@ locals {
   hosts_file = templatefile("/terraform/hosts.tpl", {
     azure_vm_ip = "${module.lightsail_secondary_instance.ip}"
     bastion_instance_ip = "${module.bastion_instance.ip}"
-    digitalocean_droplet_ip = "${module.digitalocean_droplet.ip}"
     lightsail_instance_ip = "${module.lightsail_instance.ip}"
     hetzner_server_ip = "${module.hetzner_server.ip}"
     hetzner_server_2_ip = "${module.hetzner_server_2.ip}"
