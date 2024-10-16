@@ -89,6 +89,33 @@
         - jwt_auth_jwk_set_url: "{{ mealie_jwk_set_url }}"
         - log_level: "{{ mealie_log_level }}"
 
+- hosts: hetzner3
+  vars_files:
+    - /app/vars/variables.yml
+  collections:
+    - namelivia.monorepo
+
+  roles:
+    - role: prometheus.prometheus.node_exporter
+      tags: node-exporter
+    - role: ansible-cadvisor
+      tags: cadvisor
+      vars: 
+        - enable_load_reader: "false" # https://github.com/namelivia/infra/issues/16
+    - role: ansible-restic
+      tags: restic
+      vars:
+        - aws_access_key_id: "{{ restic_aws_access_key_id }}"
+        - aws_secret_access_key: "{{ restic_aws_secret_access_key }}"
+    - role: ansible-openvpn-client
+      vars:
+        - vpn_endpoint: "{{ openvpn2_domain_name }}"
+        - client_private_key: "{{ lookup('file', '/app/vars/hetzner3.key') }}"
+        - openvpn_static_key: "{{ lookup('file', '/app/vars/server.key') }}"
+        - client_certificate: "{{ lookup('file', '/app/vars/hetzner3.crt') }}"
+        - server_ca: "{{ lookup('file', '/app/vars/server.crt') }}"
+      tags: openvpn-client
+
 - hosts: hetzner2
   become: true
   vars_files:
@@ -158,10 +185,6 @@
     - namelivia.monorepo
 
   roles:
-    - role: ansible-iptables
-      tags: iptables
-      vars:
-        - exposed_ports: "{{ lightsail_exposed_ports }}"
     - role: prometheus.prometheus.node_exporter
       tags: node-exporter
     - role: ansible-cadvisor
@@ -179,6 +202,10 @@
         - openvpn_static_key: "{{ lookup('file', '/app/vars/server.key') }}"
         - client_certificate: "{{ lookup('file', '/app/vars/lightsail.crt') }}"
         - server_ca: "{{ lookup('file', '/app/vars/server.crt') }}"
+    - role: ansible-iptables
+      tags: iptables
+      vars:
+        - exposed_ports: "{{ lightsail_exposed_ports }}"
     - role: ansible-ofelia
       tags: ofelia
       vars:

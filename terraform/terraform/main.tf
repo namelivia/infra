@@ -73,12 +73,6 @@ module "lightsail_instance" {
   ssh_key = var.ssh_key
 }
 
-module "lightsail_secondary_instance" {
-  source = "github.com/namelivia/terraform-lightsail"
-  instance_name = "azure"
-  ssh_key = var.ssh_key
-}
-
 module "hetzner_key" {
   source = "github.com/namelivia/terraform-hetzner-key"
   key_name = "hetzner"
