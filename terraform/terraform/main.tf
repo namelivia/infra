@@ -106,6 +106,13 @@ module "hetzner_server_2" {
   ssh_key_id = module.hetzner_key.ssh_key_id
 }
 
+module "hetzner_server_3" {
+  source = "github.com/namelivia/terraform-hetzner"
+  server_name = "hetzner3"
+  server_type = "cx22"
+  ssh_key_id = module.hetzner_key.ssh_key_id
+}
+
 //DNS Records
 resource "digitalocean_domain" "domain" {
   name = var.domain_name
