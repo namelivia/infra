@@ -115,6 +115,42 @@
         - client_certificate: "{{ lookup('file', '/app/vars/hetzner3.crt') }}"
         - server_ca: "{{ lookup('file', '/app/vars/server.crt') }}"
       tags: openvpn-client
+    - role: ansible-plants-client
+      tags: plants-client
+      vars:
+        - host_port: "{{ plants_client_host_port }}"
+    - role: ansible-garments-client
+      tags: garments-client
+      vars:
+        - host_port: "{{ garments_client_host_port }}"
+    - role: ansible-itemtree-client
+      tags: itemtree-client
+      vars:
+        - host_port: "{{ itemtree_client_host_port }}"
+    - role: ansible-expenses-client
+      tags: expenses-client
+      vars:
+        - host_port: "{{ expenses_client_host_port }}"
+    - role: ansible-gtd-caldav
+      tags: gtd-caldav
+      vars:
+        - caldav_url: "{{ caldav_endpoint_url }}"
+        - username: "{{ caldav_username }}"
+        - password: "{{ caldav_password }}"
+        - notifications_service_endpoint: "{{ caldav_notifications_service_endpoint }}"
+    - role: ansible-apprise
+      tags: apprise
+      vars:
+        - apprise_config_folder: /app/vars/apprise
+    - role: ansible-retroachievements-apprise
+      tags: retroachievements-apprise
+      vars:
+        - notifications_service_endpoint: "{{ retroachievements_notifications_service_endpoint }}"
+        - notifications_service_network_name: "apprise_network"
+    - role: ansible-recipe-suggestions
+      tags: recipe-suggestions
+      vars:
+        - notifications_service_endpoint: "{{ recipe_suggestions_notifications_service_endpoint }}"
 
 - hosts: hetzner2
   become: true
@@ -210,10 +246,6 @@
       tags: ofelia
       vars:
         - ofelia_config_path: "{{ ofelia_lightsail_config_path }}"
-    - role: ansible-plants-client
-      tags: plants-client
-      vars:
-        - host_port: "{{ plants_client_host_port }}"
     - role: ansible-postgres
       tags: postgres
       vars:
@@ -227,18 +259,6 @@
       tags: thumbor
       vars:
         - backup_day: 3
-    - role: ansible-garments-client
-      tags: garments-client
-      vars:
-        - host_port: "{{ garments_client_host_port }}"
-    - role: ansible-itemtree-client
-      tags: itemtree-client
-      vars:
-        - host_port: "{{ itemtree_client_host_port }}"
-    - role: ansible-expenses-client
-      tags: expenses-client
-      vars:
-        - host_port: "{{ expenses_client_host_port }}"
     - role: ansible-miniflux
       tags: miniflux
       vars:
@@ -335,21 +355,6 @@
         - notifications_service_network_name: "apprise_network"
         - database_network_name: "database_network"
         - dump_day: 3
-    - role: ansible-gtd-caldav
-      tags: gtd-caldav
-      vars:
-        - caldav_url: "{{ caldav_endpoint_url }}"
-        - username: "{{ caldav_username }}"
-        - password: "{{ caldav_password }}"
-        - notifications_service_endpoint: "{{ caldav_notifications_service_endpoint }}"
-    - role: ansible-retroachievements-apprise
-      tags: retroachievements-apprise
-      vars:
-        - notifications_service_endpoint: "{{ retroachievements_notifications_service_endpoint }}"
-    - role: ansible-recipe-suggestions
-      tags: recipe-suggestions
-      vars:
-        - notifications_service_endpoint: "{{ recipe_suggestions_notifications_service_endpoint }}"
 
 - hosts: bastion
   become: true
