@@ -100,6 +100,14 @@
       vars:
         - aws_access_key_id: "{{ restic_aws_access_key_id }}"
         - aws_secret_access_key: "{{ restic_aws_secret_access_key }}"
+    - role: ansible-openvpn-client
+      vars:
+        - vpn_endpoint: "{{ openvpn2_domain_name }}"
+        - client_private_key: "{{ lookup('file', '/app/vars/hetzner.key') }}"
+        - openvpn_static_key: "{{ lookup('file', '/app/vars/server.key') }}"
+        - client_certificate: "{{ lookup('file', '/app/vars/hetzner.crt') }}"
+        - server_ca: "{{ lookup('file', '/app/vars/server.crt') }}"
+      tags: openvpn-client
     - role: ansible-kimai
       tags: kimai
       vars:
@@ -118,14 +126,6 @@
       tags: iptables
       vars:
         - exposed_ports: "{{ hetzner_exposed_ports }}"
-    - role: ansible-openvpn-client
-      vars:
-        - vpn_endpoint: "{{ openvpn2_domain_name }}"
-        - client_private_key: "{{ lookup('file', '/app/vars/hetzner.key') }}"
-        - openvpn_static_key: "{{ lookup('file', '/app/vars/server.key') }}"
-        - client_certificate: "{{ lookup('file', '/app/vars/hetzner.crt') }}"
-        - server_ca: "{{ lookup('file', '/app/vars/server.crt') }}"
-      tags: openvpn-client
     - role: ansible-flappysonic
       tags: flappysonic
       vars:
@@ -155,6 +155,34 @@
         - host_port: "{{ mealie_host_port }}"
         - jwt_auth_jwk_set_url: "{{ mealie_jwk_set_url }}"
         - log_level: "{{ mealie_log_level }}"
+
+- hosts: hetzner2
+  become: true
+  vars_files:
+    - /app/vars/variables.yml
+  collections:
+    - namelivia.monorepo
+
+  roles:
+    - role: prometheus.prometheus.node_exporter
+      tags: node-exporter
+    - role: ansible-cadvisor
+      tags: cadvisor
+      vars: 
+        - enable_load_reader: "false" # https://github.com/namelivia/infra/issues/16
+    - role: ansible-restic
+      tags: restic
+      vars:
+        - aws_access_key_id: "{{ restic_aws_access_key_id }}"
+        - aws_secret_access_key: "{{ restic_aws_secret_access_key }}"
+    - role: ansible-openvpn-client
+      vars:
+        - vpn_endpoint: "{{ openvpn2_domain_name }}"
+        - client_private_key: "{{ lookup('file', '/app/vars/hetzner2.key') }}"
+        - openvpn_static_key: "{{ lookup('file', '/app/vars/server.key') }}"
+        - client_certificate: "{{ lookup('file', '/app/vars/hetzner2.crt') }}"
+        - server_ca: "{{ lookup('file', '/app/vars/server.crt') }}"
+      tags: openvpn-client
 
 - hosts: lightsail
   become: true
