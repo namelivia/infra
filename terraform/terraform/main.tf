@@ -11,16 +11,6 @@ terraform {
       version = "~> 2.0"
     }
 
-    azurerm = {
-      source = "hashicorp/azurerm"
-      version = "=2.0.0"
-    }
-
-    google = {
-      source = "hashicorp/google"
-      version = "=4.37.0"
-    }
-
     hcloud = {
       source = "hetznercloud/hcloud"
       version = "=1.48.1"
@@ -67,12 +57,6 @@ module "bastion_instance" {
 }
 
 //Instances
-module "lightsail_instance" {
-  source = "github.com/namelivia/terraform-lightsail"
-  instance_name = "lightsail"
-  ssh_key = var.ssh_key
-}
-
 module "hetzner_key" {
   source = "github.com/namelivia/terraform-hetzner-key"
   key_name = "hetzner"
@@ -137,7 +121,6 @@ output "backup_bucket_url" {
 locals {
   hosts_file = templatefile("/terraform/hosts.tpl", {
     bastion_instance_ip = "${module.bastion_instance.ip}"
-    lightsail_instance_ip = "${module.lightsail_instance.ip}"
     hetzner_server_ip = "${module.hetzner_server.ip}"
     hetzner_server_2_ip = "${module.hetzner_server_2.ip}"
     hetzner_server_3_ip = "${module.hetzner_server_3.ip}"

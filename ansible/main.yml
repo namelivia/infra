@@ -148,6 +148,10 @@
       tags: iptables
       vars:
         - exposed_ports: "{{ hetzner3_exposed_ports }}"
+    - role: ansible-thumbor2
+      tags: thumbor
+      vars:
+        - backup_day: 3
     - role: ansible-apprise
       tags: apprise
       vars:
@@ -161,102 +165,11 @@
       tags: recipe-suggestions
       vars:
         - notifications_service_endpoint: "{{ recipe_suggestions_notifications_service_endpoint }}"
-
-- hosts: hetzner2
-  become: true
-  vars_files:
-    - /app/vars/variables.yml
-  collections:
-    - namelivia.monorepo
-
-  roles:
-    - role: prometheus.prometheus.node_exporter
-      tags: node-exporter
-    - role: ansible-cadvisor
-      tags: cadvisor
-      vars: 
-        - enable_load_reader: "false" # https://github.com/namelivia/infra/issues/16
-    - role: ansible-restic
-      tags: restic
-      vars:
-        - aws_access_key_id: "{{ restic_aws_access_key_id }}"
-        - aws_secret_access_key: "{{ restic_aws_secret_access_key }}"
-    - role: ansible-openvpn-client
-      vars:
-        - vpn_endpoint: "{{ openvpn2_domain_name }}"
-        - client_private_key: "{{ lookup('file', '/app/vars/hetzner2.key') }}"
-        - openvpn_static_key: "{{ lookup('file', '/app/vars/server.key') }}"
-        - client_certificate: "{{ lookup('file', '/app/vars/hetzner2.crt') }}"
-        - server_ca: "{{ lookup('file', '/app/vars/server.crt') }}"
-      tags: openvpn-client
-    - role: ansible-movie-quote-twitter-bot
-      tags: movie-quote-twitter-bot
-      vars:
-        - twitter_enabled: "{{ movie_bot_twitter_enabled }}"
-        - twitter_consumer_key: "{{ movie_bot_twitter_consumer_key }}"
-        - twitter_consumer_secret: "{{ movie_bot_twitter_consumer_secret }}"
-        - twitter_access_token_key: "{{ movie_bot_twitter_access_token_key }}"
-        - twitter_access_token_secret: "{{ movie_bot_twitter_access_token_secret }}"
-        - mastodon_enabled: "{{ movie_bot_mastodon_enabled }}"
-        - mastodon_client_id: "{{ movie_bot_mastodon_client_id }}"
-        - mastodon_client_secret: "{{ movie_bot_mastodon_client_secret }}"
-        - mastodon_api_base_url: "{{ movie_bot_mastodon_api_base_url }}"
-        - mastodon_login: "{{ movie_bot_mastodon_login }}"
-        - mastodon_password: "{{ movie_bot_mastodon_password }}"
-        - idle_period: "{{ movie_bot_idle_period }}"
-        - sentry_url: "{{ python_sentry_url }}"
-    - role: ansible-reverse-proxy
-      tags: nginx-reverse-proxy
-      vars:
-        # READ: https://ghost.org/docs/faq/proxying-https-infinite-loops/
-        - proto_override: "https"
-    - role: ansible-ghost
-      tags: ghost
-      vars:
-        - domain_name: "{{ ghost_domain_name }}"
-        - database_name: "{{ ghost_database_name }}"
-        - database_user: "{{ ghost_database_user }}"
-        - database_password: "{{ ghost_database_password }}"
-        - dump_day: 2
-        - backup_day: 4
-        - mysql_root_password: "{{ghost_mysql_root_password}}"
-        - reverse_proxy_network_name: "reverse_proxy_network" # Connect ghost with the reverse proxy
-
-- hosts: lightsail
-  become: true
-  vars_files:
-    - /app/vars/variables.yml
-
-  collections:
-    - namelivia.monorepo
-
-  roles:
-    - role: prometheus.prometheus.node_exporter
-      tags: node-exporter
-    - role: ansible-cadvisor
-      tags: cadvisor
-    - role: ansible-restic
-      tags: restic
-      vars:
-        - aws_access_key_id: "{{ restic_aws_access_key_id }}"
-        - aws_secret_access_key: "{{ restic_aws_secret_access_key }}"
-    - role: ansible-openvpn-client
-      tags: openvpn-client
-      vars:
-        - vpn_endpoint: "{{ openvpn2_domain_name }}"
-        - client_private_key: "{{ lookup('file', '/app/vars/lightsail.key') }}"
-        - openvpn_static_key: "{{ lookup('file', '/app/vars/server.key') }}"
-        - client_certificate: "{{ lookup('file', '/app/vars/lightsail.crt') }}"
-        - server_ca: "{{ lookup('file', '/app/vars/server.crt') }}"
     - role: ansible-postgres
       tags: postgres
       vars:
         - database_container_name: "{{ postgres_database_container_name }}"
         - should_publish_ports: true
-    - role: ansible-thumbor2
-      tags: thumbor
-      vars:
-        - backup_day: 3
     - role: ansible-miniflux
       tags: miniflux
       vars:
@@ -353,6 +266,66 @@
         - notifications_service_network_name: "apprise_network"
         - database_network_name: "database_network"
         - dump_day: 3
+
+- hosts: hetzner2
+  become: true
+  vars_files:
+    - /app/vars/variables.yml
+  collections:
+    - namelivia.monorepo
+
+  roles:
+    - role: prometheus.prometheus.node_exporter
+      tags: node-exporter
+    - role: ansible-cadvisor
+      tags: cadvisor
+      vars: 
+        - enable_load_reader: "false" # https://github.com/namelivia/infra/issues/16
+    - role: ansible-restic
+      tags: restic
+      vars:
+        - aws_access_key_id: "{{ restic_aws_access_key_id }}"
+        - aws_secret_access_key: "{{ restic_aws_secret_access_key }}"
+    - role: ansible-openvpn-client
+      vars:
+        - vpn_endpoint: "{{ openvpn2_domain_name }}"
+        - client_private_key: "{{ lookup('file', '/app/vars/hetzner2.key') }}"
+        - openvpn_static_key: "{{ lookup('file', '/app/vars/server.key') }}"
+        - client_certificate: "{{ lookup('file', '/app/vars/hetzner2.crt') }}"
+        - server_ca: "{{ lookup('file', '/app/vars/server.crt') }}"
+      tags: openvpn-client
+    - role: ansible-movie-quote-twitter-bot
+      tags: movie-quote-twitter-bot
+      vars:
+        - twitter_enabled: "{{ movie_bot_twitter_enabled }}"
+        - twitter_consumer_key: "{{ movie_bot_twitter_consumer_key }}"
+        - twitter_consumer_secret: "{{ movie_bot_twitter_consumer_secret }}"
+        - twitter_access_token_key: "{{ movie_bot_twitter_access_token_key }}"
+        - twitter_access_token_secret: "{{ movie_bot_twitter_access_token_secret }}"
+        - mastodon_enabled: "{{ movie_bot_mastodon_enabled }}"
+        - mastodon_client_id: "{{ movie_bot_mastodon_client_id }}"
+        - mastodon_client_secret: "{{ movie_bot_mastodon_client_secret }}"
+        - mastodon_api_base_url: "{{ movie_bot_mastodon_api_base_url }}"
+        - mastodon_login: "{{ movie_bot_mastodon_login }}"
+        - mastodon_password: "{{ movie_bot_mastodon_password }}"
+        - idle_period: "{{ movie_bot_idle_period }}"
+        - sentry_url: "{{ python_sentry_url }}"
+    - role: ansible-reverse-proxy
+      tags: nginx-reverse-proxy
+      vars:
+        # READ: https://ghost.org/docs/faq/proxying-https-infinite-loops/
+        - proto_override: "https"
+    - role: ansible-ghost
+      tags: ghost
+      vars:
+        - domain_name: "{{ ghost_domain_name }}"
+        - database_name: "{{ ghost_database_name }}"
+        - database_user: "{{ ghost_database_user }}"
+        - database_password: "{{ ghost_database_password }}"
+        - dump_day: 2
+        - backup_day: 4
+        - mysql_root_password: "{{ghost_mysql_root_password}}"
+        - reverse_proxy_network_name: "reverse_proxy_network" # Connect ghost with the reverse proxy
 
 - hosts: bastion
   become: true
