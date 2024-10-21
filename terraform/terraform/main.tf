@@ -56,6 +56,13 @@ module "bastion_instance" {
   key_name = var.bastion_key_name
 }
 
+module "bastion" {
+  source = "github.com/namelivia/terraform-hetzner"
+  server_name = "bastion"
+  server_type = "cx11"
+  ssh_key_id = module.hetzner_key.ssh_key_id
+}
+
 //Instances
 module "hetzner_key" {
   source = "github.com/namelivia/terraform-hetzner-key"
@@ -95,7 +102,7 @@ module "digitalocean_dns" {
   domain_name = var.domain_name
   a_records = var.dns_records
   host_ips = {
-    "bastion" = module.bastion_instance.ip
+    "bastion" = module.bastion.ip
   }
 }
 
@@ -121,6 +128,7 @@ output "backup_bucket_url" {
 locals {
   hosts_file = templatefile("/terraform/hosts.tpl", {
     bastion_instance_ip = "${module.bastion_instance.ip}"
+    bastion_2_instance_ip = "${module.bastion.ip}"
     hetzner_server_ip = "${module.hetzner_server.ip}"
     hetzner_server_2_ip = "${module.hetzner_server_2.ip}"
     hetzner_server_3_ip = "${module.hetzner_server_3.ip}"
