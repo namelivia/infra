@@ -248,6 +248,7 @@
         - user_info_service_network_name: "user_info_service_network"
         - journaling_service_network_name: "journaling_service_network"
         - notifications_service_network_name: "apprise_network"
+        - notifications_service_endpoint: "{{ garments_notifications_service_endpoint }}"
         - database_network_name: "database_network"
         - dump_day: 4
     - role: ansible-plants-server
