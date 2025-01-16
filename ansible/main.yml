@@ -421,6 +421,12 @@
       tags: cadvisor
       vars: 
         - enable_load_reader: "false" # https://github.com/namelivia/infra/issues/16
+    - role: ansible-ofelia
+      tags: ofelia
+      vars:
+        - ofelia_config_path: "{{ ofelia_seedbox_config_path }}"
+        - ofelia_user: "{{ ofelia_seedbox_user }}"
+        - ofelia_group: "{{ ofelia_seedbox_group }}"
     - role: ansible-openvpn-client
       tags: openvpn-client
       vars:
