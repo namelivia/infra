@@ -508,6 +508,12 @@
         - music_folder: "{{ navidrome_music_folder }}"
         - owner: "{{ navidrome_owner }}"
         - group: "{{ navidrome_group }}"
+    - role: ansible-slskd
+      tags: slskd
+      vars: 
+        - host_port: "{{ slskd_host_port }}"
+        - owner: "{{ slskd_owner }}"
+        - group: "{{ slskd_group }}"
 
 - hosts: retropie
   become: true
