@@ -514,6 +514,11 @@
         - host_port: "{{ slskd_host_port }}"
         - owner: "{{ slskd_owner }}"
         - group: "{{ slskd_group }}"
+    - role: ansible-soularr
+      tags: soularr
+      vars:
+        - owner: "{{ soularr_owner }}"
+        - group: "{{ soularr_group }}"
 
 - hosts: retropie
   become: true
