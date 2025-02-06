@@ -103,6 +103,7 @@ module "digitalocean_dns" {
   a_records = var.dns_records
   host_ips = {
     "bastion" = module.bastion_instance.ip
+    "bastion2" = module.bastion.ip
   }
 }
 
