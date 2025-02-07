@@ -49,13 +49,6 @@ provider "google" {
   zone    = "europe-west1-b"
 }
 
-//Bastion
-module "bastion_instance" {
-  source = "github.com/namelivia/terraform-bastion"
-  instance_name = "Bastion"
-  key_name = var.bastion_key_name
-}
-
 module "bastion" {
   source = "github.com/namelivia/terraform-hetzner"
   server_name = "bastion"
@@ -102,8 +95,7 @@ module "digitalocean_dns" {
   domain_name = var.domain_name
   a_records = var.dns_records
   host_ips = {
-    "bastion" = module.bastion_instance.ip
-    "bastion2" = module.bastion.ip
+    "bastion" = module.bastion.ip
   }
 }
 
@@ -128,8 +120,7 @@ output "backup_bucket_url" {
 //Hosts file
 locals {
   hosts_file = templatefile("/terraform/hosts.tpl", {
-    bastion_instance_ip = "${module.bastion_instance.ip}"
-    bastion_2_instance_ip = "${module.bastion.ip}"
+    bastion_instance_ip = "${module.bastion.ip}"
     hetzner_server_ip = "${module.hetzner_server.ip}"
     hetzner_server_2_ip = "${module.hetzner_server_2.ip}"
     hetzner_server_3_ip = "${module.hetzner_server_3.ip}"

@@ -39,7 +39,7 @@ Execute `./run` and select the desired actions. The script will ask you to insta
 This reflects the current state of the infrastructure, it has evolved from different models and will change according to my needs. The main driver of the current structure was to take advantage of free tiers of cloud providers, however I've run out of credits in
 most of them and costs have been ramping up so probably it will evolve to a cheaper model. The Raspberry Pi + VPN configuration is what I envisioned as the future of the topolgy but currently there are still some problems to be solved with that.
 
-![diagram](https://github.com/namelivia/infra/assets/1571416/f407e4ba-a2a4-49e7-b11e-065b34ecae44)
+![diagram](https://github.com/user-attachments/assets/101acd39-d5b3-4b99-a127-f8247642aab2)
 
 ## Application list
 
