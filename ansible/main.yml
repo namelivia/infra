@@ -287,6 +287,10 @@
       vars:
         - aws_access_key_id: "{{ restic_aws_access_key_id }}"
         - aws_secret_access_key: "{{ restic_aws_secret_access_key }}"
+    - role: ansible-iptables
+      tags: iptables
+      vars:
+        - exposed_ports: "{{ hetzner2_exposed_ports }}"
     - role: ansible-openvpn-client
       vars:
         - vpn_endpoint: "{{ openvpn_domain_name }}"
@@ -385,6 +389,10 @@
       tags: cadvisor
       vars: 
         - enable_load_reader: "false" # https://github.com/namelivia/infra/issues/16
+    - role: ansible-iptables
+      tags: iptables
+      vars:
+        - exposed_ports: "{{ seedbox_exposed_ports }}"
     - role: ansible-ofelia
       tags: ofelia
       vars:
@@ -646,6 +654,10 @@
         - dump_day: 2
         - backup_day: 4
         - database_network_name: "database_network"
+    - role: ansible-iptables
+      tags: iptables
+      vars:
+        - exposed_ports: "{{ lenovo_exposed_ports }}"
     - role: ansible-firefly-importer
       tags: firefly-importer
       vars:
