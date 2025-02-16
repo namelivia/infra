@@ -203,6 +203,7 @@
         - database_user: "{{ users_database_user }}"
         - database_password: "{{ users_database_password }}"
         - database_network_name: "database_network"
+        - docker_network_subnet: "{{ users_server_docker_network_subnet }}"
         - dump_day: 2
     - role: ansible-itemtree-server
       tags: itemtree-server
@@ -218,6 +219,7 @@
         - journaling_service_network_name: "journaling_service_network"
         - database_network_name: "database_network"
         - notifications_service_network_name: "apprise_network"
+        - docker_network_subnet: "{{ itemtree_server_docker_network_subnet }}"
         - dump_day: 3
     - role: ansible-expenses-server
       tags: expenses-server
@@ -234,6 +236,7 @@
         - journaling_service_network_name: "journaling_service_network"
         - notifications_service_network_name: "apprise_network"
         - database_network_name: "database_network"
+        - docker_network_subnet: "{{ expenses_server_docker_network_subnet }}"
         - dump_day: 5
     - role: ansible-garments-server
       tags: garments-server
@@ -250,6 +253,7 @@
         - notifications_service_network_name: "apprise_network"
         - notifications_service_endpoint: "{{ garments_notifications_service_endpoint }}"
         - database_network_name: "database_network"
+        - docker_network_subnet: "{{ garments_server_docker_network_subnet }}"
         - dump_day: 4
     - role: ansible-plants-server
       tags: plants-server
@@ -266,6 +270,7 @@
         - journaling_service_network_name: "journaling_service_network"
         - notifications_service_network_name: "apprise_network"
         - database_network_name: "database_network"
+        - docker_network_subnet: "{{ plants_server_docker_network_subnet }}"
         - dump_day: 3
 
 - hosts: hetzner2
@@ -468,6 +473,7 @@
         - database_name: "{{ nextcloud_database_name }}"
         - database_user: "{{ nextcloud_database_user }}"
         - database_password: "{{ nextcloud_database_password }}"
+        - docker_network_subnet: "{{ nextcloud_docker_network_subnet }}"
         - mysql_root_password: "{{ nextcloud_mysql_root_password }}"
         - trusted_domains: "{{ nextcloud_domain_name }}"
         - admin_user: "{{ nextcloud_admin_user }}"
