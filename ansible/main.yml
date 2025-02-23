@@ -505,6 +505,15 @@
       vars:
         - owner: "{{ soularr_owner }}"
         - group: "{{ soularr_group }}"
+    - role: ansible-lidarr
+      tags: lidarr
+      vars:
+        - user: "{{ lidarr_user }}"
+        - group: "{{ lidarr_group }}"
+        - uid: "{{ lidarr_uid }}"
+        - gid: "{{ lidarr_gid }}"
+        - lidarr_downloads_folder: "{{ downloads_folder }}"
+        - lidarr_music_folder: "{{ music_folder }}"
 
 - hosts: retropie
   become: true
@@ -607,13 +616,6 @@
         - gid: "{{ lenovo_samba_gid }}"
         - uid: "{{ lenovo_samba_uid }}"
         - samba_mounts: "{{ lenovo_samba_mounts }}"
-    - role: ansible-lidarr
-      tags: lidarr
-      vars:
-        - user: "{{ lidarr_user }}"
-        - group: "{{ lidarr_group }}"
-        - uid: "{{ lidarr_uid }}"
-        - gid: "{{ lidarr_gid }}"
     - role: ansible-pleroma
       tags: pleroma
       vars:
