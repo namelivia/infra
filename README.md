@@ -83,7 +83,6 @@ most of them and costs have been ramping up so probably it will evolve to a chea
 - [prometheus](https://github.com/prometheus/prometheus): Prometheus to gather metrics.
 - [grafana](https://grafana.com/): Grafana to display metrics.
 - [loki](https://grafana.com/oss/loki/): Loki to store logs.
-- [funkwhale](https://funkwhale.audio/): Funkwhale for listening to music.
 - [babybuddy](https://github.com/babybuddy/babybuddy): Baby habits tracker.
 - [tink-firefly-endpoint](https://github.com/namelivia/tink-firefly-endpoint): Retrieve information from Tink and push it to Firefly, endpoint part.
 - [firefly iii](https://www.firefly-iii.org/): A free and open source personal finance manager.
