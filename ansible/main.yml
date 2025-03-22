@@ -681,6 +681,8 @@
         - firefly_3_url: "{{ firefly_url }}"
         - import_files_dir: "{{ firefly_import_files_dir }}"
         - notifications_endpoint: "{{ firefly_importer_notifications_endpoint }}"
+        - user: "{{ firefly_importer_user }}"
+        - group: "{{ firefly_importer_group }}"
     - role: nginx
       tags: nginx
       vars:
