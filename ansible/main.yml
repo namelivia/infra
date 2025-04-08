@@ -138,6 +138,7 @@
         - username: "{{ caldav_username }}"
         - password: "{{ caldav_password }}"
         - notifications_service_endpoint: "{{ caldav_notifications_service_endpoint }}"
+        - notifications_service_network_name: "apprise_network"
     - role: ansible-ofelia
       tags: ofelia
       vars:
@@ -165,6 +166,7 @@
       tags: recipe-suggestions
       vars:
         - notifications_service_endpoint: "{{ recipe_suggestions_notifications_service_endpoint }}"
+        - notifications_service_network_name: "apprise_network"
     - role: ansible-postgres
       tags: postgres
       vars:
