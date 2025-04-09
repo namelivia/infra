@@ -565,6 +565,10 @@
       tags: loki
       vars:
         - host_port: "{{ loki_host_port }}"
+    #- role: ansible-alloy
+    #  tags: alloy
+    #  vars:
+    #    - host_port: "{{ alloy_host_port }}"
     - role: ansible-prometheus
       tags: prometheus
       vars:
