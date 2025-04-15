@@ -172,6 +172,7 @@
       vars:
         - database_container_name: "{{ postgres_database_container_name }}"
         - should_publish_ports: true
+        - postgres_version: "14"
     - role: ansible-miniflux
       tags: miniflux
       vars:
@@ -466,6 +467,7 @@
       vars:
         - database_container_name: "{{ seedbox_postgres_database_container_name }}"
         - network_name: "{{ seedbox_postgres_database_network_name }}"
+        - postgres_version: "16"
     - role: ansible-nextcloud
       tags: nextcloud
       vars:
@@ -561,6 +563,7 @@
       tags: postgres
       vars:
         - database_container_name: "{{ lenovo_postgres_database_container_name }}"
+        - postgres_version: "15"
     - role: ansible-loki
       tags: loki
       vars:
