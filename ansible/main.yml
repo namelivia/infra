@@ -10,9 +10,9 @@
     - role: ansible-common
       tags: common
       vars:
-        - encryption_key_path: "{{ backup_encryption_key_path }}"
-        - aws_access_key_id: "{{ backup_aws_access_key_id }}"
-        - aws_secret_access_key: "{{ backup_aws_secret_access_key }}"
+        encryption_key_path: "{{ backup_encryption_key_path }}"
+        aws_access_key_id: "{{ backup_aws_access_key_id }}"
+        aws_secret_access_key: "{{ backup_aws_secret_access_key }}"
 
 - hosts: hetzner
   become: true
@@ -27,67 +27,67 @@
     - role: ansible-cadvisor
       tags: cadvisor
       vars: 
-        - enable_load_reader: "false" # https://github.com/namelivia/infra/issues/16
+        enable_load_reader: "false" # https://github.com/namelivia/infra/issues/16
     - role: ansible-restic
       tags: restic
       vars:
-        - aws_access_key_id: "{{ restic_aws_access_key_id }}"
-        - aws_secret_access_key: "{{ restic_aws_secret_access_key }}"
+        aws_access_key_id: "{{ restic_aws_access_key_id }}"
+        aws_secret_access_key: "{{ restic_aws_secret_access_key }}"
     - role: ansible-openvpn-client
       vars:
-        - vpn_endpoint: "{{ openvpn_domain_name }}"
-        - client_private_key: "{{ lookup('file', '/app/vars/hetzner.key') }}"
-        - openvpn_static_key: "{{ lookup('file', '/app/vars/server.key') }}"
-        - client_certificate: "{{ lookup('file', '/app/vars/hetzner.crt') }}"
-        - server_ca: "{{ lookup('file', '/app/vars/server.crt') }}"
+        vpn_endpoint: "{{ openvpn_domain_name }}"
+        client_private_key: "{{ lookup('file', '/app/vars/hetzner.key') }}"
+        openvpn_static_key: "{{ lookup('file', '/app/vars/server.key') }}"
+        client_certificate: "{{ lookup('file', '/app/vars/hetzner.crt') }}"
+        server_ca: "{{ lookup('file', '/app/vars/server.crt') }}"
       tags: openvpn-client
     - role: ansible-kimai
       tags: kimai
       vars:
-        - domain_name: "{{ kimai_domain_name }}"
-        - host_port: "{{ kimai_host_port }}"
-        - database_name: "{{ kimai_database_name }}"
-        - database_user: "{{ kimai_database_user }}"
-        - database_password: "{{ kimai_database_password }}"
-        - dump_day: 4
-        - backup_day: 5
-        - admin_mail: "{{ kimai_admin_mail }}"
-        - admin_pass: "{{ kimai_admin_pass }}"
-        - mysql_root_password: "{{ kimai_mysql_root_password }}"
-        - should_publish_ports: true
+        domain_name: "{{ kimai_domain_name }}"
+        host_port: "{{ kimai_host_port }}"
+        database_name: "{{ kimai_database_name }}"
+        database_user: "{{ kimai_database_user }}"
+        database_password: "{{ kimai_database_password }}"
+        dump_day: 4
+        backup_day: 5
+        admin_mail: "{{ kimai_admin_mail }}"
+        admin_pass: "{{ kimai_admin_pass }}"
+        mysql_root_password: "{{ kimai_mysql_root_password }}"
+        should_publish_ports: true
     - role: ansible-iptables
       tags: iptables
       vars:
-        - exposed_ports: "{{ hetzner_exposed_ports }}"
+        exposed_ports: "{{ hetzner_exposed_ports }}"
     - role: ansible-flappysonic
       tags: flappysonic
       vars:
-        - host_port: "{{ flappysonic_host_port }}"
+        host_port: "{{ flappysonic_host_port }}"
     - role: ansible-tombraiderjs
       tags: tombraiderjs
       vars:
-        - host_port: "{{ tombraiderjs_host_port }}"
+        host_port: "{{ tombraiderjs_host_port }}"
     - role: ansible-thumbor
       tags: thumbor
       vars:
-        - host_port: "{{ thumbor_host_port }}"
+        host_port: "{{ thumbor_host_port }}"
     - role: ansible-anki
       tags: anki
       vars:
-        - host_port: "{{ anki_host_port }}"
-        - user: "{{ anki_user }}"
-        - password: "{{ anki_password }}"
-        - uid: "{{ anki_uid }}"
-        - gid: "{{ anki_gid }}"
-        - owner: "{{ anki_owner }}"
-        - group: "{{ anki_group }}"
+        host_port: "{{ anki_host_port }}"
+        user: "{{ anki_user }}"
+        password: "{{ anki_password }}"
+        uid: "{{ anki_uid }}"
+        gid: "{{ anki_gid }}"
+        owner: "{{ anki_owner }}"
+        group: "{{ anki_group }}"
     - role: ansible-mealie
       tags: mealie
       vars:
-        - domain_name: "{{ mealie_domain_name }}"
-        - host_port: "{{ mealie_host_port }}"
-        - jwt_auth_jwk_set_url: "{{ mealie_jwk_set_url }}"
-        - log_level: "{{ mealie_log_level }}"
+        domain_name: "{{ mealie_domain_name }}"
+        host_port: "{{ mealie_host_port }}"
+        jwt_auth_jwk_set_url: "{{ mealie_jwk_set_url }}"
+        log_level: "{{ mealie_log_level }}"
 
 - hosts: hetzner3
   vars_files:
@@ -101,180 +101,180 @@
     - role: ansible-cadvisor
       tags: cadvisor
       vars: 
-        - enable_load_reader: "false" # https://github.com/namelivia/infra/issues/16
+        enable_load_reader: "false" # https://github.com/namelivia/infra/issues/16
     - role: ansible-restic
       tags: restic
       vars:
-        - aws_access_key_id: "{{ restic_aws_access_key_id }}"
-        - aws_secret_access_key: "{{ restic_aws_secret_access_key }}"
+        aws_access_key_id: "{{ restic_aws_access_key_id }}"
+        aws_secret_access_key: "{{ restic_aws_secret_access_key }}"
     - role: ansible-openvpn-client
       vars:
-        - vpn_endpoint: "{{ openvpn_domain_name }}"
-        - client_private_key: "{{ lookup('file', '/app/vars/hetzner3.key') }}"
-        - openvpn_static_key: "{{ lookup('file', '/app/vars/server.key') }}"
-        - client_certificate: "{{ lookup('file', '/app/vars/hetzner3.crt') }}"
-        - server_ca: "{{ lookup('file', '/app/vars/server.crt') }}"
+        vpn_endpoint: "{{ openvpn_domain_name }}"
+        client_private_key: "{{ lookup('file', '/app/vars/hetzner3.key') }}"
+        openvpn_static_key: "{{ lookup('file', '/app/vars/server.key') }}"
+        client_certificate: "{{ lookup('file', '/app/vars/hetzner3.crt') }}"
+        server_ca: "{{ lookup('file', '/app/vars/server.crt') }}"
       tags: openvpn-client
     - role: ansible-plants-client
       tags: plants-client
       vars:
-        - host_port: "{{ plants_client_host_port }}"
+        host_port: "{{ plants_client_host_port }}"
     - role: ansible-garments-client
       tags: garments-client
       vars:
-        - host_port: "{{ garments_client_host_port }}"
+        host_port: "{{ garments_client_host_port }}"
     - role: ansible-itemtree-client
       tags: itemtree-client
       vars:
-        - host_port: "{{ itemtree_client_host_port }}"
+        host_port: "{{ itemtree_client_host_port }}"
     - role: ansible-expenses-client
       tags: expenses-client
       vars:
-        - host_port: "{{ expenses_client_host_port }}"
+        host_port: "{{ expenses_client_host_port }}"
     - role: ansible-gtd-caldav
       tags: gtd-caldav
       vars:
-        - caldav_url: "{{ caldav_endpoint_url }}"
-        - username: "{{ caldav_username }}"
-        - password: "{{ caldav_password }}"
-        - notifications_service_endpoint: "{{ caldav_notifications_service_endpoint }}"
-        - notifications_service_network_name: "apprise_network"
+        caldav_url: "{{ caldav_endpoint_url }}"
+        username: "{{ caldav_username }}"
+        password: "{{ caldav_password }}"
+        notifications_service_endpoint: "{{ caldav_notifications_service_endpoint }}"
+        notifications_service_network_name: "apprise_network"
     - role: ansible-ofelia
       tags: ofelia
       vars:
-        - ofelia_config_path: "{{ ofelia_hetzner3_config_path }}"
-        - ofelia_user: "{{ ofelia_hetzner3_user }}"
-        - ofelia_group: "{{ ofelia_hetzner3_group }}"
+        ofelia_config_path: "{{ ofelia_hetzner3_config_path }}"
+        ofelia_user: "{{ ofelia_hetzner3_user }}"
+        ofelia_group: "{{ ofelia_hetzner3_group }}"
     - role: ansible-iptables
       tags: iptables
       vars:
-        - exposed_ports: "{{ hetzner3_exposed_ports }}"
+        exposed_ports: "{{ hetzner3_exposed_ports }}"
     - role: ansible-thumbor2
       tags: thumbor
       vars:
-        - backup_day: 3
+        backup_day: 3
     - role: ansible-apprise
       tags: apprise
       vars:
-        - apprise_config_folder: /app/vars/apprise
+        apprise_config_folder: /app/vars/apprise
     - role: ansible-retroachievements-apprise
       tags: retroachievements-apprise
       vars:
-        - notifications_service_endpoint: "{{ retroachievements_notifications_service_endpoint }}"
-        - notifications_service_network_name: "apprise_network"
+        notifications_service_endpoint: "{{ retroachievements_notifications_service_endpoint }}"
+        notifications_service_network_name: "apprise_network"
     - role: ansible-recipe-suggestions
       tags: recipe-suggestions
       vars:
-        - notifications_service_endpoint: "{{ recipe_suggestions_notifications_service_endpoint }}"
-        - notifications_service_network_name: "apprise_network"
+        notifications_service_endpoint: "{{ recipe_suggestions_notifications_service_endpoint }}"
+        notifications_service_network_name: "apprise_network"
     - role: ansible-postgres
       tags: postgres
       vars:
-        - database_container_name: "{{ postgres_database_container_name }}"
-        - should_publish_ports: true
-        - postgres_version: "14"
+        database_container_name: "{{ postgres_database_container_name }}"
+        should_publish_ports: true
+        postgres_version: "14"
     - role: ansible-miniflux
       tags: miniflux
       vars:
-        - database_url: "{{ miniflux_database_url }}"
-        - host_port: "{{ miniflux_host_port }}"
-        - database_container_name: "{{ miniflux_database_container_name }}"
-        - database_name: "{{ miniflux_database_name }}"
-        - database_user: "{{ miniflux_database_user }}"
-        - database_password: "{{ miniflux_database_password }}"
-        - admin_username: "{{ miniflux_admin_username }}"
-        - admin_password: "{{ miniflux_admin_password }}"
-        - database_network_name: "database_network"
-        - dump_day: 4
+        database_url: "{{ miniflux_database_url }}"
+        host_port: "{{ miniflux_host_port }}"
+        database_container_name: "{{ miniflux_database_container_name }}"
+        database_name: "{{ miniflux_database_name }}"
+        database_user: "{{ miniflux_database_user }}"
+        database_password: "{{ miniflux_database_password }}"
+        admin_username: "{{ miniflux_admin_username }}"
+        admin_password: "{{ miniflux_admin_password }}"
+        database_network_name: "database_network"
+        dump_day: 4
     - role: ansible-journaling-service
       tags: journaling-service
       vars:
-        - database_url: "{{ journaling_database_url }}"
-        - database_container_name: "{{ journaling_database_container_name }}"
-        - database_name: "{{ journaling_database_name }}"
-        - database_user: "{{ journaling_database_user }}"
-        - database_password: "{{ journaling_database_password }}"
-        - database_network_name: "database_network"
-        - dump_day: 4
+        database_url: "{{ journaling_database_url }}"
+        database_container_name: "{{ journaling_database_container_name }}"
+        database_name: "{{ journaling_database_name }}"
+        database_user: "{{ journaling_database_user }}"
+        database_password: "{{ journaling_database_password }}"
+        database_network_name: "database_network"
+        dump_day: 4
     - role: ansible-user-info-service
       tags: user-info-service
       vars:
-        - database_url: "{{ users_database_url }}"
-        - jwk_endpoint: "{{ pomerium_jwk_endpoint }}"
-        - database_container_name: "{{ users_database_container_name }}"
-        - database_name: "{{ users_database_name }}"
-        - database_user: "{{ users_database_user }}"
-        - database_password: "{{ users_database_password }}"
-        - database_network_name: "database_network"
-        - docker_network_subnet: "{{ users_server_docker_network_subnet }}"
-        - dump_day: 2
+        database_url: "{{ users_database_url }}"
+        jwk_endpoint: "{{ pomerium_jwk_endpoint }}"
+        database_container_name: "{{ users_database_container_name }}"
+        database_name: "{{ users_database_name }}"
+        database_user: "{{ users_database_user }}"
+        database_password: "{{ users_database_password }}"
+        database_network_name: "database_network"
+        docker_network_subnet: "{{ users_server_docker_network_subnet }}"
+        dump_day: 2
     - role: ansible-itemtree-server
       tags: itemtree-server
       vars:
-        - database_url: "{{ itemtree_database_url }}"
-        - host_port: "{{ itemtree_server_host_port }}"
-        - database_container_name: "{{ itemtree_database_container_name }}"
-        - database_name: "{{ itemtree_database_name }}"
-        - database_user: "{{ itemtree_database_user }}"
-        - database_password: "{{ itemtree_database_password }}"
-        - images_service_network_name: "images_service_network"
-        - user_info_service_network_name: "user_info_service_network"
-        - journaling_service_network_name: "journaling_service_network"
-        - database_network_name: "database_network"
-        - notifications_service_network_name: "apprise_network"
-        - docker_network_subnet: "{{ itemtree_server_docker_network_subnet }}"
-        - dump_day: 3
+        database_url: "{{ itemtree_database_url }}"
+        host_port: "{{ itemtree_server_host_port }}"
+        database_container_name: "{{ itemtree_database_container_name }}"
+        database_name: "{{ itemtree_database_name }}"
+        database_user: "{{ itemtree_database_user }}"
+        database_password: "{{ itemtree_database_password }}"
+        images_service_network_name: "images_service_network"
+        user_info_service_network_name: "user_info_service_network"
+        journaling_service_network_name: "journaling_service_network"
+        database_network_name: "database_network"
+        notifications_service_network_name: "apprise_network"
+        docker_network_subnet: "{{ itemtree_server_docker_network_subnet }}"
+        dump_day: 3
     - role: ansible-expenses-server
       tags: expenses-server
       vars:
-        - database_url: "{{ expenses_database_url }}"
-        - host_port: "{{ expenses_server_host_port }}"
-        - database_container_name: "{{ expenses_database_container_name }}"
-        - database_name: "{{ expenses_database_name }}"
-        - database_user: "{{ expenses_database_user }}"
-        - database_password: "{{ expenses_database_password }}"
-        - notifications_service_endpoint: "{{ expenses_notifications_service_endpoint }}"
-        - images_service_network_name: "images_service_network"
-        - user_info_service_network_name: "user_info_service_network"
-        - journaling_service_network_name: "journaling_service_network"
-        - notifications_service_network_name: "apprise_network"
-        - database_network_name: "database_network"
-        - docker_network_subnet: "{{ expenses_server_docker_network_subnet }}"
-        - dump_day: 5
+        database_url: "{{ expenses_database_url }}"
+        host_port: "{{ expenses_server_host_port }}"
+        database_container_name: "{{ expenses_database_container_name }}"
+        database_name: "{{ expenses_database_name }}"
+        database_user: "{{ expenses_database_user }}"
+        database_password: "{{ expenses_database_password }}"
+        notifications_service_endpoint: "{{ expenses_notifications_service_endpoint }}"
+        images_service_network_name: "images_service_network"
+        user_info_service_network_name: "user_info_service_network"
+        journaling_service_network_name: "journaling_service_network"
+        notifications_service_network_name: "apprise_network"
+        database_network_name: "database_network"
+        docker_network_subnet: "{{ expenses_server_docker_network_subnet }}"
+        dump_day: 5
     - role: ansible-garments-server
       tags: garments-server
       vars:
-        - database_url: "{{ garments_database_url }}"
-        - database_container_name: "{{ garments_database_container_name }}"
-        - database_name: "{{ garments_database_name }}"
-        - host_port: "{{ garments_server_host_port }}"
-        - database_user: "{{ garments_database_user }}"
-        - database_password: "{{ garments_database_password }}"
-        - images_service_network_name: "images_service_network"
-        - user_info_service_network_name: "user_info_service_network"
-        - journaling_service_network_name: "journaling_service_network"
-        - notifications_service_network_name: "apprise_network"
-        - notifications_service_endpoint: "{{ garments_notifications_service_endpoint }}"
-        - database_network_name: "database_network"
-        - docker_network_subnet: "{{ garments_server_docker_network_subnet }}"
-        - dump_day: 4
+        database_url: "{{ garments_database_url }}"
+        database_container_name: "{{ garments_database_container_name }}"
+        database_name: "{{ garments_database_name }}"
+        host_port: "{{ garments_server_host_port }}"
+        database_user: "{{ garments_database_user }}"
+        database_password: "{{ garments_database_password }}"
+        images_service_network_name: "images_service_network"
+        user_info_service_network_name: "user_info_service_network"
+        journaling_service_network_name: "journaling_service_network"
+        notifications_service_network_name: "apprise_network"
+        notifications_service_endpoint: "{{ garments_notifications_service_endpoint }}"
+        database_network_name: "database_network"
+        docker_network_subnet: "{{ garments_server_docker_network_subnet }}"
+        dump_day: 4
     - role: ansible-plants-server
       tags: plants-server
       vars:
-        - database_url: "{{ plants_database_url }}"
-        - host_port: "{{ plants_server_host_port }}"
-        - database_container_name: "{{ plants_database_container_name }}"
-        - database_name: "{{ plants_database_name }}"
-        - database_user: "{{ plants_database_user }}"
-        - database_password: "{{ plants_database_password }}"
-        - notifications_service_endpoint: "{{ plants_notifications_service_endpoint }}"
-        - images_service_network_name: "images_service_network"
-        - user_info_service_network_name: "user_info_service_network"
-        - journaling_service_network_name: "journaling_service_network"
-        - notifications_service_network_name: "apprise_network"
-        - database_network_name: "database_network"
-        - docker_network_subnet: "{{ plants_server_docker_network_subnet }}"
-        - dump_day: 3
+        database_url: "{{ plants_database_url }}"
+        host_port: "{{ plants_server_host_port }}"
+        database_container_name: "{{ plants_database_container_name }}"
+        database_name: "{{ plants_database_name }}"
+        database_user: "{{ plants_database_user }}"
+        database_password: "{{ plants_database_password }}"
+        notifications_service_endpoint: "{{ plants_notifications_service_endpoint }}"
+        images_service_network_name: "images_service_network"
+        user_info_service_network_name: "user_info_service_network"
+        journaling_service_network_name: "journaling_service_network"
+        notifications_service_network_name: "apprise_network"
+        database_network_name: "database_network"
+        docker_network_subnet: "{{ plants_server_docker_network_subnet }}"
+        dump_day: 3
 
 - hosts: hetzner2
   become: true
@@ -289,56 +289,56 @@
     - role: ansible-cadvisor
       tags: cadvisor
       vars: 
-        - enable_load_reader: "false" # https://github.com/namelivia/infra/issues/16
+        enable_load_reader: "false" # https://github.com/namelivia/infra/issues/16
     - role: ansible-restic
       tags: restic
       vars:
-        - aws_access_key_id: "{{ restic_aws_access_key_id }}"
-        - aws_secret_access_key: "{{ restic_aws_secret_access_key }}"
+        aws_access_key_id: "{{ restic_aws_access_key_id }}"
+        aws_secret_access_key: "{{ restic_aws_secret_access_key }}"
     - role: ansible-iptables
       tags: iptables
       vars:
-        - exposed_ports: "{{ hetzner2_exposed_ports }}"
+        exposed_ports: "{{ hetzner2_exposed_ports }}"
     - role: ansible-openvpn-client
       vars:
-        - vpn_endpoint: "{{ openvpn_domain_name }}"
-        - client_private_key: "{{ lookup('file', '/app/vars/hetzner2.key') }}"
-        - openvpn_static_key: "{{ lookup('file', '/app/vars/server.key') }}"
-        - client_certificate: "{{ lookup('file', '/app/vars/hetzner2.crt') }}"
-        - server_ca: "{{ lookup('file', '/app/vars/server.crt') }}"
+        vpn_endpoint: "{{ openvpn_domain_name }}"
+        client_private_key: "{{ lookup('file', '/app/vars/hetzner2.key') }}"
+        openvpn_static_key: "{{ lookup('file', '/app/vars/server.key') }}"
+        client_certificate: "{{ lookup('file', '/app/vars/hetzner2.crt') }}"
+        server_ca: "{{ lookup('file', '/app/vars/server.crt') }}"
       tags: openvpn-client
     - role: ansible-movie-quote-twitter-bot
       tags: movie-quote-twitter-bot
       vars:
-        - twitter_enabled: "{{ movie_bot_twitter_enabled }}"
-        - twitter_consumer_key: "{{ movie_bot_twitter_consumer_key }}"
-        - twitter_consumer_secret: "{{ movie_bot_twitter_consumer_secret }}"
-        - twitter_access_token_key: "{{ movie_bot_twitter_access_token_key }}"
-        - twitter_access_token_secret: "{{ movie_bot_twitter_access_token_secret }}"
-        - mastodon_enabled: "{{ movie_bot_mastodon_enabled }}"
-        - mastodon_client_id: "{{ movie_bot_mastodon_client_id }}"
-        - mastodon_client_secret: "{{ movie_bot_mastodon_client_secret }}"
-        - mastodon_api_base_url: "{{ movie_bot_mastodon_api_base_url }}"
-        - mastodon_login: "{{ movie_bot_mastodon_login }}"
-        - mastodon_password: "{{ movie_bot_mastodon_password }}"
-        - idle_period: "{{ movie_bot_idle_period }}"
-        - sentry_url: "{{ python_sentry_url }}"
+        twitter_enabled: "{{ movie_bot_twitter_enabled }}"
+        twitter_consumer_key: "{{ movie_bot_twitter_consumer_key }}"
+        twitter_consumer_secret: "{{ movie_bot_twitter_consumer_secret }}"
+        twitter_access_token_key: "{{ movie_bot_twitter_access_token_key }}"
+        twitter_access_token_secret: "{{ movie_bot_twitter_access_token_secret }}"
+        mastodon_enabled: "{{ movie_bot_mastodon_enabled }}"
+        mastodon_client_id: "{{ movie_bot_mastodon_client_id }}"
+        mastodon_client_secret: "{{ movie_bot_mastodon_client_secret }}"
+        mastodon_api_base_url: "{{ movie_bot_mastodon_api_base_url }}"
+        mastodon_login: "{{ movie_bot_mastodon_login }}"
+        mastodon_password: "{{ movie_bot_mastodon_password }}"
+        idle_period: "{{ movie_bot_idle_period }}"
+        sentry_url: "{{ python_sentry_url }}"
     - role: ansible-reverse-proxy
       tags: nginx-reverse-proxy
       vars:
         # READ: https://ghost.org/docs/faq/proxying-https-infinite-loops/
-        - proto_override: "https"
+        proto_override: "https"
     - role: ansible-ghost
       tags: ghost
       vars:
-        - domain_name: "{{ ghost_domain_name }}"
-        - database_name: "{{ ghost_database_name }}"
-        - database_user: "{{ ghost_database_user }}"
-        - database_password: "{{ ghost_database_password }}"
-        - dump_day: 2
-        - backup_day: 4
-        - mysql_root_password: "{{ghost_mysql_root_password}}"
-        - reverse_proxy_network_name: "reverse_proxy_network" # Connect ghost with the reverse proxy
+        domain_name: "{{ ghost_domain_name }}"
+        database_name: "{{ ghost_database_name }}"
+        database_user: "{{ ghost_database_user }}"
+        database_password: "{{ ghost_database_password }}"
+        dump_day: 2
+        backup_day: 4
+        mysql_root_password: "{{ghost_mysql_root_password}}"
+        reverse_proxy_network_name: "reverse_proxy_network" # Connect ghost with the reverse proxy
 
 
 - hosts: bastion2
@@ -354,37 +354,37 @@
     - role: ansible-iptables
       tags: iptables
       vars:
-        - exposed_ports: "{{ bastion_exposed_ports }}"
+        exposed_ports: "{{ bastion_exposed_ports }}"
     - role: ansible-cadvisor
       tags: cadvisor
       vars:
-        - application_name: "cadvisor"
-        - enable_load_reader: "false" # https://github.com/namelivia/infra/issues/16
+        application_name: "cadvisor"
+        enable_load_reader: "false" # https://github.com/namelivia/infra/issues/16
     - role: ansible-restic
       tags: restic
       vars:
-        - aws_access_key_id: "{{ restic_aws_access_key_id }}"
-        - aws_secret_access_key: "{{ restic_aws_secret_access_key }}"
+        aws_access_key_id: "{{ restic_aws_access_key_id }}"
+        aws_secret_access_key: "{{ restic_aws_secret_access_key }}"
     - role: ansible-openvpn-client
       vars:
-        - vpn_endpoint: "{{ openvpn_domain_name }}"
-        - client_private_key: "{{ lookup('file', '/app/vars/bastion.key') }}"
-        - openvpn_static_key: "{{ lookup('file', '/app/vars/server.key') }}"
-        - client_certificate: "{{ lookup('file', '/app/vars/bastion.crt') }}"
-        - server_ca: "{{ lookup('file', '/app/vars/server.crt') }}"
+        vpn_endpoint: "{{ openvpn_domain_name }}"
+        client_private_key: "{{ lookup('file', '/app/vars/bastion.key') }}"
+        openvpn_static_key: "{{ lookup('file', '/app/vars/server.key') }}"
+        client_certificate: "{{ lookup('file', '/app/vars/bastion.crt') }}"
+        server_ca: "{{ lookup('file', '/app/vars/server.crt') }}"
       tags: openvpn-client
     - role: ansible-openvpn-server
       tags: openvpn-server
       vars:
-        - application_name: "openvpn"
-        - openvpn_config_folder: /app/vars/openvpn
-        - domain_name: "{{ openvpn_domain_name }}"
+        application_name: "openvpn"
+        openvpn_config_folder: /app/vars/openvpn
+        domain_name: "{{ openvpn_domain_name }}"
     - role: ansible-pomerium
       tags: pomerium
       vars:
-        - application_name: "pomerium"
-        - pomerium_config_path: "/app/vars/pomerium_config.yaml"
-        - vpn_network_name: "openvpn_network"
+        application_name: "pomerium"
+        pomerium_config_path: "/app/vars/pomerium_config.yaml"
+        vpn_network_name: "openvpn_network"
 
 - hosts: seedbox2
   become: true
@@ -398,126 +398,126 @@
     - role: ansible-restic
       tags: restic
       vars:
-        - aws_access_key_id: "{{ restic_aws_access_key_id }}"
-        - aws_secret_access_key: "{{ restic_aws_secret_access_key }}"
-        - initial_targets_file_path: "{{ seedbox2_initial_targets_file_path }}"
+        aws_access_key_id: "{{ restic_aws_access_key_id }}"
+        aws_secret_access_key: "{{ restic_aws_secret_access_key }}"
+        initial_targets_file_path: "{{ seedbox2_initial_targets_file_path }}"
     - role: ansible-cadvisor
       tags: cadvisor
       vars: 
-        - enable_load_reader: "false" # https://github.com/namelivia/infra/issues/16
+        enable_load_reader: "false" # https://github.com/namelivia/infra/issues/16
     - role: ansible-iptables
       tags: iptables
       vars:
-        - exposed_ports: "{{ seedbox_exposed_ports }}"
+        exposed_ports: "{{ seedbox_exposed_ports }}"
     - role: ansible-ofelia
       tags: ofelia
       vars:
-        - ofelia_config_path: "{{ ofelia_seedbox_config_path }}"
-        - ofelia_user: "{{ ofelia_seedbox_user }}"
-        - ofelia_group: "{{ ofelia_seedbox_group }}"
+        ofelia_config_path: "{{ ofelia_seedbox_config_path }}"
+        ofelia_user: "{{ ofelia_seedbox_user }}"
+        ofelia_group: "{{ ofelia_seedbox_group }}"
     - role: ansible-openvpn-client
       tags: openvpn-client
       vars:
-        - vpn_endpoint: "{{ openvpn_domain_name }}"
-        - client_private_key: "{{ lookup('file', '/app/vars/seedbox2.key') }}"
-        - openvpn_static_key: "{{ lookup('file', '/app/vars/server.key') }}"
-        - client_certificate: "{{ lookup('file', '/app/vars/seedbox2.crt') }}"
-        - server_ca: "{{ lookup('file', '/app/vars/server.crt') }}"
+        vpn_endpoint: "{{ openvpn_domain_name }}"
+        client_private_key: "{{ lookup('file', '/app/vars/seedbox2.key') }}"
+        openvpn_static_key: "{{ lookup('file', '/app/vars/server.key') }}"
+        client_certificate: "{{ lookup('file', '/app/vars/seedbox2.crt') }}"
+        server_ca: "{{ lookup('file', '/app/vars/server.crt') }}"
     - role: ansible-deluge
       tags: deluge
       vars:
-        - deluge_downloads_folder: "{{ downloads_folder }}"
-        - deluge_movies_folder: "{{ movies_folder }}"
-        - deluge_tv_folder: "{{ tv_folder }}"
+        deluge_downloads_folder: "{{ downloads_folder }}"
+        deluge_movies_folder: "{{ movies_folder }}"
+        deluge_tv_folder: "{{ tv_folder }}"
     - role: ansible-jackett
       tags: jackett
     - role: ansible-sonarr
       tags: sonarr
       vars:
-        - sonarr_downloads_folder: "{{ downloads_folder }}"
-        - sonarr_tv_folder: "{{ tv_folder }}"
+        sonarr_downloads_folder: "{{ downloads_folder }}"
+        sonarr_tv_folder: "{{ tv_folder }}"
     - role: ansible-radarr
       tags: radarr
       vars:
-        - radarr_downloads_folder: "{{ downloads_folder }}"
-        - radarr_movies_folder: "{{ movies_folder }}"
+        radarr_downloads_folder: "{{ downloads_folder }}"
+        radarr_movies_folder: "{{ movies_folder }}"
     - role: ansible-bazarr
       tags: bazarr
       vars:
-        - bazarr_movies_folder: "{{ movies_folder }}"
-        - bazarr_tv_folder: "{{ tv_folder }}"
+        bazarr_movies_folder: "{{ movies_folder }}"
+        bazarr_tv_folder: "{{ tv_folder }}"
     - role: ansible-amule
       tags: amule
     - role: ansible-external-storage
       tags: external-storage
       vars:
-        - target_directory: "{{ target_directory_disk_1 }}"
-        - external_storage_device_id: "{{ external_storage_device_id_disk_1 }}"
+        target_directory: "{{ target_directory_disk_1 }}"
+        external_storage_device_id: "{{ external_storage_device_id_disk_1 }}"
     - role: ansible-external-storage
       tags: external-storage
       vars:
-        - target_directory: "{{ target_directory_disk_2 }}"
-        - external_storage_device_id: "{{ external_storage_device_id_disk_2 }}"
+        target_directory: "{{ target_directory_disk_2 }}"
+        external_storage_device_id: "{{ external_storage_device_id_disk_2 }}"
     - role: ansible-samba
       tags: samba
       vars:
-        - home_username: "{{ samba_host_home_username }}"
+        home_username: "{{ samba_host_home_username }}"
     - role: ansible-postgres
       tags: postgres
       vars:
-        - database_container_name: "{{ seedbox_postgres_database_container_name }}"
-        - network_name: "{{ seedbox_postgres_database_network_name }}"
-        - postgres_version: "16"
+        database_container_name: "{{ seedbox_postgres_database_container_name }}"
+        network_name: "{{ seedbox_postgres_database_network_name }}"
+        postgres_version: "16"
     - role: ansible-nextcloud
       tags: nextcloud
       vars:
-        - app_container_name: nextcloud-app
-        - host_port: "{{ nextcloud_host_port }}"
-        - database_container_name: "{{ nextcloud_database_container_name }}"
-        - database_name: "{{ nextcloud_database_name }}"
-        - database_user: "{{ nextcloud_database_user }}"
-        - database_password: "{{ nextcloud_database_password }}"
-        - docker_network_subnet: "{{ nextcloud_docker_network_subnet }}"
-        - mysql_root_password: "{{ nextcloud_mysql_root_password }}"
-        - trusted_domains: "{{ nextcloud_domain_name }}"
-        - admin_user: "{{ nextcloud_admin_user }}"
-        - admin_password: "{{ nextcloud_admin_password }}"
-        - user: "{{ nextcloud_user }}"
-        - group: "{{ nextcloud_group }}"
-        - uid: "{{ nextcloud_uid }}"
-        - gid: "{{ nextcloud_gid }}"
-        - database_network_name: "database_network"
-        - dump_day: 2
-        - backup_day: 4
+        app_container_name: nextcloud-app
+        host_port: "{{ nextcloud_host_port }}"
+        database_container_name: "{{ nextcloud_database_container_name }}"
+        database_name: "{{ nextcloud_database_name }}"
+        database_user: "{{ nextcloud_database_user }}"
+        database_password: "{{ nextcloud_database_password }}"
+        docker_network_subnet: "{{ nextcloud_docker_network_subnet }}"
+        mysql_root_password: "{{ nextcloud_mysql_root_password }}"
+        trusted_domains: "{{ nextcloud_domain_name }}"
+        admin_user: "{{ nextcloud_admin_user }}"
+        admin_password: "{{ nextcloud_admin_password }}"
+        user: "{{ nextcloud_user }}"
+        group: "{{ nextcloud_group }}"
+        uid: "{{ nextcloud_uid }}"
+        gid: "{{ nextcloud_gid }}"
+        database_network_name: "database_network"
+        dump_day: 2
+        backup_day: 4
     - role: ansible-metube
       tags: metube
     - role: ansible-navidrome
       tags: navidrome
       vars: 
-        - host_port: "{{ navidrome_host_port }}"
-        - music_folder: "{{ navidrome_music_folder }}"
-        - owner: "{{ navidrome_owner }}"
-        - group: "{{ navidrome_group }}"
+        host_port: "{{ navidrome_host_port }}"
+        music_folder: "{{ navidrome_music_folder }}"
+        owner: "{{ navidrome_owner }}"
+        group: "{{ navidrome_group }}"
     - role: ansible-slskd
       tags: slskd
       vars: 
-        - host_port: "{{ slskd_host_port }}"
-        - owner: "{{ slskd_owner }}"
-        - group: "{{ slskd_group }}"
+        host_port: "{{ slskd_host_port }}"
+        owner: "{{ slskd_owner }}"
+        group: "{{ slskd_group }}"
     - role: ansible-soularr
       tags: soularr
       vars:
-        - owner: "{{ soularr_owner }}"
-        - group: "{{ soularr_group }}"
+        owner: "{{ soularr_owner }}"
+        group: "{{ soularr_group }}"
     - role: ansible-lidarr
       tags: lidarr
       vars:
-        - user: "{{ lidarr_user }}"
-        - group: "{{ lidarr_group }}"
-        - uid: "{{ lidarr_uid }}"
-        - gid: "{{ lidarr_gid }}"
-        - lidarr_downloads_folder: "{{ downloads_folder }}"
-        - lidarr_music_folder: "{{ music_folder }}"
+        user: "{{ lidarr_user }}"
+        group: "{{ lidarr_group }}"
+        uid: "{{ lidarr_uid }}"
+        gid: "{{ lidarr_gid }}"
+        lidarr_downloads_folder: "{{ downloads_folder }}"
+        lidarr_music_folder: "{{ music_folder }}"
 
 - hosts: retropie
   become: true
@@ -532,8 +532,8 @@
     - role: ansible-samba-mounts
       tags: samba-mounts
       vars:
-        - gid: "{{ samba_gid }}"
-        - uid: "{{ samba_uid }}"
+        gid: "{{ samba_gid }}"
+        uid: "{{ samba_uid }}"
 
 - hosts: lenovo
   become: true
@@ -547,154 +547,154 @@
     - role: ansible-cadvisor
       tags: cadvisor
       vars: 
-        - enable_load_reader: "false" # https://github.com/namelivia/infra/issues/16
+        enable_load_reader: "false" # https://github.com/namelivia/infra/issues/16
     - role: ansible-restic
       tags: restic
       vars:
-        - aws_access_key_id: "{{ restic_aws_access_key_id }}"
-        - aws_secret_access_key: "{{ restic_aws_secret_access_key }}"
+        aws_access_key_id: "{{ restic_aws_access_key_id }}"
+        aws_secret_access_key: "{{ restic_aws_secret_access_key }}"
     - role: ansible-ofelia
       tags: ofelia
       vars:
-        - ofelia_config_path: "{{ ofelia_lenovo_config_path }}"
-        - ofelia_user: "{{ ofelia_lenovo_user }}"
-        - ofelia_group: "{{ ofelia_lenovo_group }}"
+        ofelia_config_path: "{{ ofelia_lenovo_config_path }}"
+        ofelia_user: "{{ ofelia_lenovo_user }}"
+        ofelia_group: "{{ ofelia_lenovo_group }}"
     - role: ansible-postgres
       tags: postgres
       vars:
-        - database_container_name: "{{ lenovo_postgres_database_container_name }}"
-        - postgres_version: "15"
+        database_container_name: "{{ lenovo_postgres_database_container_name }}"
+        postgres_version: "15"
     - role: ansible-loki
       tags: loki
       vars:
-        - host_port: "{{ loki_host_port }}"
+        host_port: "{{ loki_host_port }}"
     - role: ansible-alloy
       tags: alloy
       vars:
-        - host_port: "{{ alloy_host_port }}"
-        - loki_network_name: "loki_network"
+        host_port: "{{ alloy_host_port }}"
+        loki_network_name: "loki_network"
     - role: ansible-prometheus
       tags: prometheus
       vars:
-        - host_port: "{{ prometheus_host_port }}"
-        - gid: "{{ prometheus_gid }}"
-        - uid: "{{ prometheus_uid }}"
+        host_port: "{{ prometheus_host_port }}"
+        gid: "{{ prometheus_gid }}"
+        uid: "{{ prometheus_uid }}"
     - role: ansible-grafana
       tags: grafana
       vars:
-        - host_port: "{{ grafana_host_port }}"
-        - admin_user: "{{ grafana_admin_user }}"
-        - admin_password: "{{ grafana_admin_password }}"
-        - user: "{{ grafana_user }}"
-        - group: "{{ grafana_group }}"
-        - uid: "{{ grafana_uid }}"
-        - gid: "{{ grafana_gid }}"
-        - grafana_config_folder: /app/vars/grafana
-        - database_network_name: "database_network"
-        - loki_network_name: "loki_network"
-        - prometheus_network_name: "prometheus_network"
+        host_port: "{{ grafana_host_port }}"
+        admin_user: "{{ grafana_admin_user }}"
+        admin_password: "{{ grafana_admin_password }}"
+        user: "{{ grafana_user }}"
+        group: "{{ grafana_group }}"
+        uid: "{{ grafana_uid }}"
+        gid: "{{ grafana_gid }}"
+        grafana_config_folder: /app/vars/grafana
+        database_network_name: "database_network"
+        loki_network_name: "loki_network"
+        prometheus_network_name: "prometheus_network"
     - role: ansible-openvpn-client
       tags: openvpn-client
       vars:
-        - vpn_endpoint: "{{ openvpn_domain_name }}"
-        - client_private_key: "{{ lookup('file', '/app/vars/lenovo.key') }}"
-        - openvpn_static_key: "{{ lookup('file', '/app/vars/server.key') }}"
-        - client_certificate: "{{ lookup('file', '/app/vars/lenovo.crt') }}"
-        - server_ca: "{{ lookup('file', '/app/vars/server.crt') }}"
+        vpn_endpoint: "{{ openvpn_domain_name }}"
+        client_private_key: "{{ lookup('file', '/app/vars/lenovo.key') }}"
+        openvpn_static_key: "{{ lookup('file', '/app/vars/server.key') }}"
+        client_certificate: "{{ lookup('file', '/app/vars/lenovo.crt') }}"
+        server_ca: "{{ lookup('file', '/app/vars/server.crt') }}"
     - role: ansible-immich
       tags: immich
       vars:
-        - host_port: "{{ immich_host_port }}"
-        - database_container_name: "postgres-{{ lenovo_postgres_database_container_name }}"
-        - database_user: "{{ immich_database_user }}"
-        - database_password: "{{ immich_database_password }}"
-        - database_name: "{{ immich_database_name }}"
-        - redis_hostname: "{{ immich_redis_hostname }}"
-        - redis_network_name: "redis_network"
-        - database_network_name: "database_network"
+        host_port: "{{ immich_host_port }}"
+        database_container_name: "postgres-{{ lenovo_postgres_database_container_name }}"
+        database_user: "{{ immich_database_user }}"
+        database_password: "{{ immich_database_password }}"
+        database_name: "{{ immich_database_name }}"
+        redis_hostname: "{{ immich_redis_hostname }}"
+        redis_network_name: "redis_network"
+        database_network_name: "database_network"
     - role: ansible-redis
       tags: redis
     - role: ansible-dashy
       tags: dashy
       vars:
-        - host_port: "{{ dashy_host_port }}"
+        host_port: "{{ dashy_host_port }}"
     - role: ansible-mealie-discord
       tags: mealie-discord
     - role: ansible-samba-mounts
       tags: samba-mounts
       vars:
-        - gid: "{{ lenovo_samba_gid }}"
-        - uid: "{{ lenovo_samba_uid }}"
-        - samba_mounts: "{{ lenovo_samba_mounts }}"
+        gid: "{{ lenovo_samba_gid }}"
+        uid: "{{ lenovo_samba_uid }}"
+        samba_mounts: "{{ lenovo_samba_mounts }}"
     - role: ansible-pleroma
       tags: pleroma
       vars:
-        - domain_name: "{{ pleroma_domain_name }}"
-        - instance_name: "{{ pleroma_instance_name }}"
-        - admin_mail: "{{ pleroma_admin_mail }}"
-        - notify_mail: "{{ pleroma_notify_mail }}"
-        - database_user: "{{ pleroma_db_user }}"
-        - database_password: "{{ pleroma_db_pass }}"
-        - database_name: "{{ pleroma_db_name }}"
-        - relay_list_path: "{{ pleroma_relay_list_path }}"
-        - database_container_name: "postgres-{{ lenovo_postgres_database_container_name }}"
-        - user: "{{ pleroma_user }}"
-        - group: "{{ pleroma_group }}"
-        - uid: "{{ pleroma_uid }}"
-        - gid: "{{ pleroma_gid }}"
-        - dump_day: 3
-        - backup_day: 5
-        - host_port: "{{ pleroma_host_port }}"
-        - database_network_name: "database_network"
+        domain_name: "{{ pleroma_domain_name }}"
+        instance_name: "{{ pleroma_instance_name }}"
+        admin_mail: "{{ pleroma_admin_mail }}"
+        notify_mail: "{{ pleroma_notify_mail }}"
+        database_user: "{{ pleroma_db_user }}"
+        database_password: "{{ pleroma_db_pass }}"
+        database_name: "{{ pleroma_db_name }}"
+        relay_list_path: "{{ pleroma_relay_list_path }}"
+        database_container_name: "postgres-{{ lenovo_postgres_database_container_name }}"
+        user: "{{ pleroma_user }}"
+        group: "{{ pleroma_group }}"
+        uid: "{{ pleroma_uid }}"
+        gid: "{{ pleroma_gid }}"
+        dump_day: 3
+        backup_day: 5
+        host_port: "{{ pleroma_host_port }}"
+        database_network_name: "database_network"
     - role: ansible-babybuddy
       tags: babybuddy
       vars:
-        - uid: "{{ babybuddy_uid }}"
-        - gid: "{{ babybuddy_gid }}"
-        - url: "{{ babybuddy_url }}"
-        - host_port: "{{ babybuddy_host_port }}"
-        - database_user: "{{ babybuddy_database_user}}"
-        - database_password: "{{ babybuddy_database_password }}"
-        - database_name: "{{ babybuddy_database_name }}"
-        - database_container_name: "postgres-{{ lenovo_postgres_database_container_name }}"
-        - database_network_name: "database_network"
-        - dump_day: 2
-        - backup_day: 4
+        uid: "{{ babybuddy_uid }}"
+        gid: "{{ babybuddy_gid }}"
+        url: "{{ babybuddy_url }}"
+        host_port: "{{ babybuddy_host_port }}"
+        database_user: "{{ babybuddy_database_user}}"
+        database_password: "{{ babybuddy_database_password }}"
+        database_name: "{{ babybuddy_database_name }}"
+        database_container_name: "postgres-{{ lenovo_postgres_database_container_name }}"
+        database_network_name: "database_network"
+        dump_day: 2
+        backup_day: 4
     - role: ansible-tink-firefly-endpoint
       tags: tink-firefly-endpoint
       vars:
-        - host_port: "{{ tink_homebank_host_port }}"
-        - csv_path: "{{ tink_csv_path }}"
-        - notifications_service_endpoint: "{{ tink_notifications_service_endpoint }}"
-        - firefly_personal_access_token: "{{ firefly_access_token }}"
-        - app_url: "{{ firefly_endpoint_app_url }}"
+        host_port: "{{ tink_homebank_host_port }}"
+        csv_path: "{{ tink_csv_path }}"
+        notifications_service_endpoint: "{{ tink_notifications_service_endpoint }}"
+        firefly_personal_access_token: "{{ firefly_access_token }}"
+        app_url: "{{ firefly_endpoint_app_url }}"
     - role: ansible-firefly
       tags: firefly
       vars:
-        - host_port: "{{ firefly_host_port }}"
-        - database_user: "{{ firefly_database_user}}"
-        - database_password: "{{ firefly_database_password }}"
-        - database_name: "{{ firefly_database_name }}"
-        - app_key: "{{ firefly_app_key }}"
-        - database_container_name: "postgres-{{ lenovo_postgres_database_container_name }}"
-        - dump_day: 2
-        - backup_day: 4
-        - database_network_name: "database_network"
+        host_port: "{{ firefly_host_port }}"
+        database_user: "{{ firefly_database_user}}"
+        database_password: "{{ firefly_database_password }}"
+        database_name: "{{ firefly_database_name }}"
+        app_key: "{{ firefly_app_key }}"
+        database_container_name: "postgres-{{ lenovo_postgres_database_container_name }}"
+        dump_day: 2
+        backup_day: 4
+        database_network_name: "database_network"
     - role: ansible-iptables
       tags: iptables
       vars:
-        - exposed_ports: "{{ lenovo_exposed_ports }}"
+        exposed_ports: "{{ lenovo_exposed_ports }}"
     - role: ansible-firefly-importer
       tags: firefly-importer
       vars:
-        - firefly_3_access_token: "{{ firefly_access_token }}"
-        - firefly_3_url: "{{ firefly_url }}"
-        - import_files_dir: "{{ firefly_import_files_dir }}"
-        - notifications_endpoint: "{{ firefly_importer_notifications_endpoint }}"
-        - user: "{{ firefly_importer_user }}"
-        - group: "{{ firefly_importer_group }}"
+        firefly_3_access_token: "{{ firefly_access_token }}"
+        firefly_3_url: "{{ firefly_url }}"
+        import_files_dir: "{{ firefly_import_files_dir }}"
+        notifications_endpoint: "{{ firefly_importer_notifications_endpoint }}"
+        user: "{{ firefly_importer_user }}"
+        group: "{{ firefly_importer_group }}"
     - role: nginx
       tags: nginx
       vars:
-        - host_port: "{{ nginx_host_port }}"
-        - container_name: "{{ nginx_container_name }}"
+        host_port: "{{ nginx_host_port }}"
+        container_name: "{{ nginx_container_name }}"
