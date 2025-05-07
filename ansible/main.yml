@@ -41,6 +41,10 @@
         client_certificate: "{{ lookup('file', '/app/vars/hetzner.crt') }}"
         server_ca: "{{ lookup('file', '/app/vars/server.crt') }}"
       tags: openvpn-client
+    - role: ansible-searxng
+      tags: searxng
+      vars:
+        host_port: "{{ searxng_host_port }}"
     - role: ansible-kimai
       tags: kimai
       vars:
