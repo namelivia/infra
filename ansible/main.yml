@@ -131,10 +131,6 @@
       tags: itemtree-client
       vars:
         host_port: "{{ itemtree_client_host_port }}"
-    - role: ansible-expenses-client
-      tags: expenses-client
-      vars:
-        host_port: "{{ expenses_client_host_port }}"
     - role: ansible-gtd-caldav
       tags: gtd-caldav
       vars:
@@ -228,23 +224,6 @@
         notifications_service_network_name: "apprise_network"
         docker_network_subnet: "{{ itemtree_server_docker_network_subnet }}"
         dump_day: 3
-    - role: ansible-expenses-server
-      tags: expenses-server
-      vars:
-        database_url: "{{ expenses_database_url }}"
-        host_port: "{{ expenses_server_host_port }}"
-        database_container_name: "{{ expenses_database_container_name }}"
-        database_name: "{{ expenses_database_name }}"
-        database_user: "{{ expenses_database_user }}"
-        database_password: "{{ expenses_database_password }}"
-        notifications_service_endpoint: "{{ expenses_notifications_service_endpoint }}"
-        images_service_network_name: "images_service_network"
-        user_info_service_network_name: "user_info_service_network"
-        journaling_service_network_name: "journaling_service_network"
-        notifications_service_network_name: "apprise_network"
-        database_network_name: "database_network"
-        docker_network_subnet: "{{ expenses_server_docker_network_subnet }}"
-        dump_day: 5
     - role: ansible-garments-server
       tags: garments-server
       vars:
