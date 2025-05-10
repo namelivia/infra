@@ -290,14 +290,9 @@
         client_certificate: "{{ lookup('file', '/app/vars/hetzner2.crt') }}"
         server_ca: "{{ lookup('file', '/app/vars/server.crt') }}"
       tags: openvpn-client
-    - role: ansible-movie-quote-twitter-bot
-      tags: movie-quote-twitter-bot
+    - role: ansible-movie-quote-mastodon-bot
+      tags: movie-quote-mastodon-bot
       vars:
-        twitter_enabled: "{{ movie_bot_twitter_enabled }}"
-        twitter_consumer_key: "{{ movie_bot_twitter_consumer_key }}"
-        twitter_consumer_secret: "{{ movie_bot_twitter_consumer_secret }}"
-        twitter_access_token_key: "{{ movie_bot_twitter_access_token_key }}"
-        twitter_access_token_secret: "{{ movie_bot_twitter_access_token_secret }}"
         mastodon_enabled: "{{ movie_bot_mastodon_enabled }}"
         mastodon_client_id: "{{ movie_bot_mastodon_client_id }}"
         mastodon_client_secret: "{{ movie_bot_mastodon_client_secret }}"
@@ -305,7 +300,6 @@
         mastodon_login: "{{ movie_bot_mastodon_login }}"
         mastodon_password: "{{ movie_bot_mastodon_password }}"
         idle_period: "{{ movie_bot_idle_period }}"
-        sentry_url: "{{ python_sentry_url }}"
     - role: ansible-reverse-proxy
       tags: nginx-reverse-proxy
       vars:
