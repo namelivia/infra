@@ -45,6 +45,10 @@
       tags: searxng
       vars:
         host_port: "{{ searxng_host_port }}"
+    - role: ansible-keycloak
+      tags: keycloak
+      vars:
+        host_port: "{{ keycloak_host_port }}"
     - role: ansible-kimai
       tags: kimai
       vars:
