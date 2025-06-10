@@ -2,5 +2,5 @@
 collections:
   - name: namelivia.monorepo
     type: git
-    version: 2.263.2
+    version: 2.263.3
     source: https://github.com/namelivia/ansible-monorepo
