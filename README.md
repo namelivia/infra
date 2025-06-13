@@ -74,7 +74,6 @@ most of them and costs have been ramping up so probably it will evolve to a chea
 - [amule](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwjsi-SShNP2AhUMMewKHRE3BawQFnoECAYQAQ&url=https%3A%2F%2Fgithub.com%2Famule-project%2Famule&usg=AOvVaw08pianVkOSDYC8tRsyaNgG): [Amule](https://www.amule.org/) is an EDonkey network client.
 - [ofelia](https://github.com/mcuadros/ofelia): Job scheduler.
 - [miniflux](https://github.com/miniflux/miniflux): Rss server.
-- [pleroma](https://pleroma.social/): Social networking software.
 - [apprise](https://github.com/caronc/apprise): Notifications microservice.
 - [immich](https://github.com/immich-app/immich): Picture manager.
 - [dashy](https://github.com/lissy93/dashy): Dashboard.

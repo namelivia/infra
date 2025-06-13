@@ -45,10 +45,10 @@
       tags: searxng
       vars:
         host_port: "{{ searxng_host_port }}"
-    - role: ansible-keycloak
-      tags: keycloak
-      vars:
-        host_port: "{{ keycloak_host_port }}"
+    #- role: ansible-keycloak
+    #  tags: keycloak
+    #  vars:
+    #    host_port: "{{ keycloak_host_port }}"
     - role: ansible-kimai
       tags: kimai
       vars:
@@ -607,26 +607,6 @@
         gid: "{{ lenovo_samba_gid }}"
         uid: "{{ lenovo_samba_uid }}"
         samba_mounts: "{{ lenovo_samba_mounts }}"
-    - role: ansible-pleroma
-      tags: pleroma
-      vars:
-        domain_name: "{{ pleroma_domain_name }}"
-        instance_name: "{{ pleroma_instance_name }}"
-        admin_mail: "{{ pleroma_admin_mail }}"
-        notify_mail: "{{ pleroma_notify_mail }}"
-        database_user: "{{ pleroma_db_user }}"
-        database_password: "{{ pleroma_db_pass }}"
-        database_name: "{{ pleroma_db_name }}"
-        relay_list_path: "{{ pleroma_relay_list_path }}"
-        database_container_name: "postgres-{{ lenovo_postgres_database_container_name }}"
-        user: "{{ pleroma_user }}"
-        group: "{{ pleroma_group }}"
-        uid: "{{ pleroma_uid }}"
-        gid: "{{ pleroma_gid }}"
-        dump_day: 3
-        backup_day: 5
-        host_port: "{{ pleroma_host_port }}"
-        database_network_name: "database_network"
     - role: ansible-babybuddy
       tags: babybuddy
       vars:
