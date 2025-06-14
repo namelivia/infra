@@ -45,10 +45,10 @@
       tags: searxng
       vars:
         host_port: "{{ searxng_host_port }}"
-    #- role: ansible-keycloak
-    #  tags: keycloak
-    #  vars:
-    #    host_port: "{{ keycloak_host_port }}"
+    - role: ansible-keycloak
+      tags: keycloak
+      vars:
+        host_port: "{{ keycloak_host_port }}"
     - role: ansible-kimai
       tags: kimai
       vars:
@@ -294,16 +294,6 @@
         client_certificate: "{{ lookup('file', '/app/vars/hetzner2.crt') }}"
         server_ca: "{{ lookup('file', '/app/vars/server.crt') }}"
       tags: openvpn-client
-    - role: ansible-movie-quote-mastodon-bot
-      tags: movie-quote-mastodon-bot
-      vars:
-        mastodon_enabled: "{{ movie_bot_mastodon_enabled }}"
-        mastodon_client_id: "{{ movie_bot_mastodon_client_id }}"
-        mastodon_client_secret: "{{ movie_bot_mastodon_client_secret }}"
-        mastodon_api_base_url: "{{ movie_bot_mastodon_api_base_url }}"
-        mastodon_login: "{{ movie_bot_mastodon_login }}"
-        mastodon_password: "{{ movie_bot_mastodon_password }}"
-        idle_period: "{{ movie_bot_idle_period }}"
     - role: ansible-reverse-proxy
       tags: nginx-reverse-proxy
       vars:
