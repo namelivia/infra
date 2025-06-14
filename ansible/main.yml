@@ -166,11 +166,6 @@
       vars:
         notifications_service_endpoint: "{{ retroachievements_notifications_service_endpoint }}"
         notifications_service_network_name: "apprise_network"
-    - role: ansible-recipe-suggestions
-      tags: recipe-suggestions
-      vars:
-        notifications_service_endpoint: "{{ recipe_suggestions_notifications_service_endpoint }}"
-        notifications_service_network_name: "apprise_network"
     - role: ansible-postgres
       tags: postgres
       vars:
