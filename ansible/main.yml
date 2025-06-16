@@ -614,6 +614,7 @@
         notifications_service_endpoint: "{{ tink_notifications_service_endpoint }}"
         firefly_personal_access_token: "{{ firefly_access_token }}"
         app_url: "{{ firefly_endpoint_app_url }}"
+        log_level: "{{ firefly_endpoint_log_level }}"
     - role: ansible-firefly
       tags: firefly
       vars:
