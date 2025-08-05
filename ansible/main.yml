@@ -615,6 +615,10 @@
         firefly_personal_access_token: "{{ firefly_access_token }}"
         app_url: "{{ firefly_endpoint_app_url }}"
         log_level: "{{ firefly_endpoint_log_level }}"
+        redis_host: "{{ firefly_redis_host }}"
+        redis_port: "{{ firefly_redis_port }}"
+        redis_db: "{{ firefly_redis_db }}"
+        redis_network_name: "redis_network"
     - role: ansible-firefly
       tags: firefly
       vars:
