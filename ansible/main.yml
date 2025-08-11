@@ -305,7 +305,12 @@
         backup_day: 4
         mysql_root_password: "{{ghost_mysql_root_password}}"
         reverse_proxy_network_name: "reverse_proxy_network" # Connect ghost with the reverse proxy
-
+    - role: ansible-karakeep
+      tags: karakeep
+      vars:
+        user: "{{ karakeep_user }}"
+        group: "{{ karakeep_group }}"
+        host_port: "{{ karakeep_host_port }}"
 
 - hosts: bastion2
   become: true

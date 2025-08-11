@@ -88,3 +88,4 @@ most of them and costs have been ramping up so probably it will evolve to a chea
 - [navidrome](https://www.navidrome.org/):  Self-hosted, open source music server and streamer.
 - [slsdk](https://github.com/slskd/slskd/): A modern client-server application for the Soulseek file sharing network. 
 - [soularr](https://soularr.net/): A Python script that connects Lidarr with Soulseek.
+- [karakeep](https://karakeep.app/): Bookmark app.
