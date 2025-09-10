@@ -92,10 +92,10 @@
     - role: ansible-mealie
       tags: mealie
       vars:
-        domain_name: "{{ mealie_domain_name }}"
-        host_port: "{{ mealie_host_port }}"
-        jwt_auth_jwk_set_url: "{{ mealie_jwk_set_url }}"
-        log_level: "{{ mealie_log_level }}"
+        host_port: "{{ mealie2_host_port }}"
+        app_url: "{{ mealie2_app_url }}"
+        uid: "{{ mealie2_uid }}"
+        gid: "{{ mealie2_gid }}"
 
 - hosts: hetzner3
   vars_files:
