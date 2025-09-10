@@ -92,10 +92,10 @@
     - role: ansible-mealie
       tags: mealie
       vars:
-        host_port: "{{ mealie2_host_port }}"
-        app_url: "{{ mealie2_app_url }}"
-        uid: "{{ mealie2_uid }}"
-        gid: "{{ mealie2_gid }}"
+        host_port: "{{ mealie_host_port }}"
+        app_url: "{{ mealie_app_url }}"
+        uid: "{{ mealie_uid }}"
+        gid: "{{ mealie_gid }}"
 
 - hosts: hetzner3
   vars_files:
