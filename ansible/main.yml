@@ -475,6 +475,8 @@
         host_port: "{{ slskd_host_port }}"
         owner: "{{ slskd_owner }}"
         group: "{{ slskd_group }}"
+        uid: "{{ slskd_uid }}"
+        gid: "{{ slskd_gid }}"
     - role: ansible-soularr
       tags: soularr
       vars:
